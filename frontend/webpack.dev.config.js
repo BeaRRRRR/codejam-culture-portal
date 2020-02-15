@@ -7,7 +7,7 @@ module.exports = {
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
-    watch: true,
+    // watch: true,
 
     entry: './src/index.tsx',
 
@@ -46,7 +46,7 @@ module.exports = {
                 loader: "source-map-loader"
             },
             {
-                test: /\.(sa|sc|c)ss$/,
+                test: /\.(scss)$/,
                 use: [{
                     loader: 'style-loader', // inject CSS to page
                 }, {
