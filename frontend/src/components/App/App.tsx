@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from '../Header';
-import Gallery from '../Gallery';
+import Youtube from '../Youtube';
+
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 					/>
 					<Route
 						path='/search'
-						render={() => <Gallery />}
+						render={() => <Youtube />}
 						exact
 					/>
 				</Switch>
