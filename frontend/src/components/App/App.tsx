@@ -1,9 +1,6 @@
 import * as React from 'react';
 import Header from '../Header';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory();
 
 function App() {
     return (

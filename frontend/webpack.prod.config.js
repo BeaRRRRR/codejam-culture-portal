@@ -3,13 +3,27 @@ const path = require('path');
 
 module.exports = {
     mode: "production",
+    target: "web",
 
     // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
+
+    entry: './src/index.tsx',
+
+    // and output it into /dist as bundle.js
+    output: {
+        path: path.join(__dirname, '/build'),
+        filename: 'bundle.js'
+    },
+
+    devServer: {
+        contentBase: path.join(__dirname, 'build'),
+        compress: true,
+        port: 9000
+    },
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx"]
+        extensions: [".ts", ".tsx", ".js"]
     },
 
     module: {
@@ -58,13 +72,9 @@ module.exports = {
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './public/index.html'
         })
     ]
 };
