@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "buildDev": "concurrently \"webpack --config=webpack.dev.config.js\" \"open-cli build/index.html\" ",
+      "buildProd": "webpack --config=webpack.prod.config.js",
     "start": "react-scripts start"
   },
   "repository": {
