@@ -7,7 +7,7 @@ import './HomePage.scss';
 function HomePage() {
 
 	return (
-		<div className={'HomePage'}>
+		<div className={'home-page'}>
 			<Description />
 			<AuthorOfTheDay />
 			<DevelopersTeam />

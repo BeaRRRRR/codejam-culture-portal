@@ -1,4 +1,4 @@
-.DevelopersTeam {
+.developers-team {
 
  & {
   display: flex;
@@ -6,11 +6,7 @@
   width: 100%;
  }
 
- h2 {
-  text-align: center ;
- }
-
- .DevelopersTeam__container {
+ .developers-team__container {
   display: flex;
  }
 }

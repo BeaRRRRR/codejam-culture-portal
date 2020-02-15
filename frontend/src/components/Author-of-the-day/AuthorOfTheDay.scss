@@ -1,5 +1,5 @@
 
-.AuthorOfTheDay {
+.author-of-the-day {
 
  & {
   width: 100%;
@@ -10,7 +10,7 @@
   justify-content: center;
  }
 
- .content {
+ &__content {
   width: 400px;
   height: 200px;
   display: flex;

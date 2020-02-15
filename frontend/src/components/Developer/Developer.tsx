@@ -9,7 +9,7 @@ function Developer({devName}: DeveloperInterface) {
 
 	return (
 		<>
-			<div className={'Developer'}>{devName}</div>
+			<div className={'developers-team__developer'}>{devName}</div>
 		</>
 	);
 }

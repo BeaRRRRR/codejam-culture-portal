@@ -5,9 +5,9 @@ import './DevelopersTeam.scss';
 function DevelopersTeam() {
 
 	return (
-		<section className={'DevelopersTeam'}>
-			<h2>DevelopersTeam</h2>
-			<div className={'DevelopersTeam__container'}>
+		<section className={'developers-team'}>
+			<h2 className={'developers-team__heading'}>DevelopersTeam</h2>
+			<div className={'developers-team__container'}>
 				<Developer devName={'Alex_F'}/>
 				<Developer devName={'Minitron'}/>
 				<Developer devName={'vitalis'}/>
