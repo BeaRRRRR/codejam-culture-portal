@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Header from '../header';
+import Header from '../Header';
 import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
