@@ -1,0 +1,14 @@
+.works-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  &__table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    &--header {
+      border: 1px solid grey;
+      background-color: #63c1d1;    
+    }
+  }
+}
