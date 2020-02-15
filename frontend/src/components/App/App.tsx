@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from '../Header';
 import Youtube from '../Youtube';
+import HomePage from '../../pages/Home-page/index';
 
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ function App() {
 				<Switch>
 					<Route
 						path='/'
-						render={() => <h2>Main</h2>}
+						render={() => <HomePage />}
 						exact
 					/>
 					<Route
