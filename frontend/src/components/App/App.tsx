@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from '../Header';
 import Youtube from '../Youtube';
+import BasicInfo from '../Basic-info';
 
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ function App() {
 						exact
 					/>
 				</Switch>
+				<BasicInfo />
 			</Router>
 		</div>
 	);
