@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "buildDev": "concurrently \"webpack --config=webpack.dev.config.js\" \"open-cli build/index.html\" ",
-      "buildProd": "webpack --config=webpack.prod.config.js",
+    "buildProd": "webpack --config=webpack.prod.config.js",
     "start": "react-scripts start"
   },
   "repository": {
@@ -50,9 +50,12 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.2",
+    "@types/react-youtube": "^7.6.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
+    "react-router-dom": "^5.1.2",
+    "react-youtube": "^7.9.0",
+    "video-react": "^0.14.1"
   },
   "browserslist": {
     "production": [
