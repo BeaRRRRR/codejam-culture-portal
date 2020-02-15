@@ -44,7 +44,7 @@ module.exports = {
                 loader: "source-map-loader"
             },
             {
-                test: /\.(scss)$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [{
                     loader: 'style-loader', // inject CSS to page
                 }, {
