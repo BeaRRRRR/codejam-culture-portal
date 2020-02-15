@@ -1,0 +1,13 @@
+.Developer {
+
+ & {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid black;
+ }
+}
