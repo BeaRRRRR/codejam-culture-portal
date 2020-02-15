@@ -1,0 +1,12 @@
+.developers-team {
+
+ & {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ }
+
+ .developers-team__container {
+  display: flex;
+ }
+}
