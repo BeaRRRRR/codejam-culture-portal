@@ -1,8 +1,8 @@
 import * as React from "react";
 import Header from "../Header";
-import HomePage from "../../pages/Home-page/index";
-import ArchitectPage from "../../pages/Architect-page/index";
-import SearchPage from "../../pages/Search-page/index";
+import HomePage from "../../pages/Home-page";
+import ArchitectPage from "../../pages/Architect-page";
+import SearchPage from "../../pages/Search-page";
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
