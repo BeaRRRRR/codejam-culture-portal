@@ -1,27 +1,44 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import {Link} from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import './Header.scss';
 
-const Header = () => (
-	<header className='header'>
-		<Link to='/'>
-			<h1 className='header__heading'>Architects of Belarus</h1>
-		</Link>
-		<nav className='navbar'>
-			<ul className='navbar__list'>
-				<li className='navbar__list-item'>
-					<Link to='/'>Home</Link>
-				</li>
-				<li className='navbar__list-item'>
-					<Link to='/search'>Search</Link>
-				</li>
-				<li className='navbar__list-item'>
-					<Link to='/worklog'>Worklog</Link>
-				</li>
-			</ul>
-		</nav>
-	</header>
-);
+const Header = (props: RouteComponentProps) => {
 
-export default Header;
+	const handleChange = (_event: React.ChangeEvent<{}>, newValue: string) => {
+		props.history.push(newValue);
+	};
+
+	const { pathname } = props.location;
+
+	return (
+		<header className='header'>
+			<Link to='/' className='header__link'>
+				<h1>Architects of Belarus</h1>
+			</Link>
+			<Paper square>
+				<Tabs
+					value={pathname}
+					indicatorColor='primary'
+					textColor='primary'
+					onChange={handleChange}
+					aria-label='disabled tabs example'
+				>
+
+					<Tab label='Home' value='/' />
+
+					<Tab label='Search' value='/search' />
+
+					<Tab label='Worklog' value='/worklog' />
+
+				</Tabs>
+			</Paper>
+		</header >
+	);
+};
+
+export default withRouter(Header);
