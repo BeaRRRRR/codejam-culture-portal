@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./Search.scss";
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+
+import "./Search-bar.scss";
 
 const SEARCH_PAGE_TITLE: string = "Belarusian architects";
 const AUTHOR_ID_1: string = "author1";
@@ -16,7 +20,15 @@ const AUTHORS = [
   { id: AUTHOR_ID_3, name: AUTHOR_NAME_3 }
 ];
 
-const Search = () => {
+const SearchBar = () => {
+	const [state, setState] = React.useState({
+    checkedA: true,
+  });
+
+  const handleChange = (name: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ ...state, [name]: event.target.checked });
+	};
+
   const authors = AUTHORS.map(author => {
     const { id, name } = author;
     return (
@@ -29,21 +41,25 @@ const Search = () => {
   });
 
   return (
-    <div className="search">
+		<div className="search">
       <h2 className="search__title">{SEARCH_PAGE_TITLE}</h2>
       <form className="search__form">
         <fieldset className="search__fieldset">
           <legend>Search architector</legend>
           <input type="search" placeholder="Search"></input>
-          <input type="radio" id="set-author-search"></input>
-          <label htmlFor="set-author-search">Author</label>
-          <input type="radio" id="set-city-search"></input>
-          <label htmlFor="set-city-search">City</label>
+					<FormGroup row>
+      			<FormControlLabel
+        			control={
+          			<Switch checked={state.checkedA} onChange={handleChange('checkedA')} value="checkedA" />
+        			}
+        			label={`search for ${state.checkedA? 'name': 'city'}`}
+      			/>
+					</FormGroup>
         </fieldset>
       </form>
       <ul className="search__author-list author-list">{authors}</ul>
-    </div>
+		</div>
   );
 };
 
-export default Search;
+export default SearchBar;
