@@ -2,15 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.navbar {
-  &__list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    width: 10rem;
-    justify-content: space-between;
+  &__link {
+    color: #000000;
+    text-decoration: none;
   }
 }
