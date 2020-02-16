@@ -1,18 +1,19 @@
-import * as React from 'react';
-import Description from '../../components/Description/index';
-import AuthorOfTheDay from '../../components/Author-of-the-day/index';
-import DevelopersTeam from '../../components/Developers-team/index';
-import './HomePage.scss';
+import * as React from "react";
+
+import Description from "../../components/Description";
+import AuthorOfTheDay from "../../components/Author-of-the-day";
+import DevelopersTeam from "../../components/Developers-team";
+
+import "./HomePage.scss";
 
 function HomePage() {
-
-	return (
-		<div className={'home-page'}>
-			<Description />
-			<AuthorOfTheDay />
-			<DevelopersTeam />
-		</div>
-	);
+  return (
+    <div className={"home-page"}>
+      <Description />
+      <AuthorOfTheDay />
+      <DevelopersTeam />
+    </div>
+  );
 }
 
 export default HomePage;
