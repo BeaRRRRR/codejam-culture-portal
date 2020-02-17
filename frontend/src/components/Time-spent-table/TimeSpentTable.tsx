@@ -1,4 +1,11 @@
 import React from 'react';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import './TimeSpentTable.scss';
 
 interface TimeSpentTableInterface {
@@ -13,35 +20,32 @@ interface TimeSpentTableInterface {
 }
 
 function TimeSpentTable({developer, features}: TimeSpentTableInterface) {
-
-	function renderFeatures() {
-		let rows = [];
-		for (let i = 0; i < features.length; i++) {
-			rows.push(
-				<tr key={i}>
-					<td>{features[i].feature}</td>
-					<td>{features[i].timeSpent}</td>
-					<td>{features[i].startDate}</td>
-					<td>{features[i].endDate}</td>
-				</tr>
-			);
-		}
-		return rows;
-	}
-
 	return (
-		<table className={'time-spent__table'}>
-			<caption>{developer}</caption>
-			<tbody>
-			<tr>
-				<th>Feature</th>
-				<th>Time spent</th>
-				<th>Start date</th>
-				<th>End date</th>
-			</tr>
-			{renderFeatures()}
-			</tbody>
-		</table>
+		<TableContainer className='time-spent__container' component={Paper}>
+			<Table className='time-spent__table' size='small' aria-label='a dense table'>
+				<caption>{developer}</caption>
+				<TableHead>
+					<TableRow>
+						<TableCell>Feature</TableCell>
+						<TableCell align='right'>Time spent</TableCell>
+						<TableCell align='right'>Start date</TableCell>
+						<TableCell align='right'>End date</TableCell>
+					</TableRow>
+				</TableHead>
+				<TableBody>
+					{features.map((row) => (
+						<TableRow key={row.feature}>
+							<TableCell component='th' scope='row'>
+								{row.feature}
+							</TableCell>
+							<TableCell align='right'>{row.timeSpent}</TableCell>
+							<TableCell align='right'>{row.startDate}</TableCell>
+							<TableCell align='right'>{row.endDate}</TableCell>
+							</TableRow>
+							))}
+				</TableBody>
+			</Table>
+		</TableContainer>
 	);
 }
 
