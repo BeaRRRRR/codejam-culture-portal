@@ -26,7 +26,6 @@ interface SearchPanel {
 }
 
 const Search: React.FC<SearchPanel> = props => {
-	console.log("adaf");
 	const authors = AUTHORS.map(author => {
 		const { id, name } = author;
 		return (
