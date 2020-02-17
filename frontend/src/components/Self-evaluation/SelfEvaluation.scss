@@ -1,7 +1,12 @@
 .self-evaluation {
- padding-left: 50px;
+  padding-left: 50px;
+  width: 100%;
 
- &__list {
-  list-style: none;
- }
+  &__heading {
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+  }
 }
