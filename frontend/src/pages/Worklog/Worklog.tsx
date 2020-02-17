@@ -105,7 +105,7 @@ const selfEvaluationData = [
 	}
 ];
 
-function Worklog() {
+const Worklog = () => {
 
 	return (
 		<div className={'worklog'}>
@@ -114,6 +114,6 @@ function Worklog() {
 			<SelfEvaluation data={selfEvaluationData} />
 		</div>
 	);
-}
+};
 
 export default Worklog;
