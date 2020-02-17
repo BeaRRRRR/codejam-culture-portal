@@ -1,6 +1,6 @@
 import React from 'react';
 import './SelfEvaluation.scss';
-import SelfEvaluationListItem from '../Self-evaluation-list-item';
+import SelfEvaluationList from '../Self-evaluation-list';
 import { Paper } from '@material-ui/core';
 
 type dataScope = {
@@ -23,23 +23,23 @@ const SelfEvaluation = (props: Props) => {
 	const { data } = props;
 
 	return (
-		<Paper className='self-evaluation'>
-			<h2 className={'self-evaluation__heading'}>Self Evaluation</h2>
-			{
-				data.map((el) => {
-				const { items } = el;
+		<section className='self-evaluation'>
+			<h2 className='self-evaluation__heading'>Self Evaluation</h2>
+			<Paper className='self-evaluation__paper'>
+				{
+					data.map((el, i) => {
+						const { items } = el;
 
-				return (
-					<div>
-						<h2 className='self-evaluation__scope'>{el.scope} - {el.points}</h2>
-						{items.map((item) => (
-							<SelfEvaluationListItem points={item.points} text={item.text} />
-						))}
-					</div>
-					);
-				})
-			}
-		</Paper>
+						return (
+							<div key={i}>
+								<h2 className='self-evaluation__scope'>{el.scope} - {el.points}</h2>
+								<SelfEvaluationList items={items} />
+							</div>
+						);
+					})
+				}
+			</Paper>
+		</section>
 	);
 };
 

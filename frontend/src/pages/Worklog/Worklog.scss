@@ -1,21 +1,16 @@
 .worklog {
-
- & {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 900px;
-  margin: auto;
- }
-
- section {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-
-  h2 {
-   text-align: center;
+  & {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    margin: auto;
   }
- }
+
+  section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
 }

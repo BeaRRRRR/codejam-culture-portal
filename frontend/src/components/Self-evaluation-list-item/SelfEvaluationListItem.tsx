@@ -1,5 +1,4 @@
 import React from 'react';
-import './SelfEvaluationListItem.scss';
 
 interface SelfEvaluationListItemInterface {
 	points: number;
@@ -9,7 +8,7 @@ interface SelfEvaluationListItemInterface {
 function SelfEvaluationListItem({points, text}: SelfEvaluationListItemInterface) {
 
 	return (
-		<li className={'self-evaluation__item'}>
+		<li>
 			<input type={'checkbox'} disabled={true} />
 			<strong>{points}</strong> {text}
 		</li>
