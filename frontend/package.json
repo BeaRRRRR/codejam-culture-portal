@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "buildDev": "concurrently \"webpack --config=webpack.dev.config.js\" \"open-cli build/index.html\" ",
     "buildProd": "webpack --config=webpack.prod.config.js",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "dev": "webpack-dev-server --config=webpack.dev.config.js --open"
   },
   "repository": {
     "type": "git",
@@ -49,7 +50,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.2",
+    "@material-ui/core": "^4.9.3",
+    "@material-ui/icons": "^4.9.1",
     "@types/react-image-gallery": "^0.9.2",
     "@types/react-redux": "^7.1.7",
     "@types/react-vertical-timeline-component": "^2.5.0",

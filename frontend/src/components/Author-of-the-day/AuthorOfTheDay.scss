@@ -3,7 +3,7 @@
 
  & {
   width: 100%;
-  height: 250px;
+  height: content-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,11 +11,45 @@
  }
 
  &__content {
-  width: 400px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 70%;
+  height: content-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
   border: 1px solid black;
  }
+
+ &__link {
+	text-decoration: none;
+ }
+
+ &__column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 10px;
+
+	&>* {
+	 flex: 1;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 margin: 10px;
+	}
+ }
+
+ @media screen and (max-width: 700px) {
+	&__content {
+	 width: 90%;
+	 flex-direction: column-reverse;
+	}
+
+	&__description {
+	 display: none;
+	}
+ }
+
 }
