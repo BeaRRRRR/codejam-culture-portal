@@ -9,5 +9,5 @@ export type RootAction = ActionType<typeof authorActions>;
 export interface AuthorModel {
 	id: string;
 	name: string;
-	// add other fields
+	birthPlace: string;
 }

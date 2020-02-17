@@ -3,15 +3,12 @@ import { actionTypes } from "../actions";
 
 interface StateModel {
 	authorsList: Array<AuthorModel>;
-	author: AuthorModel;
+	author: AuthorModel | null;
 }
 
 export const initialState: StateModel = {
-	authorsList: [
-		{ id: "1a", name: "test architect" },
-		{ id: "2b", name: "test architect 2" }
-	],
-	author: { id: "1a", name: "test architect" }
+	authorsList: [],
+	author: null
 };
 
 export const rootReducer = (
