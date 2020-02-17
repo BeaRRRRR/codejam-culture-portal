@@ -1,11 +1,28 @@
 import React from 'react';
+import { StyledTableCell, StyledTableRow } from '../Works-list';
 
 import './Work.scss';
 
-const Work: React.FC = () => (
-  <tr className="work">
-    <td className="work-data">Здание Нацбанка РБ</td><td className="work-data">1991</td>
-  </tr>
-);
+
+interface WorkProps {
+  row: {
+    work: string,
+    dateOfCreation: string
+  }
+}
+
+const Work: React.FC<WorkProps> = ({ row }) => {
+  const { work, dateOfCreation } = row;
+
+  return (
+    <StyledTableRow>
+      <StyledTableCell component="th" scope="row">
+        {work}
+      </StyledTableCell>
+      <StyledTableCell align="right">{dateOfCreation}</StyledTableCell>
+
+    </StyledTableRow>
+  );
+}
 
 export default Work;
