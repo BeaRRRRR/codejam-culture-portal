@@ -7,7 +7,10 @@ interface StateModel {
 }
 
 export const initialState: StateModel = {
-	authorsList: [],
+	authorsList: [
+		{ id: "1a", name: "test architect" },
+		{ id: "2b", name: "test architect 2" }
+	],
 	author: { id: "1a", name: "test architect" }
 };
 
