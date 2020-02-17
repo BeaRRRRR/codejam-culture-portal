@@ -6,20 +6,20 @@ import SearchPage from "../../pages/Search-page";
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div>
-      <Router>
-        <Header />
+const App: React.FC<{}> = () => {
+	return (
+		<div>
+			<Router>
+				<Header />
 
-        <Switch>
-          <Route path="/" render={() => <HomePage />} exact />
-          <Route path="/search" render={() => <SearchPage />} exact />
-          <Route path="/architect/:id" render={() => <ArchitectPage />} />
-        </Switch>
-      </Router>
-    </div>
-  );
-}
+				<Switch>
+					<Route path="/" render={() => <HomePage />} exact />
+					<Route path="/search" render={() => <SearchPage />} exact />
+					<Route path="/architect/:id" render={() => <ArchitectPage />} />
+				</Switch>
+			</Router>
+		</div>
+	);
+};
 
 export default App;
