@@ -29,7 +29,7 @@ interface SearchPanel {
 	fetchAuthorsList: (list: Array<AuthorModel>) => object;
 }
 
-const Search: React.FC<SearchPanel> = props => {
+const Search: React.FC<SearchPanel> = () => {
 	const [state, setState] = React.useState({
 		checkedA: true
 	});

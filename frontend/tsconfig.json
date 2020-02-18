@@ -1,39 +1,39 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "outDir": "./dist/",
-    "strictNullChecks": true,
-    "moduleResolution": "node",
-    "allowJs": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "baseUrl": "./src",
-    "lib": [
-      "es2015",
-      "dom.iterable",
-      "es2016.array.include",
-      "es2017.object",
-      "dom"
-    ],
-    "module": "esnext",
-    "removeComments": true,
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": false,
-    "importHelpers": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-  },
-  "include": [
-    "src"
-  ]
-}
+    "compilerOptions": {
+      "target": "esnext",
+      "outDir": "./dist/",
+      "strictNullChecks": true,
+      "moduleResolution": "node",
+      "allowJs": true,
+      "strict": true,
+      "esModuleInterop": true,
+      "jsx": "react",
+      "baseUrl": "./src",
+      "lib": [
+        "es2015",
+        "dom.iterable",
+        "es2016.array.include",
+        "es2017.object",
+        "dom"
+      ],
+      "module": "esnext",
+      "removeComments": true,
+      "alwaysStrict": true,
+      "allowSyntheticDefaultImports": true,
+      "allowUnreachableCode": false,
+      "noImplicitAny": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "forceConsistentCasingInFileNames": false,
+      "importHelpers": true,
+      "skipLibCheck": true,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+    },
+    "include": [
+      "src"
+    ]
+  }
