@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "buildDev": "concurrently \"webpack --config=webpack.dev.config.js\" \"open-cli build/index.html\" "
+        "buildDev": "webpack --config=webpack.dev.config.js"
     },
     "repository": {
         "type": "git",
@@ -27,7 +27,6 @@
         "@types/react": "^16.9.19",
         "@types/react-dom": "^16.9.5",
         "babel-loader": "^8.0.6",
-        "concurrently": "^5.1.0",
         "css-loader": "^3.4.2",
         "html-webpack-plugin": "^3.2.0",
         "node-sass": "^4.13.1",
