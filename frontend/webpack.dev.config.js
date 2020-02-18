@@ -7,13 +7,13 @@ module.exports = {
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
-    // watch: true,
+    watch: true,
 
     entry: './src/index.tsx',
 
     // and output it into /dist as bundle.js
     output: {
-        path: path.join(__dirname, '/build'),
+        path: path.join(__dirname, '../backend', '/build'),
         filename: 'bundle.js'
     },
 
