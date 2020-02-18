@@ -1,0 +1,10 @@
+.time-spent {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+
+ .time-spent__heading {
+  margin-bottom: 0;
+ }
+}

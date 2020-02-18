@@ -13,7 +13,7 @@ module.exports = {
 
     // and output it into /dist as bundle.js
     output: {
-        path: path.join(__dirname, '../backend', '/build'),
+        path: path.join(__dirname, '/build'),
         filename: 'bundle.js'
     },
 
@@ -46,7 +46,7 @@ module.exports = {
                 loader: "source-map-loader"
             },
             {
-                test: /\.(scss)$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [{
                     loader: 'style-loader', // inject CSS to page
                 }, {
