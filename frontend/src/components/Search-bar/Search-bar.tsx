@@ -30,7 +30,8 @@ interface SearchPanel {
 	fetchAuthorsList: (list: Array<AuthorModel>) => object;
 }
 
-const Search: React.FC<SearchPanel> = () => {
+const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
+	console.log(authorsList);
 	const authorService = new AuthorService();
 
 	const [state, setState] = React.useState({
@@ -38,8 +39,8 @@ const Search: React.FC<SearchPanel> = () => {
 	});
 
 	useEffect(() => {
-		authorService.getAllAuthors().then(data => console.log("dat", data));
-	});
+		authorService.getAllAuthors().then(data => fetchAuthorsList(data));
+	}, []);
 
 	const handleChange = (name: string) => (
 		event: React.ChangeEvent<HTMLInputElement>
