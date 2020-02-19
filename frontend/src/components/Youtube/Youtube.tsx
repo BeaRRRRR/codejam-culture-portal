@@ -1,13 +1,11 @@
-import React from 'react';
-import YouTube from 'react-youtube';
+import React, { HTMLProps } from 'react';
 
 import './Youtube.scss';
 
-const Video = () => (
+const Video = (props: HTMLProps<HTMLIFrameElement>) => (
 	<div className='youtube-container'>
-		<YouTube
-			className='youtube'
-			videoId='2g811Eo7K8U'
+		<iframe
+			src={`https://www.youtube.com/embed/${props.src}?autoplay=1&`}
 		/>
 	</div>
 );

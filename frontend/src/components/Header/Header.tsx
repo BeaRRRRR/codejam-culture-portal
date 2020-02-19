@@ -13,7 +13,9 @@ const Header = (props: RouteComponentProps) => {
 		props.history.push(newValue);
 	};
 
-	const { pathname } = props.location;
+	const pathname = props.location.pathname.includes('architect')
+		? '/search'
+		: props.location.pathname;
 
 	return (
 		<header className='header'>

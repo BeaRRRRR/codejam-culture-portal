@@ -15,7 +15,7 @@ function ArchitectPage() {
       <Biography />
       <WorksList />
       <Gallery />
-      <Youtube />
+      <Youtube src='k4MWgNsxd_c' />
     </div>
   );
 }
