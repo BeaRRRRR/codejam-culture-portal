@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import SearchBar from "../../components/Search-bar";
+import SearchBar from '../../components/Search-bar';
 
-import "./SearchPage.scss";
+import './SearchPage.scss';
 
 function SearchPage() {
-  return <SearchBar />;
+	return <SearchBar />;
 }
 
 export default SearchPage;
