@@ -31,7 +31,6 @@ interface SearchPanel {
 }
 
 const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
-	console.log(authorsList);
 	const authorService = new AuthorService();
 
 	const [state, setState] = React.useState({
@@ -47,12 +46,12 @@ const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 	) => {
 		setState({ ...state, [name]: event.target.checked });
 	};
-	const authors = AUTHORS.map(author => {
-		const { id, name } = author;
+	const authors = authorsList.map(author => {
+		const { id, name, birthPlace } = author;
 		return (
 			<li key={id} className="author-list__item">
 				<Link className="author-list__links" to={`/architect/${id}`}>
-					{name}
+					{`${name}, ${birthPlace}`}
 				</Link>
 			</li>
 		);
