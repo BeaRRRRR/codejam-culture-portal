@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Dispatch, compose } from "redux";
-import { withRouter, RouteComponentProps } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import AuthorService from "../../services/authorService";
 import BasicInfo from "../../components/Basic-info";
@@ -17,20 +17,21 @@ import "./ArchitectPage.scss";
 
 interface ArchitectPageProps {
 	fetchAuthor: (author: AuthorModelExtended) => object;
-	match: RouteComponentProps;
+	match: MatchModel;
+}
+
+interface MatchModel {
+	params: { id: string };
 }
 
 const ArchitectPage: React.FC<ArchitectPageProps> = ({
 	fetchAuthor,
 	match
 }) => {
-	console.log(match);
 	const authorService = new AuthorService();
 
 	useEffect(() => {
-		authorService
-			.getAuthor("5aXGlpoXkVSBdlBgNXDxwX")
-			.then(data => fetchAuthor(data));
+		authorService.getAuthor(match.params.id).then(data => fetchAuthor(data));
 	}, []);
 
 	return (
