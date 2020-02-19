@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ReducerState, RootAction, AuthorModel } from "../../store/types";
 import { actionTypes } from "../../actions";
+import AuthorService from "../../services/authorService";
 
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -30,8 +31,14 @@ interface SearchPanel {
 }
 
 const Search: React.FC<SearchPanel> = () => {
+	const authorService = new AuthorService();
+
 	const [state, setState] = React.useState({
 		checkedA: true
+	});
+
+	useEffect(() => {
+		authorService.getAllAuthors().then(data => console.log("dat", data));
 	});
 
 	const handleChange = (name: string) => (
