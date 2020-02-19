@@ -1,0 +1,15 @@
+.developers-team {
+
+ & {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ }
+
+ .developers-team__container {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+ }
+}

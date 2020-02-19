@@ -1,0 +1,48 @@
+$common-border-radius: 5px;
+$common-width: 80vw;
+$fieldset-padding: 10px;
+$links-border: 3px solid rgba(0, 0, 0, 0);
+$links-border-hover: 3px solid rgba(0, 0, 0, 0.2);
+
+.search {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  &__title {
+    text-transform: uppercase;
+  }
+  &__form {
+    width: $common-width;
+  }
+  &__fieldset {
+    margin: 0;
+    padding: $fieldset-padding;
+    border-radius: $common-border-radius;
+  }
+}
+
+.author-list {
+  width: $common-width;
+  padding: 0;
+  margin: 20px 0;
+  &__item {
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: $common-border-radius;
+    list-style: none;
+    background-color: lightgray;
+  }
+  &__links {
+    width: 100%;
+    padding: 5px;
+    border: $links-border;
+    border-radius: $common-border-radius;
+    text-decoration: none;
+    color: black;
+    user-select: none;
+    &:hover {
+      border: $links-border-hover;
+      border-radius: $common-border-radius;
+    }
+  }
+}

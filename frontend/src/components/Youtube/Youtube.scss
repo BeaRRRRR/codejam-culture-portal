@@ -1,0 +1,13 @@
+.youtube-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  height: auto;
+
+  iframe {
+    width: 40rem;
+    height: 22.5rem;
+    border: none;
+  }
+}
