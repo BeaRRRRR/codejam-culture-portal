@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import { Dispatch, compose } from "redux";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import AuthorService from "../../services/authorService";
 import BasicInfo from "../../components/Basic-info";
@@ -16,9 +17,14 @@ import "./ArchitectPage.scss";
 
 interface ArchitectPageProps {
 	fetchAuthor: (author: AuthorModelExtended) => object;
+	match: RouteComponentProps;
 }
 
-const ArchitectPage: React.FC<ArchitectPageProps> = ({ fetchAuthor }) => {
+const ArchitectPage: React.FC<ArchitectPageProps> = ({
+	fetchAuthor,
+	match
+}) => {
+	console.log(match);
 	const authorService = new AuthorService();
 
 	useEffect(() => {
@@ -48,4 +54,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => {
 	};
 };
 
-export default connect(null, mapDispatchToProps)(ArchitectPage);
+export default compose(
+	withRouter,
+	connect(null, mapDispatchToProps)
+)(ArchitectPage) as React.ComponentType;
