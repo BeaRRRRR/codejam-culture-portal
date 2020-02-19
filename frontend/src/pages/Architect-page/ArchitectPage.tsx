@@ -14,13 +14,17 @@ import { actionTypes } from "../../actions";
 
 import "./ArchitectPage.scss";
 
-function ArchitectPage() {
+interface ArchitectPageProps {
+	fetchAuthor: (author: AuthorModelExtended) => object;
+}
+
+const ArchitectPage: React.FC<ArchitectPageProps> = ({ fetchAuthor }) => {
 	const authorService = new AuthorService();
 
 	useEffect(() => {
 		authorService
 			.getAuthor("5aXGlpoXkVSBdlBgNXDxwX")
-			.then(data => console.log(data));
+			.then(data => fetchAuthor(data));
 	}, []);
 
 	return (
@@ -32,7 +36,7 @@ function ArchitectPage() {
 			<Youtube src="k4MWgNsxd_c" />
 		</div>
 	);
-}
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => {
 	return {

@@ -13,17 +13,17 @@ import Switch from "@material-ui/core/Switch";
 import "./Search-bar.scss";
 
 const SEARCH_PAGE_TITLE: string = "Belarusian architects";
-const AUTHOR_ID_1: string = "author1";
-const AUTHOR_ID_2: string = "author2";
-const AUTHOR_ID_3: string = "author3";
-const AUTHOR_NAME_1: string = "Mikhail";
-const AUTHOR_NAME_2: string = "Heinrich";
-const AUTHOR_NAME_3: string = "Giuseppe";
-const AUTHORS = [
-	{ id: AUTHOR_ID_1, name: AUTHOR_NAME_1 },
-	{ id: AUTHOR_ID_2, name: AUTHOR_NAME_2 },
-	{ id: AUTHOR_ID_3, name: AUTHOR_NAME_3 }
-];
+// const AUTHOR_ID_1: string = "author1";
+// const AUTHOR_ID_2: string = "author2";
+// const AUTHOR_ID_3: string = "author3";
+// const AUTHOR_NAME_1: string = "Mikhail";
+// const AUTHOR_NAME_2: string = "Heinrich";
+// const AUTHOR_NAME_3: string = "Giuseppe";
+// const AUTHORS = [
+// 	{ id: AUTHOR_ID_1, name: AUTHOR_NAME_1 },
+// 	{ id: AUTHOR_ID_2, name: AUTHOR_NAME_2 },
+// 	{ id: AUTHOR_ID_3, name: AUTHOR_NAME_3 }
+// ];
 
 interface SearchPanel {
 	authorsList: Array<AuthorModel>;
@@ -84,6 +84,7 @@ const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 };
 
 const mapStateToProps = (state: ReducerState) => {
+	console.log(state);
 	return {
 		authorsList: state.authorsList
 	};
