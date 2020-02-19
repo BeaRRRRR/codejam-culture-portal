@@ -84,7 +84,6 @@ const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 };
 
 const mapStateToProps = (state: ReducerState) => {
-	console.log(state);
 	return {
 		authorsList: state.authorsList
 	};
