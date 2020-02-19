@@ -1,6 +1,6 @@
 import { action } from "typesafe-actions";
 
-import { AuthorModel } from "../store/types";
+import { AuthorModel, AuthorModelExtended } from "../store/types";
 
 export enum actionTypes {
 	FETCH_AUTHORS_LIST = "FETCH_AUTHORS_LIST",
@@ -10,5 +10,6 @@ export enum actionTypes {
 export const authorActions = {
 	fetchAuthorsList: (list: AuthorModel[]) =>
 		action(actionTypes.FETCH_AUTHORS_LIST, list),
-	fetchAuthor: (author: AuthorModel) => action(actionTypes.FETCH_AUTHOR, author)
+	fetchAuthor: (author: AuthorModelExtended) =>
+		action(actionTypes.FETCH_AUTHOR, author)
 };
