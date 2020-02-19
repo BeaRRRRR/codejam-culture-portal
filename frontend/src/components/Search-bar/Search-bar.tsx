@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ReducerState, RootAction, AuthorModel } from "../../store/types";
 import { actionTypes } from "../../actions";
+import AuthorService from "../../services/authorService";
 
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -12,39 +13,45 @@ import Switch from "@material-ui/core/Switch";
 import "./Search-bar.scss";
 
 const SEARCH_PAGE_TITLE: string = "Belarusian architects";
-const AUTHOR_ID_1: string = "author1";
-const AUTHOR_ID_2: string = "author2";
-const AUTHOR_ID_3: string = "author3";
-const AUTHOR_NAME_1: string = "Mikhail";
-const AUTHOR_NAME_2: string = "Heinrich";
-const AUTHOR_NAME_3: string = "Giuseppe";
-const AUTHORS = [
-	{ id: AUTHOR_ID_1, name: AUTHOR_NAME_1 },
-	{ id: AUTHOR_ID_2, name: AUTHOR_NAME_2 },
-	{ id: AUTHOR_ID_3, name: AUTHOR_NAME_3 }
-];
+// const AUTHOR_ID_1: string = "author1";
+// const AUTHOR_ID_2: string = "author2";
+// const AUTHOR_ID_3: string = "author3";
+// const AUTHOR_NAME_1: string = "Mikhail";
+// const AUTHOR_NAME_2: string = "Heinrich";
+// const AUTHOR_NAME_3: string = "Giuseppe";
+// const AUTHORS = [
+// 	{ id: AUTHOR_ID_1, name: AUTHOR_NAME_1 },
+// 	{ id: AUTHOR_ID_2, name: AUTHOR_NAME_2 },
+// 	{ id: AUTHOR_ID_3, name: AUTHOR_NAME_3 }
+// ];
 
 interface SearchPanel {
 	authorsList: Array<AuthorModel>;
 	fetchAuthorsList: (list: Array<AuthorModel>) => object;
 }
 
-const Search: React.FC<SearchPanel> = () => {
+const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
+	const authorService = new AuthorService();
+
 	const [state, setState] = React.useState({
 		checkedA: true
 	});
+
+	useEffect(() => {
+		authorService.getAllAuthors().then(data => fetchAuthorsList(data));
+	}, []);
 
 	const handleChange = (name: string) => (
 		event: React.ChangeEvent<HTMLInputElement>
 	) => {
 		setState({ ...state, [name]: event.target.checked });
 	};
-	const authors = AUTHORS.map(author => {
-		const { id, name } = author;
+	const authors = authorsList.map(author => {
+		const { id, name, birthPlace } = author;
 		return (
 			<li key={id} className="author-list__item">
 				<Link className="author-list__links" to={`/architect/${id}`}>
-					{name}
+					{`${name}, ${birthPlace}`}
 				</Link>
 			</li>
 		);
