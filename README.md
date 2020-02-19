@@ -10,3 +10,5 @@ A culture portal app about the architects of Belarus made for RSShools Online In
 *in your second terminal tab*
 `cd backend`
 `npm start`
+
+*then navigate to localhost:3000 in your browser*
