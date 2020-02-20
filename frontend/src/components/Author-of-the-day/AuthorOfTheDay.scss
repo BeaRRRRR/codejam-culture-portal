@@ -19,7 +19,30 @@
  }
 
  &__link {
+	text-align: center;
 	text-decoration: none;
+ }
+
+ &__row {
+	flex: 1;
+	width: 100%;
+	margin: 10px;
+
+	&:nth-of-type(2), &:nth-of-type(4) {
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 margin: 20px;
+	}
+
+	&>* {
+	 width: 100%;
+	}
+ }
+
+ &__description {
+	flex: 2;
+	margin: 0;
  }
 
  &__column {
@@ -28,15 +51,12 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100%;
+	min-height: 320px;
 	padding: 10px;
 
-	&>* {
-	 flex: 1;
-	 display: flex;
-	 align-items: center;
-	 justify-content: center;
-	 margin: 10px;
+	&__image-skeleton {
+	 width: 200px;
+	 height: 250px;
 	}
  }
 
