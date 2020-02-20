@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '../Header';
 import HomePage from '../../pages/Home';
-import ArchitectPage from '../../pages/Architect-page';
-import SearchPage from '../../pages/Search-page';
+import ArchitectPage from '../../pages/Architect';
+import SearchPage from '../../pages/Search';
 import Worklog from '../../pages/Worklog/index';
 import NotFoundPage from '../../pages/Not-found';
 
@@ -19,15 +19,28 @@ function App() {
 								<Router>
 										<Switch>
 												<Route path='/' exact render={() =>
-												<>
-														<Header />
-														<Switch>
-																<Route path='/' render={() => <HomePage />} exact />
-																<Route path='/search' render={() => <SearchPage />} exact />
-																<Route path='/worklog' render={() => <Worklog />} exact />
-																<Route path='/architect/:id' render={() => <ArchitectPage />} />
-														</Switch>
-												</>
+														<>
+																<Header />
+																<HomePage />
+														</>
+												} />
+												<Route path='/search' exact render={() =>
+														<>
+																<Header />
+																<SearchPage />
+														</>
+												} />
+												<Route path='/worklog' exact render={() =>
+														<>
+																<Header />
+																<Worklog />
+														</>
+												} />
+												<Route path='/architect/:id' render={() =>
+														<>
+																<Header />
+																<ArchitectPage />
+														</>
 												} />
 												<Route path='/' render={() => <NotFoundPage />} />
 										</Switch>
