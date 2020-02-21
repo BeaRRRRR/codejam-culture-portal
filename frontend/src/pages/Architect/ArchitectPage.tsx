@@ -3,15 +3,13 @@ import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
-import { IAuthorService } from '../../services/authorService';
 import BasicInfo from '../../components/Basic-info';
 import Biography from '../../components/Biography';
 import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
 
-import { RootAction } from '../../store/types';
-import { authorActions } from '../../actions';
+import { fetchAuthor, RootAction } from '../../actions';
 
 import './ArchitectPage.scss';
 
@@ -46,10 +44,11 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 	);
 };
 
-// fix type
-const mapDispatchToProps = (dispatch: Dispatch<RootAction>, authorService: IAuthorService): any => {
+const mapDispatchToProps = (
+	dispatch: Dispatch<RootAction>
+): any => { // !!! fix type
 	return {
-		fetchAuthor: authorActions.fetchAuthor(authorService, dispatch)
+		fetchAuthor: fetchAuthor(dispatch)
 	};
 };
 

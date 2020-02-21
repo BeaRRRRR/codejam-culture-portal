@@ -1,5 +1,5 @@
-import { RootAction, AuthorModel } from '../store/types';
-import { actionTypes } from '../actions';
+import { AuthorModel } from '../store/types';
+import { actionTypes, RootAction } from '../actions';
 
 interface StateModel {
 	authorsList: Array<AuthorModel>;
