@@ -21,6 +21,7 @@ function AuthorOfTheDay() {
 
 		const authorService = new AuthorService();
 
+		// TODO: select random author based on current day number
 		useEffect(() => {
 				authorService.getAuthor('5aXGlpoXkVSBdlBgNXDxwX')
 						.then((data) => {
@@ -35,17 +36,17 @@ function AuthorOfTheDay() {
 								<div className={'author-of-the-day__column'}>
 										<h3 className={'author-of-the-day__row'}>
 												{authorData.name ? authorData.name :
-														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/>}
+														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'} />}
 										</h3>
 										<div className={'author-of-the-day__row'}>
 												{authorData.name ?
 														<> {authorData.birthdate} — {authorData.deathDate} </>
-														: <Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/> }
+														: <Skeleton variant='text' className={'author-of-the-day__text-skeleton'} />}
 										</div>
 										<div className={'author-of-the-day__row author-of-the-day__description'}>
 												{authorData.name ? authorData.summary : <>
-														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/>
-														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/>
+														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'} />
+														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'} />
 												</>}
 										</div>
 										<div className={'author-of-the-day__row'}>
