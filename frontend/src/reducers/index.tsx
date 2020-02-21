@@ -1,14 +1,18 @@
-import { AuthorModel } from '../store/types';
+import { AuthorModel, AuthorModelExtended } from '../store/types';
 import { actionTypes, RootAction } from '../actions';
 
 interface StateModel {
 	authorsList: Array<AuthorModel>;
-	author: AuthorModel | null;
+	author: AuthorModelExtended | null;
+	isAuthorLoading: boolean;
+	isAuthorsListLoading: boolean;
 }
 
 const initialState: StateModel = {
 	authorsList: [],
-	author: null
+	author: null,
+	isAuthorsListLoading: true,
+	isAuthorLoading: true
 };
 
 export const rootReducer = (

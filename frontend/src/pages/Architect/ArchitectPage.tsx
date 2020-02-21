@@ -35,11 +35,11 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 
 	return (
 		<div>
-			<BasicInfo name={'1'} summary={'2'} pictureUrl={'3'} />
+			<BasicInfo />
 			<Biography />
 			<WorksList />
 			<Gallery />
-			<Youtube src='' />
+			<Youtube src='11111' />
 		</div>
 	);
 };

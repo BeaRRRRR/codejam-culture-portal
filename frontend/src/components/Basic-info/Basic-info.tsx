@@ -1,4 +1,9 @@
 import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import { ReducerState } from '../../store/types';
 
 import './Basic-info.scss';
 
@@ -6,10 +11,15 @@ interface BasicInfoProps {
 	pictureUrl: string;
 	name: string;
 	summary: string;
+	isLoading: boolean;
 }
 
 const BasicInfo: React.FC<BasicInfoProps> = (props) => {
-	const { name, pictureUrl, summary } = props;
+	const { name, pictureUrl, summary, isLoading } = props;
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<div className='basic-info'>
@@ -24,4 +34,22 @@ const BasicInfo: React.FC<BasicInfoProps> = (props) => {
 	);
 };
 
-export default BasicInfo;
+const mapStateToProps = (state: ReducerState) => {
+	if (state.isAuthorLoading) {
+		return {
+			isLoading: state.isAuthorLoading
+		};
+	}
+
+	return {
+		name: state.author.name,
+		pictureUrl: state.author.pictureUrl,
+		summary: state.author.summary,
+		isLoading: state.isAuthorLoading
+	};
+};
+
+export default compose(
+	withRouter,
+	connect(mapStateToProps)
+)(BasicInfo) as React.ComponentType;
