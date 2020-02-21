@@ -1,6 +1,6 @@
 class AuthorService {
 	getAllAuthors() {
-		return fetch("/api/authors")
+		return fetch('/api/authors')
 			.then(res => res.json())
 			.catch(err => console.log(err));
 	}

@@ -10,8 +10,20 @@ function scrollTop() {
 		window.scrollTo(0, 0);
 }
 
+interface Author {
+		id: string;
+}
+
+function calcRandomAuthor(authorList: Array<Author>) {
+		let currentDate = new Date();
+		let currentDay = currentDate.getDay();
+		let randomDay = currentDay % authorList.length;
+		return authorList[randomDay].id;
+}
+
 function AuthorOfTheDay() {
 		let [authorData, setAuthorData] = useState({
+				id: undefined,
 				name: undefined,
 				birthdate: undefined,
 				deathDate: undefined,
@@ -21,12 +33,17 @@ function AuthorOfTheDay() {
 
 		const authorService = new AuthorService();
 
-		// TODO: select random author based on current day number
+		async function loadRandomAuthor() {
+				let authorList = await authorService.getAllAuthors();
+
+				let randomAuthorId = calcRandomAuthor(authorList);
+
+				let data = await authorService.getAuthor(randomAuthorId);
+				setAuthorData(data);
+		}
+
 		useEffect(() => {
-				authorService.getAuthor('5aXGlpoXkVSBdlBgNXDxwX')
-						.then((data) => {
-								setAuthorData(data);
-						});
+				loadRandomAuthor();
 		}, []);
 
 		return (
@@ -50,9 +67,8 @@ function AuthorOfTheDay() {
 												</>}
 										</div>
 										<div className={'author-of-the-day__row'}>
-												{/*TODO: change link path to accurate page*/}
 												{authorData.name ?
-														<Link className={'author-of-the-day__link'} to='/architect/author1'>
+														<Link className={'author-of-the-day__link'} to={'/architect/' + authorData.id}>
 																<Button variant='contained' color='primary'>
 																		<div onClick={scrollTop}>
 																				Learn more
