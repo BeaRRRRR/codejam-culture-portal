@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from '../Header';
 import HomePage from '../../pages/Home';
-import ArchitectPage from '../../pages/Architect-page';
-import SearchPage from '../../pages/Search-page';
+import ArchitectPage from '../../pages/Architect';
+import SearchPage from '../../pages/Search';
 import Worklog from '../../pages/Worklog/index';
 import NotFoundPage from '../../pages/Not-found';
 

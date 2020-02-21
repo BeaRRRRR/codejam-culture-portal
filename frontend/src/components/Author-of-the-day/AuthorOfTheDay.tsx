@@ -34,29 +34,32 @@ function AuthorOfTheDay() {
 						<Card className={'author-of-the-day__content'}>
 								<div className={'author-of-the-day__column'}>
 										<h3 className={'author-of-the-day__row'}>
-												{authorData.name ? authorData.name : <Skeleton variant='text' />}
+												{authorData.name ? authorData.name :
+														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/>}
 										</h3>
 										<div className={'author-of-the-day__row'}>
-												{authorData.name ? authorData.birthdate : <Skeleton variant='text' />}
-												— {authorData.name ? authorData.deathDate : <Skeleton variant='text' />}
+												{authorData.name ?
+														<> {authorData.birthdate} — {authorData.deathDate} </>
+														: <Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/> }
 										</div>
 										<div className={'author-of-the-day__row author-of-the-day__description'}>
 												{authorData.name ? authorData.summary : <>
-														<Skeleton variant='text' />
-														<Skeleton variant='text' />
-														<Skeleton variant='text' />
-														<Skeleton variant='text' />
+														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/>
+														<Skeleton variant='text' className={'author-of-the-day__text-skeleton'}/>
 												</>}
 										</div>
 										<div className={'author-of-the-day__row'}>
 												{/*TODO: change link path to accurate page*/}
-												<Link className={'author-of-the-day__link'} to='/architect/author1'>
-														<Button variant='contained' color='primary'>
-																<div onClick={scrollTop}>
-																		Learn more
-																</div>
-														</Button>
-												</Link>
+												{authorData.name ?
+														<Link className={'author-of-the-day__link'} to='/architect/author1'>
+																<Button variant='contained' color='primary'>
+																		<div onClick={scrollTop}>
+																				Learn more
+																		</div>
+																</Button>
+														</Link>
+														:
+														<Skeleton variant='rect' width={120} height={36} />}
 										</div>
 								</div>
 								<div className={'author-of-the-day__column'}>
