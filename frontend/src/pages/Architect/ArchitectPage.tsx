@@ -3,20 +3,20 @@ import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 
-import AuthorService from '../../services/authorService';
+import { IAuthorService } from '../../services/authorService';
 import BasicInfo from '../../components/Basic-info';
 import Biography from '../../components/Biography';
 import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
 
-import { RootAction, AuthorModelExtended } from '../../store/types';
-import { actionTypes } from '../../actions';
+import { RootAction } from '../../store/types';
+import { authorActions } from '../../actions';
 
 import './ArchitectPage.scss';
 
 interface ArchitectPageProps {
-	fetchAuthor: (author: AuthorModelExtended) => object;
+	fetchAuthor: (id: string) => object;
 	match: MatchModel;
 	video: string;
 	name: string;
@@ -29,17 +29,15 @@ interface MatchModel {
 }
 
 const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
-	const { fetchAuthor, match, name, summary, pictureUrl } = props;
-	const authorService = new AuthorService();
+	const { fetchAuthor, match } = props;
 
 	useEffect(() => {
-		authorService.getAuthor(match.params.id)
-			.then(data => fetchAuthor(data));
-	}, []);
+		fetchAuthor(match.params.id);
+	}, [fetchAuthor]);
 
 	return (
 		<div>
-			<BasicInfo name={name} summary={summary} pictureUrl={pictureUrl} />
+			<BasicInfo name={'1'} summary={'2'} pictureUrl={'3'} />
 			<Biography />
 			<WorksList />
 			<Gallery />
@@ -48,24 +46,14 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 	);
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<RootAction>) => {
+// fix type
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>, authorService: IAuthorService): any => {
 	return {
-		fetchAuthor: (author: AuthorModelExtended) =>
-			dispatch({
-				type: actionTypes.FETCH_AUTHOR,
-				payload: author
-			})
-	};
-};
-
-const mapStateToProps = ({ author: { name, pictureUrl, summary } }:
-	{ author: AuthorModelExtended }) => {
-	return {
-		name, pictureUrl, summary
+		fetchAuthor: authorActions.fetchAuthor(authorService, dispatch)
 	};
 };
 
 export default compose(
 	withRouter,
-	connect(mapStateToProps, mapDispatchToProps)
+	connect(null, mapDispatchToProps)
 )(ArchitectPage) as React.ComponentType;
