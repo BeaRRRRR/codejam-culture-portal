@@ -23,14 +23,14 @@ export interface AuthorModelExtended {
 	video: string;
 }
 
-interface Work {
+export interface Work {
 	creationDate: string;
 	title: string;
 	place: { lat: number; lon: number };
 	imageUrl: string;
 }
 
-interface LifeEvent {
+export interface LifeEvent {
 	eventDate: string;
 	summary: string;
 }

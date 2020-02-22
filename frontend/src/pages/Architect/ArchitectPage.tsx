@@ -12,6 +12,8 @@ import Youtube from '../../components/Youtube';
 import { fetchAuthor, RootAction } from '../../actions';
 
 import './ArchitectPage.scss';
+import { ReducerState } from '../../store/types';
+import { Work, LifeEvent } from '../../store/types';
 
 interface ArchitectPageProps {
 	fetchAuthor: (id: string) => object;
@@ -20,6 +22,12 @@ interface ArchitectPageProps {
 	name: string;
 	pictureUrl: string;
 	summary: string;
+	isLoading: boolean;
+	birthPlace: string;
+	birthdate: string;
+	deathDate: string;
+	works: Work[];
+	lifeEvents: LifeEvent[];
 }
 
 interface MatchModel {
@@ -27,21 +35,63 @@ interface MatchModel {
 }
 
 const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
-	const { fetchAuthor, match } = props;
+	const {
+		fetchAuthor,
+		match,
+		name,
+		pictureUrl,
+		summary,
+		isLoading,
+		birthdate,
+		deathDate,
+		birthPlace,
+		works
+	} = props;
 
 	useEffect(() => {
 		fetchAuthor(match.params.id);
 	}, [fetchAuthor]);
 
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<div>
-			<BasicInfo />
+			<BasicInfo
+				name={name}
+				pictureUrl={pictureUrl}
+				summary={summary}
+				birthPlace={birthPlace}
+				birthDate={birthdate}
+				deathDate={deathDate}
+			/>
 			<Biography />
-			<WorksList />
+			<WorksList works={works} />
 			<Gallery />
 			<Youtube src='11111' />
 		</div>
 	);
+};
+
+const mapStateToProps = (state: ReducerState) => {
+	if (state.isAuthorLoading) {
+		return {
+			isLoading: state.isAuthorLoading
+		};
+	}
+
+	return {
+		name: state.author.name,
+		pictureUrl: state.author.pictureUrl,
+		summary: state.author.summary,
+		isLoading: state.isAuthorLoading,
+		birthdate: state.author.birthdate,
+		deathDate: state.author.deathDate,
+		birthPlace: state.author.birthPlace,
+		works: state.author.works,
+		lifeEvents: state.author.lifeEvents
+	};
 };
 
 const mapDispatchToProps = (
@@ -54,5 +104,5 @@ const mapDispatchToProps = (
 
 export default compose(
 	withRouter,
-	connect(null, mapDispatchToProps)
+	connect(mapStateToProps, mapDispatchToProps)
 )(ArchitectPage) as React.ComponentType;
