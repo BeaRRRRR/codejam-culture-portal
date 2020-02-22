@@ -9,7 +9,11 @@ import { withTranslation } from "react-i18next";
 
 import "./Header.scss";
 
-const Header = (props: RouteComponentProps) => {
+interface IHeaderProps extends RouteComponentProps {
+	t: (nameSpace: string) => object;
+}
+
+const Header = (props: IHeaderProps) => {
 	const handleChange = (_event: React.ChangeEvent<{}>, newValue: string) => {
 		props.history.push(newValue);
 	};
@@ -44,4 +48,7 @@ const Header = (props: RouteComponentProps) => {
 	);
 };
 
-export default compose(withRouter, withTranslation("common"))(Header);
+export default compose(
+	withRouter,
+	withTranslation("common")
+)(Header) as React.ComponentType;
