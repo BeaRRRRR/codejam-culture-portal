@@ -3,6 +3,8 @@ import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
+import commonEn from "./translations/en/common.json";
+import commonRu from "./translations/ru/common.json";
 
 import store from "./store/store";
 import "./index.scss";
@@ -10,7 +12,16 @@ import "./index.scss";
 import App from "./components/App";
 
 i18next.init({
-	interpolation: { escapeValue: false }
+	interpolation: { escapeValue: false },
+	lng: "en",
+	resources: {
+		en: {
+			common: commonEn
+		},
+		ru: {
+			common: commonRu
+		}
+	}
 });
 
 ReactDOM.render(
