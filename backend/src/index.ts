@@ -2,4 +2,4 @@ import AppServer from './server';
 
 const server = new AppServer();
 
-server.start(3000);
+server.start(parseInt(process.env.PORT || '3000'));
