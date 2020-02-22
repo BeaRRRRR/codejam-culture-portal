@@ -45,7 +45,8 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 		birthdate,
 		deathDate,
 		birthPlace,
-		works
+		works,
+		video
 	} = props;
 
 	useEffect(() => {
@@ -67,9 +68,9 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 				deathDate={deathDate}
 			/>
 			<Biography />
-			<WorksList works={works} />
-			<Gallery />
-			<Youtube src='11111' />
+			{works && <WorksList works={works} />}
+			{works && <Gallery works={works} />}
+			{video && <Youtube src={video} />}
 		</div>
 	);
 };
@@ -90,7 +91,8 @@ const mapStateToProps = (state: ReducerState) => {
 		deathDate: state.author.deathDate,
 		birthPlace: state.author.birthPlace,
 		works: state.author.works,
-		lifeEvents: state.author.lifeEvents
+		lifeEvents: state.author.lifeEvents,
+		video: state.author.video
 	};
 };
 
