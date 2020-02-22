@@ -6,13 +6,13 @@ export default class AuthorService {
     private authorRepository: AuthorRepository = new AuthorRepository();
 
     public async getById(id: string): Promise<Author> {
-        const author = await this.authorRepository.getById(id);
+        const author: Author = await this.authorRepository.getById(id);
         return author;
     }
 
     public async getRandom(): Promise<Author> {
         const searchAuthors: SearchAuthor[] = await this.authorRepository.getAll();
-        const id = searchAuthors[getRandomNumber(searchAuthors.length)].id;
+        const id: string = searchAuthors[getRandomNumber(searchAuthors.length)].id;
         return this.getById(id);
     }
 
