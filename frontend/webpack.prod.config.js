@@ -11,14 +11,8 @@ module.exports = {
 
     // and output it into /dist as bundle.js
     output: {
-        path: path.join(__dirname, '/build'),
+        path: path.join(__dirname,'../backend', '/build'),
         filename: 'bundle.js'
-    },
-
-    devServer: {
-        contentBase: path.join(__dirname, 'build'),
-        compress: true,
-        port: 9000
     },
 
     resolve: {
