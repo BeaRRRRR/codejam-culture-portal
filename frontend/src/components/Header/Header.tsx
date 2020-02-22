@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -27,29 +27,27 @@ const Header = (props: IHeaderProps) => {
 		: props.location.pathname;
 
 	return (
-		<Fragment>
-			<header className="header">
-				<Link to="/" className="header__link">
-					<h1>{t("header.title")}</h1>
-				</Link>
-				<Paper square>
-					<Tabs
-						value={pathname}
-						indicatorColor="primary"
-						textColor="primary"
-						onChange={handleChange}
-						aria-label="disabled tabs example"
-					>
-						<Tab label="Home" value="/" />
+		<header className="header">
+			<Link to="/" className="header__link">
+				<h1>{t("header.title")}</h1>
+			</Link>
+			<Paper square>
+				<Tabs
+					value={pathname}
+					indicatorColor="primary"
+					textColor="primary"
+					onChange={handleChange}
+					aria-label="disabled tabs example"
+				>
+					<Tab label="Home" value="/" />
 
-						<Tab label="Search" value="/search" />
+					<Tab label="Search" value="/search" />
 
-						<Tab label="Worklog" value="/worklog" />
-					</Tabs>
-				</Paper>
-			</header>
+					<Tab label="Worklog" value="/worklog" />
+				</Tabs>
+			</Paper>
 			<LanguageChange />
-		</Fragment>
+		</header>
 	);
 };
 
