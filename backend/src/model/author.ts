@@ -10,7 +10,8 @@ export default interface Author {
     birthPlace: string,
     summary: string,
     works: Work[],
-    lifeEvents: LifeEvent[]
+    lifeEvents: LifeEvent[],
+    videoUrl?: string
 }
 
 export interface SearchAuthor {
