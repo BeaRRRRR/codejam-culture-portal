@@ -5,6 +5,7 @@ import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 import commonEn from "./translations/en/common.json";
 import commonRu from "./translations/ru/common.json";
+import commonBe from "./translations/be/common.json";
 
 import store from "./store/store";
 import "./index.scss";
@@ -20,6 +21,9 @@ i18next.init({
 		},
 		ru: {
 			common: commonRu
+		},
+		be: {
+			common: commonBe
 		}
 	}
 });

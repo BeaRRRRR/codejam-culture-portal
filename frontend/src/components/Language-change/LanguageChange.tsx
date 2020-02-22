@@ -27,7 +27,7 @@ function LanguageChange(props: ILanguageChangeProps) {
 
 	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
 		const selectedLang: string = e.currentTarget.value;
-
+		console.log(selectedLang);
 		setLanguage(selectedLang);
 		i18n.changeLanguage(selectedLang);
 	};
