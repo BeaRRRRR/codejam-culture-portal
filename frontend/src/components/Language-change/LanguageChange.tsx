@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, MouseEvent } from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
@@ -21,21 +21,38 @@ interface ILanguageChangeProps {
 function LanguageChange(props: ILanguageChangeProps) {
 	const classes = useStyles();
 	const { i18n } = props;
-	console.log("buttons ", props);
+	const langArr: string[] = ["EN", "RU", "BE"];
+
+	const [language, setLanguage] = useState("en");
+
+	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+		const selectedLang: string = e.currentTarget.value;
+
+		setLanguage(selectedLang);
+		i18n.changeLanguage(selectedLang);
+	};
+
+	const renderedButtons = langArr.map((item: string) => {
+		const value: string = item.toLowerCase();
+		return (
+			<Button
+				value={value}
+				onClick={handleClick}
+				className={value === language ? classes.active : ""}
+				key={item}
+			>
+				{item}
+			</Button>
+		);
+	});
+
 	return (
 		<ButtonGroup
 			className="button-group"
 			color="primary"
 			aria-label="outlined primary button group"
 		>
-			<Button
-				className={classes.active}
-				onClick={() => i18n.changeLanguage("en")}
-			>
-				En
-			</Button>
-			<Button onClick={() => i18n.changeLanguage("ru")}>Ru</Button>
-			<Button>Be</Button>
+			{renderedButtons}
 		</ButtonGroup>
 	);
 }
