@@ -1,5 +1,8 @@
 {
 	"header": {
-		"title": "Architects of Belarus"
+		"title": "Architects of Belarus",
+		"homeTab": "Home",
+		"searchTab": "Search",
+		"worklogTab": "Worklog"
 	}
 }

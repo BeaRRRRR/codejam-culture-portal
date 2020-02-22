@@ -39,11 +39,11 @@ const Header = (props: IHeaderProps) => {
 					onChange={handleChange}
 					aria-label="disabled tabs example"
 				>
-					<Tab label="Home" value="/" />
+					<Tab label={t("header.homeTab")} value="/" />
 
-					<Tab label="Search" value="/search" />
+					<Tab label={t("header.searchTab")} value="/search" />
 
-					<Tab label="Worklog" value="/worklog" />
+					<Tab label={t("header.worklogTab")} value="/worklog" />
 				</Tabs>
 			</Paper>
 			<LanguageChange />
