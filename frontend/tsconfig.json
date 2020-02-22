@@ -31,7 +31,7 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": false
   },
   "include": [

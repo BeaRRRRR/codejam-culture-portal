@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Card} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import AuthorService from '../../services/authorService';
+import { AuthorService } from '../../services/authorService';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 import './AuthorOfTheDay.scss';
