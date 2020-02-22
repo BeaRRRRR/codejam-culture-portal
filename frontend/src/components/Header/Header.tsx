@@ -4,6 +4,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import { withRouter, RouteComponentProps, Link } from "react-router-dom";
+import { compose } from "redux";
+import { withTranslation } from "react-i18next";
 
 import "./Header.scss";
 
@@ -12,6 +14,8 @@ const Header = (props: RouteComponentProps) => {
 		props.history.push(newValue);
 	};
 
+	const { t } = props;
+
 	const pathname = props.location.pathname.includes("architect")
 		? "/search"
 		: props.location.pathname;
@@ -19,7 +23,7 @@ const Header = (props: RouteComponentProps) => {
 	return (
 		<header className="header">
 			<Link to="/" className="header__link">
-				<h1>Architects of Belarus</h1>
+				<h1>{t("header.title")}</h1>
 			</Link>
 			<Paper square>
 				<Tabs
@@ -40,4 +44,4 @@ const Header = (props: RouteComponentProps) => {
 	);
 };
 
-export default withRouter(Header);
+export default compose(withRouter, withTranslation("common"))(Header);
