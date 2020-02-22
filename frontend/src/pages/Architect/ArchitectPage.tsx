@@ -8,6 +8,7 @@ import Biography from '../../components/Biography';
 import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
+import Map from '../../components/Map';
 
 import { fetchAuthor, RootAction } from '../../actions';
 
@@ -70,6 +71,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 			<Biography />
 			{works && <WorksList works={works} />}
 			{works && <Gallery works={works} />}
+			{works && <Map works={works} />}
 			{videoUrl && <Youtube	videoUrl={videoUrl} />}
 		</div>
 	);

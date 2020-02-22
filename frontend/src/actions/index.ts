@@ -39,8 +39,7 @@ const fetchAuthor: any = (dispatch: Dispatch<RootAction>) => (id: string) => { /
 	dispatch(fetchAuthorRequest());
 
 	authorService.getAuthor(id)
-		.then((data: AuthorModelExtended) => dispatch(fetchAuthorSuccess(data)))
-		.then((data) => console.log(data));
+		.then((data: AuthorModelExtended) => dispatch(fetchAuthorSuccess(data)));
 };
 
 const fetchAuthorsList: any = (dispatch: Dispatch<RootAction>) => () => { // !!!
