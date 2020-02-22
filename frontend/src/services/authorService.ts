@@ -1,15 +1,31 @@
-class AuthorService {
-	getAllAuthors() {
-		return fetch('/api/authors')
-			.then(res => res.json())
-			.catch(err => console.log(err));
-	}
+import {AuthorModel, AuthorModelExtended} from '../store/types';
 
-	getAuthor(id: string) {
-		return fetch(`/api/authors/${id}`)
-			.then(res => res.json())
-			.catch(err => console.log(err));
-	}
+interface IAuthorService {
+		getAllAuthors: () => Promise<AuthorModel[]>;
+		getAuthor: (id: string) => Promise<AuthorModelExtended>;
 }
 
-export default AuthorService;
+class AuthorService implements IAuthorService {
+		getAllAuthors() {
+				return fetch('/api/authors')
+						.then(res => res.json())
+						.catch(err => console.log(err));
+		}
+
+		getAuthor(id: string) {
+				return fetch(`/api/authors/${id}`)
+						.then(res => res.json())
+						.catch(err => console.log(err));
+		}
+
+		getRandomAuthor() {
+				return fetch(`/api/authors/random`)
+						.then(res => res.json())
+						.catch(err => console.log(err));
+		}
+}
+
+export {
+		AuthorService,
+		IAuthorService
+};

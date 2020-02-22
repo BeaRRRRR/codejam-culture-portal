@@ -1,24 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card} from '@material-ui/core';
+import {Card} from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import AuthorService from '../../services/authorService';
+import { AuthorService } from '../../services/authorService';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 import './AuthorOfTheDay.scss';
+import Button from '../../styled-components/basics/button';
 
 function scrollTop() {
 		window.scrollTo(0, 0);
-}
-
-interface Author {
-		id: string;
-}
-
-function calcRandomAuthor(authorList: Array<Author>) {
-		let currentDate = new Date();
-		let currentDay = currentDate.getDay();
-		let randomDay = currentDay % authorList.length;
-		return authorList[randomDay].id;
 }
 
 function AuthorOfTheDay() {
@@ -34,11 +24,7 @@ function AuthorOfTheDay() {
 		const authorService = new AuthorService();
 
 		async function loadRandomAuthor() {
-				let authorList = await authorService.getAllAuthors();
-
-				let randomAuthorId = calcRandomAuthor(authorList);
-
-				let data = await authorService.getAuthor(randomAuthorId);
+				let data = await authorService.getRandomAuthor();
 				setAuthorData(data);
 		}
 

@@ -11,6 +11,21 @@ export class AuthorController {
 
     private authorService = new AuthorService();
 
+    @Get('random')
+    // @ts-ignore
+    async private getRandom(req: Request, res: Response) {
+        try {
+            const author = await this.authorService.getRandom();
+            return res.status(OK).json(author);
+        } catch (err) {
+            Logger.Err(err, true);
+            return res.status(BAD_REQUEST).json({
+                error: err.message,
+            });
+        }
+
+    }
+
     @Get(':id')
     // @ts-ignore
     async private get(req: Request, res: Response) {

@@ -11,6 +11,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 
+import { LoadScript } from '@react-google-maps/api';
+
+const GOOGLE_API_KEY = 'AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY';
+
 function App() {
 		return (
 				<>
@@ -38,8 +42,10 @@ function App() {
 												} />
 												<Route path='/architect/:id' render={() =>
 														<>
+															<LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
 																<Header />
 																<ArchitectPage />
+															</LoadScript>
 														</>
 												} />
 												<Route path='/' render={() => <NotFoundPage />} />

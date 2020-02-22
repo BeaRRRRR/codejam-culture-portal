@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "buildDev": "webpack --config=webpack.dev.config.js",
-    "buildProd": "webpack --config=webpack.prod.config.js --max_old_space_size=4096"
+    "buildProd": "webpack --config=webpack.prod.config.js --max_old_space_size=4096",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,8 @@
     "open-cli": "^5.0.0",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
+    "react-docgen-typescript": "^1.16.2",
+    "react-styleguidist": "^10.6.2",
     "sass-loader": "^8.0.2",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.1.3",

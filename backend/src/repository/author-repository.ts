@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 
 export default class AuthorRepository {
     private readonly baseUrl: string = 'https://cdn.contentful.com/spaces/i57hw1s2rtk6/environments/master/';
-    private readonly access_token = 'access_token=y_EIiiBcV8w0KVCP0kXbt50L85Ot3GjPRr_pR0yxivQ';
+    private readonly access_token: string = 'access_token=y_EIiiBcV8w0KVCP0kXbt50L85Ot3GjPRr_pR0yxivQ';
     private readonly workService: WorkService = new WorkService();
     private readonly assetService: AssetService = new AssetService();
     private readonly lifeEventService: LifeEventService = new LifeEventService();
@@ -22,7 +22,7 @@ export default class AuthorRepository {
         // @ts-ignore
         const lifeEvents: LifeEvent[] = await this.lifeEventService.getAllByIds(json.fields.lifeEvents.map(link => link.sys.id));
         const pictureUrl = await this.assetService.getUrlById(json.fields.picture.sys.id);
-        const author: Author = {
+        let author: Author = {
             id: json.sys.id,
             pictureUrl,
             name: json.fields.name,
@@ -33,6 +33,7 @@ export default class AuthorRepository {
             works: works,
             lifeEvents
         }
+        if (json.fields.video) author = { ...author, videoUrl: json.fields.video }
         return author;
     }
 
