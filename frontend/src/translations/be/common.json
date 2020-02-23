@@ -14,5 +14,8 @@
 	"authorOfTheDay": {
 		"heading": "Аўтар дня",
 		"learnMore": "Даведацца больш"
+	},
+	"developersTeam": {
+		"heading": "Каманда распрацоўнікаў"
 	}
 }

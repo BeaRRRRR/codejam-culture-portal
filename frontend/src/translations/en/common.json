@@ -14,5 +14,8 @@
 	"authorOfTheDay": {
 		"heading": "Author of the day",
 		"learnMore": "Learn more"
+	},
+	"developersTeam": {
+		"heading": "Developers team"
 	}
 }
