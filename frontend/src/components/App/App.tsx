@@ -7,7 +7,7 @@ import Worklog from '../../pages/Worklog/index';
 import NotFoundPage from '../../pages/Not-found';
 
 import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import ThemeProvider from '../../theme';
 
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -16,44 +16,45 @@ import { LoadScript } from '@react-google-maps/api';
 const GOOGLE_API_KEY = 'AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY';
 
 function App() {
-		return (
-				<>
-						<Container>
-								<CssBaseline />
-								<Router>
-										<Switch>
-												<Route path='/' exact render={() =>
-														<>
-																<Header />
-																<HomePage />
-														</>
-												} />
-												<Route path='/search' exact render={() =>
-														<>
-																<Header />
-																<SearchPage />
-														</>
-												} />
-												<Route path='/worklog' exact render={() =>
-														<>
-																<Header />
-																<Worklog />
-														</>
-												} />
-												<Route path='/architect/:id' render={() =>
-														<>
-															<LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
-																<Header />
-																<ArchitectPage />
-															</LoadScript>
-														</>
-												} />
-												<Route path='/' render={() => <NotFoundPage />} />
-										</Switch>
-								</Router>
-						</Container>
-				</>
-		);
+	return (
+		<>
+			<ThemeProvider>
+				<Container>
+					<Router>
+						<Switch>
+							<Route path='/' exact render={() =>
+								<>
+									<Header />
+									<HomePage />
+								</>
+							} />
+							<Route path='/search' exact render={() =>
+								<>
+									<Header />
+									<SearchPage />
+								</>
+							} />
+							<Route path='/worklog' exact render={() =>
+								<>
+									<Header />
+									<Worklog />
+								</>
+							} />
+							<Route path='/architect/:id' render={() =>
+								<>
+									<LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
+									<Header />
+									<ArchitectPage />
+									</LoadScript>
+								</>
+							} />
+							<Route path='/' render={() => <NotFoundPage />} />
+						</Switch>
+					</Router>
+				</Container>
+			</ThemeProvider>
+		</>
+	);
 }
 
 export default App;
