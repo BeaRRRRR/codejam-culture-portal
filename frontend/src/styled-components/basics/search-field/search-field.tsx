@@ -9,7 +9,8 @@ export interface SearchFieldProps {
   label?: string,
   id?: string,
   color: 'primary'|'secondary',
-  type: string,
+	type: string,
+	onChange: any,
 };
 
 /**
@@ -18,9 +19,9 @@ export interface SearchFieldProps {
 
 class SearchField extends Component<SearchFieldProps|any, {}> {
   render () {
-    const { id, label, variant, color } = this.props;
+    const { id, label, variant, color, onChange } = this.props;
     return (
-      <TextField id={id} label={label} type='search' variant={variant} color={color}/>
+		<TextField id={id} label={label} type='search' variant={variant} color={color} onChange={onChange}/>
   )};
 };
 

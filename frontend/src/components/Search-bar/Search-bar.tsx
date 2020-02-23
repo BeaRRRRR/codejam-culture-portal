@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { /*Link,*/ withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
 import { ReducerState, AuthorModel } from '../../store/types';
 import { fetchAuthorsList, RootAction } from '../../actions';
 
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import {SearchField} from '../../styled-components';
+import {Typography, Paper, Grid, FormGroup, FormControlLabel, List, ListItem, ListItemText, ListItemProps } from '@material-ui/core';
 
 import './Search-bar.scss';
 
@@ -19,53 +19,70 @@ interface SearchPanel {
 }
 
 const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
-	const [state, setState] = React.useState({
-		checkedA: true
-	});
+	const [isByName, setIsByName] = React.useState(true);
 
 	useEffect(() => {
 		fetchAuthorsList();
 	}, [fetchAuthorsList]);
 
-	const handleChange = (name: string) => (
+	const handleChange = () => (
 		event: React.ChangeEvent<HTMLInputElement>
 	) => {
-		setState({ ...state, [name]: event.target.checked });
+		setIsByName( event.target.checked );
 	};
+
+	const searchFieldChange = (e) => {console.log(e.target.value)};
+
+	const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
+		return <ListItem button component="a" {...props} />;
+	}
+
 	const authors = authorsList.map(author => {
 		const { id, name, birthPlace } = author;
 		return (
-			<li key={id} className='author-list__item'>
-				<Link className='author-list__links' to={`/architect/${id}`}>
-					{`${name}, ${birthPlace}`}
-				</Link>
-			</li>
+			<ListItemLink key={id} className='author-list-item' href={`/#/architect/${id}`}>
+					<ListItemText color='primary' primary={`${name}, ${birthPlace}`}/>
+			</ListItemLink>
 		);
 	});
 
 	return (
-		<div className='search'>
-			<h2 className='search__title'>{SEARCH_PAGE_TITLE}</h2>
-			<form className='search__form'>
-				<fieldset className='search__fieldset'>
-					<legend>Search architector</legend>
-					<input type='search' placeholder='Search'></input>
+		<Grid className='search'
+				  container
+					direction="column"
+					justify="center"
+					alignItems="center"
+					spacing={10}>
+			<Grid item xs={12}>
+				<Typography variant='h3' className='search__title'>{SEARCH_PAGE_TITLE}</Typography>
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className='search__form'>
 					<FormGroup row>
 						<FormControlLabel
 							control={
 								<Switch
-									checked={state.checkedA}
-									onChange={handleChange('checkedA')}
+									checked={isByName}
+									onChange={handleChange()}
 									value='checkedA'
 								/>
 							}
-							label={`search for ${state.checkedA ? 'name' : 'city'}`}
+							label={'Search by'}
 						/>
+						<SearchField
+							label={`${isByName ? 'Name' : 'City'}`}
+							color='secondary'
+							variant='outlined'
+							onChange={searchFieldChange}/>
 					</FormGroup>
-				</fieldset>
-			</form>
-			<ul className='search__author-list author-list'>{authors}</ul>
-		</div>
+				</Paper>
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className='author-list'>
+					<List>{authors}</List>
+				</Paper>
+			</Grid>
+		</Grid>
 	);
 };
 
