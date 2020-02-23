@@ -12,6 +12,7 @@ import { withTranslation } from "react-i18next";
 import LanguageChange from "../Language-change";
 
 import "./Header.scss";
+import ThemeChange from '../Theme-change';
 
 function smoothScrollTop() {
 	window.scroll({
@@ -75,6 +76,7 @@ const Header = (props: IHeaderProps) => {
 				</Slide>
 			</div>
 			<LanguageChange />
+			<ThemeChange/>
 		</header>
 	);
 };

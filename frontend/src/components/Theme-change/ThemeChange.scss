@@ -1,0 +1,16 @@
+.theme-change-button-group {
+ position: absolute;
+ top: 20px;
+ right: 25px;
+}
+
+.theme-change-btn-active {
+ background: red;
+}
+
+@media only screen and (max-width: 666px) {
+ .theme-change-button-group {
+	position: static;
+	margin: 20px;
+ }
+}
