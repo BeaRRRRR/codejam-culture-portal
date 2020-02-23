@@ -8,6 +8,7 @@ import { fetchAuthorsList, RootAction } from '../../actions';
 import Switch from '@material-ui/core/Switch';
 import {SearchField} from '../../styled-components';
 import {Typography, Paper, Grid, FormGroup, FormControlLabel, List, ListItem, ListItemText, ListItemProps } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 
 import './Search-bar.scss';
 
@@ -20,24 +21,31 @@ interface SearchPanel {
 
 const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 	const [isByName, setIsByName] = React.useState(true);
-
+	const [term, setTerm] = React.useState('');
 	useEffect(() => {
 		fetchAuthorsList();
 	}, [fetchAuthorsList]);
 
-	const handleChange = () => (
-		event: React.ChangeEvent<HTMLInputElement>
-	) => {
-		setIsByName( event.target.checked );
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setIsByName( e.target.checked );
 	};
 
-	const searchFieldChange = (e) => {console.log(e.target.value)};
+	const onLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTerm(e.target.value);
+	};
 
 	const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
 		return <ListItem button component="a" {...props} />;
 	}
 
-	const authors = authorsList.map(author => {
+	const visibleAuthors = authorsList.filter((author) => {
+		if (term.length === 0) return true;
+		const { name, birthPlace } = author;
+		let variable = (isByName? name: birthPlace).toLowerCase();
+		return variable.includes(term.toLowerCase())
+	});
+
+	const authors = visibleAuthors.map(author => {
 		const { id, name, birthPlace } = author;
 		return (
 			<ListItemLink key={id} className='author-list-item' href={`/#/architect/${id}`}>
@@ -45,6 +53,10 @@ const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 			</ListItemLink>
 		);
 	});
+
+	const noAuthorsMessage = (
+		<Alert severity="info">We have no authors for your request!</Alert>
+	)
 
 	return (
 		<Grid className='search'
@@ -63,8 +75,7 @@ const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 							control={
 								<Switch
 									checked={isByName}
-									onChange={handleChange()}
-									value='checkedA'
+									onChange={handleChange}
 								/>
 							}
 							label={'Search by'}
@@ -73,14 +84,16 @@ const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
 							label={`${isByName ? 'Name' : 'City'}`}
 							color='secondary'
 							variant='outlined'
-							onChange={searchFieldChange}/>
+							onChange={onLabelChange}/>
 					</FormGroup>
 				</Paper>
 			</Grid>
 			<Grid item xs={12}>
-				<Paper className='author-list'>
-					<List>{authors}</List>
-				</Paper>
+				{ authors.length!==0 ? (
+					<Paper className='author-list'>
+						<List>{authors}</List>
+					</Paper>
+				) : noAuthorsMessage }
 			</Grid>
 		</Grid>
 	);
