@@ -8,6 +8,7 @@ import Biography from '../../components/Biography';
 import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
+import Map from '../../components/Map';
 
 import { fetchAuthor, RootAction } from '../../actions';
 
@@ -18,7 +19,7 @@ import { Work, LifeEvent } from '../../store/types';
 interface ArchitectPageProps {
 	fetchAuthor: (id: string) => object;
 	match: MatchModel;
-	video: string;
+	videoUrl: string;
 	name: string;
 	pictureUrl: string;
 	summary: string;
@@ -46,7 +47,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 		deathDate,
 		birthPlace,
 		works,
-		video
+		videoUrl
 	} = props;
 
 	useEffect(() => {
@@ -70,7 +71,8 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 			<Biography />
 			{works && <WorksList works={works} />}
 			{works && <Gallery works={works} />}
-			{video && <Youtube src={video} />}
+			{works && <Map works={works} />}
+			{videoUrl && <Youtube	videoUrl={videoUrl} />}
 		</div>
 	);
 };
@@ -92,7 +94,7 @@ const mapStateToProps = (state: ReducerState) => {
 		birthPlace: state.author.birthPlace,
 		works: state.author.works,
 		lifeEvents: state.author.lifeEvents,
-		video: state.author.video
+		videoUrl: state.author.videoUrl
 	};
 };
 

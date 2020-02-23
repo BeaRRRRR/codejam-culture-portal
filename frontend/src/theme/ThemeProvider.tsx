@@ -1,8 +1,10 @@
 import React from 'react';
-import {ThemeProvider, createMuiTheme, Theme} from '@material-ui/core/styles';
+import {ThemeProvider, createMuiTheme, Theme, responsiveFontSizes} from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
 
-const theme: Theme = createMuiTheme({
+let theme: Theme = createMuiTheme({
   palette: {
+    type: 'dark',
     primary: {
       light: '#efdcd5',
       main: '#bcaaa4',
@@ -16,15 +18,39 @@ const theme: Theme = createMuiTheme({
       contrastText: '#ffffff',
     },
   },
+  typography: {
+    fontFamily: [
+      'Roboto',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+    fontSize: 14,
+    h1: {
+//      fontSize: 1.2,
+//      fontWeight: 700,
+      //fontStyle: 'Roboto',
+    },
+//    body1: {
+//      fontSize: 1.2,
+//    }
+    //h2, h3, h4, h5, h6, subtitle1, subtitle2, body1, body2, button, caption, overline
+  },
+  spacing: factor => `${0.25*factor}rem`,
+  shape: {borderRadius: 10}
 });
 
-export interface themeProps {
+theme = responsiveFontSizes(theme);
+
+export interface ThemeProps {
   children: any,
 }
 
 
-const themeProv = (props:themeProps) => (
-  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+const ThemeProv = (props:ThemeProps) => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    {props.children}
+  </ThemeProvider>
 );
 
-export default themeProv;
+export default ThemeProv;

@@ -5,13 +5,13 @@ import {Button as DefaultButton} from '@material-ui/core';
   * Button properties.
   */
 export interface ButtonProps {
-  variant: 'contained'|'outlined',
-  color?: 'primary'|'secondary',
+  variant: 'text'|'contained'|'outlined',
+  color?: 'default'|'primary'|'secondary',
   size?: 'small'|'medium'|'large',
   disabled?: boolean,
   startIcon?: string,
   endIcon?: string,
-  children?: JSX.Element|String,
+  children?: JSX.Element|string,
 }
 
 /**

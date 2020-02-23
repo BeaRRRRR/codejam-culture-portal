@@ -3,13 +3,13 @@ import React from 'react';
 import './Youtube.scss';
 
 interface IVideoProps {
-	src: string;
+	videoUrl: string;
 }
 
-const Video = (props: IVideoProps) => (
+const Video: React.FC<IVideoProps> = (props) => (
 	<div className='youtube-container'>
 		<iframe
-			src={`https://www.youtube.com/embed/${props.src}?autoplay=1&`}
+			src={`https://www.youtube.com/embed/${props.videoUrl}?autoplay=0&`}
 		/>
 	</div>
 );
