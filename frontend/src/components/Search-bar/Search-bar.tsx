@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { /*Link,*/ withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
 import { ReducerState, AuthorModel } from '../../store/types';
 import { fetchAuthorsList, RootAction } from '../../actions';
 
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import {SearchField} from '../../styled-components';
+import {Typography, Paper, Grid, FormGroup, FormControlLabel, List, ListItem, ListItemText, ListItemProps } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 
 import './Search-bar.scss';
 
@@ -19,53 +20,82 @@ interface SearchPanel {
 }
 
 const Search: React.FC<SearchPanel> = ({ authorsList, fetchAuthorsList }) => {
-	const [state, setState] = React.useState({
-		checkedA: true
-	});
-
+	const [isByName, setIsByName] = React.useState(true);
+	const [term, setTerm] = React.useState('');
 	useEffect(() => {
 		fetchAuthorsList();
 	}, [fetchAuthorsList]);
 
-	const handleChange = (name: string) => (
-		event: React.ChangeEvent<HTMLInputElement>
-	) => {
-		setState({ ...state, [name]: event.target.checked });
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setIsByName( e.target.checked );
 	};
-	const authors = authorsList.map(author => {
+
+	const onLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTerm(e.target.value);
+	};
+
+	const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
+		return <ListItem button component="a" {...props} />;
+	}
+
+	const visibleAuthors = authorsList.filter((author) => {
+		if (term.length === 0) return true;
+		const { name, birthPlace } = author;
+		let variable = (isByName? name: birthPlace).toLowerCase();
+		return variable.includes(term.toLowerCase())
+	});
+
+	const authors = visibleAuthors.map(author => {
 		const { id, name, birthPlace } = author;
 		return (
-			<li key={id} className='author-list__item'>
-				<Link className='author-list__links' to={`/architect/${id}`}>
-					{`${name}, ${birthPlace}`}
-				</Link>
-			</li>
+			<ListItemLink key={id} className='author-list-item' href={`/#/architect/${id}`}>
+					<ListItemText color='primary' primary={`${name}, ${birthPlace}`}/>
+			</ListItemLink>
 		);
 	});
 
+	const noAuthorsMessage = (
+		<Alert severity="info">We have no authors for your request!</Alert>
+	)
+
 	return (
-		<div className='search'>
-			<h2 className='search__title'>{SEARCH_PAGE_TITLE}</h2>
-			<form className='search__form'>
-				<fieldset className='search__fieldset'>
-					<legend>Search architector</legend>
-					<input type='search' placeholder='Search'></input>
+		<Grid className='search'
+				  container
+					direction="column"
+					justify="center"
+					alignItems="center"
+					spacing={10}>
+			<Grid item xs={12}>
+				<Typography variant='h3' className='search__title'>{SEARCH_PAGE_TITLE}</Typography>
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className='search__form'>
 					<FormGroup row>
 						<FormControlLabel
 							control={
 								<Switch
-									checked={state.checkedA}
-									onChange={handleChange('checkedA')}
-									value='checkedA'
+									checked={isByName}
+									onChange={handleChange}
 								/>
 							}
-							label={`search for ${state.checkedA ? 'name' : 'city'}`}
+							label={'Search by'}
 						/>
+						<SearchField
+							label={`${isByName ? 'Name' : 'City'}`}
+							color='secondary'
+							variant='outlined'
+							onChange={onLabelChange}/>
 					</FormGroup>
-				</fieldset>
-			</form>
-			<ul className='search__author-list author-list'>{authors}</ul>
-		</div>
+				</Paper>
+			</Grid>
+			<Grid item xs={12}>
+				{ authors.length!==0 ? (
+					<Paper className='author-list'>
+						<List>{authors}</List>
+					</Paper>
+				) : noAuthorsMessage }
+			</Grid>
+		</Grid>
 	);
 };
 
