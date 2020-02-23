@@ -1,25 +1,20 @@
-import React from 'react';
-import './Description.scss';
+import React from "react";
+import "./Description.scss";
+import { withTranslation } from "react-i18next";
 
-function Description() {
-
-		return (
-				<section className={'description'}>
-						<h2 className={'description__heading'}>Description</h2>
-						<div className={'description__text'}>Белорусскому союзу архитекторов уже исполнилось 70 лет. Его история — часть истории страны и народа, его созидательной деятельности. Пройден большой и сложный путь — путь поиска и воплощения, ошибок и
-								достижений. И сегодняшняя Беларусь являет миру свое прекрасное обновленное лицо благодаря таланту и умению, профессиональному мастерству Архитекторов, чьим неутомимым трудом на протяжении многих лет прирастала сокровищница
-								белорусского зодчества.
-						</div>
-						<div className={'description__text'}>Историческая хроника, запечатленная в документах, постановлениях, резолюциях, приоткрывает нам завесу времени, доносит стиль творчества и руководства, настроения и устремления нескольких поколений
-								зодчих. Все это прочитывается и между строк документов, и в авторских произведениях. В них — дух эпохи, сложной и неоднозначной, жизнь и творческие порывы людей, посвятивших себя Архитектуре. В них — история творческого содружества
-								людей. А над всем этим — дыхание Вечности.
-						</div>
-						<div className={'description__text'}>
-								Мы перевернули последнюю страницу хроники Белорусского Союза архитекторов. Но не последнюю в его деятельности. Время впишет новые имена, новые идеи, новые объекты. Но это — в будущем. А сегодня мы приносим искреннюю благодарность всем
-								архитекторам за созданное их трудом.
-						</div>
-				</section>
-		);
+interface IDescriptionProps {
+	t: (namespace: string) => object;
 }
 
-export default Description;
+function Description({ t }: IDescriptionProps) {
+	return (
+		<section className={"description"}>
+			<h2 className={"description__heading"}>{t("description.header")}</h2>
+			<div className={"description__text"}>{t("description.p1")}</div>
+			<div className={"description__text"}>{t("description.p2")}</div>
+			<div className={"description__text"}>{t("description.p3")}</div>
+		</section>
+	);
+}
+
+export default withTranslation("common")(Description);
