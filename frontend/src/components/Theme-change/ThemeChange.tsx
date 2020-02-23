@@ -1,7 +1,9 @@
-import React, {MouseEvent, useState} from 'react';
+import React, {MouseEvent} from 'react';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import {createStyles, makeStyles} from '@material-ui/core/styles';
+import {switchTheme} from '../../actions';
+import {connect} from 'react-redux';
 
 import './ThemeChange.scss';
 
@@ -13,17 +15,17 @@ const useStyles = makeStyles(() =>
 		})
 );
 
-function ThemeChange() {
+function ThemeChange(props) {
 		const classes = useStyles();
 		let buttonNames = ['light', 'dark'];
 		let buttons: JSX.Element[] = [];
 
-		let [curTheme, setCurTheme] = useState(buttonNames[0]);
-
 		function handleClick(e: MouseEvent<HTMLButtonElement>) {
 				const selectedTheme: string = e.currentTarget.value;
-				console.log(selectedTheme);
-				if (selectedTheme !== curTheme) setCurTheme(selectedTheme);
+				if (selectedTheme !== props.theme) {
+						console.log('calling the func');
+						switchTheme(selectedTheme);
+				}
 		}
 
 		buttonNames.map((buttonName) => {
@@ -32,7 +34,7 @@ function ThemeChange() {
 								onClick={handleClick}
 								value={buttonName}
 								key={buttonName}
-								className={buttonName === curTheme ? classes.active : ''}
+								className={buttonName === props.theme ? classes.active : ''}
 						>
 								{buttonName}
 						</Button>
@@ -50,4 +52,10 @@ function ThemeChange() {
 		);
 }
 
-export default ThemeChange;
+function mapStateToProps(oldState) {
+		return {
+				theme: oldState.theme
+		};
+}
+
+export default connect(mapStateToProps)(ThemeChange) as React.ComponentType;
