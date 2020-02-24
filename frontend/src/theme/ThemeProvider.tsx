@@ -5,14 +5,14 @@ import {connect} from 'react-redux';
 
 export interface ThemeProps {
 		children: any;
-		theme: 'light' | 'dark' | undefined;
+		theme?: 'light' | 'dark' | undefined;
 }
 
 const ThemeProv = (props: ThemeProps) => {
 
 		let theme: Theme = createMuiTheme({
 				palette: {
-						type: props.theme,
+						type: 'dark',
 						primary: {
 								light: '#efdcd5',
 								main: '#bcaaa4',
