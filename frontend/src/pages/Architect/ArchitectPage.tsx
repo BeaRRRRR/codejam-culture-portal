@@ -47,7 +47,8 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 		deathDate,
 		birthPlace,
 		works,
-		videoUrl
+		videoUrl,
+		lifeEvents
 	} = props;
 
 	useEffect(() => {
@@ -68,7 +69,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 				birthDate={birthdate}
 				deathDate={deathDate}
 			/>
-			<Biography />
+			{lifeEvents && <Biography lifeEvents={lifeEvents} />}
 			{works && <WorksList works={works} />}
 			{works && <Gallery works={works} />}
 			{works && <Map works={works} />}
