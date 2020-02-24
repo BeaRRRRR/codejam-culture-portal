@@ -3,7 +3,8 @@
 		"title": "Архiтэктары Беларусi",
 		"homeTab": "Галоуная",
 		"searchTab": "Пошук",
-		"worklogTab": "Справаздача"
+		"worklogTab": "Справаздача",
+		"teamTab": "Каманда"
 	},
 	"description": {
 		"header": "Апiсанне",
