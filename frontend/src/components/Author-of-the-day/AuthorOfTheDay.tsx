@@ -7,6 +7,7 @@ import { withTranslation } from 'react-i18next';
 
 import './AuthorOfTheDay.scss';
 import Button from '../../styled-components/basics/button';
+import ErrorIndicator from '../Error-indicator';
 
 function scrollTop() {
 	window.scrollTo(0, 0);
@@ -26,16 +27,27 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 		pictureUrl: ''
 	});
 
+	let [error, setError] = useState(false)
+
 	const authorService = new AuthorService();
 
 	async function loadRandomAuthor() {
-		let data = await authorService.getRandomAuthor();
-		setAuthorData(data);
+		try {
+			let data = await authorService.getRandomAuthor();
+			setAuthorData(data);
+			setError(false);
+		} catch (err) {
+			setError(true);
+		}
 	}
 
 	useEffect(() => {
 		loadRandomAuthor();
 	}, []);
+
+	if (error) {
+		return <ErrorIndicator />;
+	}
 
 	return (
 		<section className={'author-of-the-day'}>
@@ -48,11 +60,11 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 						{authorData.name ? (
 							authorData.name
 						) : (
-							<Skeleton
-								variant='text'
-								className={'author-of-the-day__text-skeleton'}
-							/>
-						)}
+								<Skeleton
+									variant='text'
+									className={'author-of-the-day__text-skeleton'}
+								/>
+							)}
 					</h3>
 					<div className={'author-of-the-day__row'}>
 						{authorData.name ? (
@@ -62,11 +74,11 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 								{' '}
 							</>
 						) : (
-							<Skeleton
-								variant='text'
-								className={'author-of-the-day__text-skeleton'}
-							/>
-						)}
+								<Skeleton
+									variant='text'
+									className={'author-of-the-day__text-skeleton'}
+								/>
+							)}
 					</div>
 					<div
 						className={'author-of-the-day__row author-of-the-day__description'}
@@ -74,17 +86,17 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 						{authorData.name ? (
 							authorData.summary
 						) : (
-							<>
-								<Skeleton
-									variant='text'
-									className={'author-of-the-day__text-skeleton'}
-								/>
-								<Skeleton
-									variant='text'
-									className={'author-of-the-day__text-skeleton'}
-								/>
-							</>
-						)}
+								<>
+									<Skeleton
+										variant='text'
+										className={'author-of-the-day__text-skeleton'}
+									/>
+									<Skeleton
+										variant='text'
+										className={'author-of-the-day__text-skeleton'}
+									/>
+								</>
+							)}
 					</div>
 					<div className={'author-of-the-day__row'}>
 						{authorData.name ? (
@@ -97,21 +109,21 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 								</Button>
 							</Link>
 						) : (
-							<Skeleton variant='rect' width={120} height={36} />
-						)}
+								<Skeleton variant='rect' width={120} height={36} />
+							)}
 					</div>
 				</div>
 				<div className={'author-of-the-day__column'}>
 					{authorData.name ? (
 						<img src={authorData.pictureUrl} alt='architector of the day' />
 					) : (
-						<Skeleton
-							className={'author-of-the-day__image-skeleton'}
-							variant='rect'
-							width={200}
-							height={250}
-						/>
-					)}
+							<Skeleton
+								className={'author-of-the-day__image-skeleton'}
+								variant='rect'
+								width={200}
+								height={250}
+							/>
+						)}
 				</div>
 			</Card>
 		</section>
