@@ -9,6 +9,7 @@ import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
 import Map from '../../components/Map';
+import ErrorIndicator from '../../components/Error-indicator';
 
 import { fetchAuthor, RootAction } from '../../actions';
 
@@ -29,6 +30,7 @@ interface ArchitectPageProps {
 	deathDate: string;
 	works: Work[];
 	lifeEvents: LifeEvent[];
+	error: Error
 }
 
 interface MatchModel {
@@ -48,7 +50,8 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 		birthPlace,
 		works,
 		videoUrl,
-		lifeEvents
+		lifeEvents,
+		error
 	} = props;
 
 	useEffect(() => {
@@ -57,6 +60,10 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 
 	if (isLoading) {
 		return <div>Loading...</div>;
+	}
+
+	if (error) {
+		return <ErrorIndicator />;
 	}
 
 	return (
@@ -73,7 +80,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = (props) => {
 			{works && <WorksList works={works} />}
 			{works && <Gallery works={works} />}
 			{works && <Map works={works} />}
-			{videoUrl && <Youtube	videoUrl={videoUrl} />}
+			{videoUrl && <Youtube videoUrl={videoUrl} />}
 		</div>
 	);
 };
@@ -82,6 +89,12 @@ const mapStateToProps = (state: ReducerState) => {
 	if (state.isAuthorLoading) {
 		return {
 			isLoading: state.isAuthorLoading
+		};
+	}
+
+	if (state.error) {
+		return {
+			error: state.error
 		};
 	}
 
@@ -95,7 +108,8 @@ const mapStateToProps = (state: ReducerState) => {
 		birthPlace: state.author.birthPlace,
 		works: state.author.works,
 		lifeEvents: state.author.lifeEvents,
-		videoUrl: state.author.videoUrl
+		videoUrl: state.author.videoUrl,
+		error: state.error
 	};
 };
 
