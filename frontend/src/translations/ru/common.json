@@ -17,5 +17,12 @@
 	},
 	"developersTeam": {
 		"heading": "Команда разработчиков"
+	},
+	"search": {
+		"title": "Белорусские архитекторы",
+		"notFound": "У нас нет авторов по вашему запросу!",
+		"searchBy": "Искать по",
+		"searchByName": "Имени",
+		"searchByCity": "Городу"
 	}
 }

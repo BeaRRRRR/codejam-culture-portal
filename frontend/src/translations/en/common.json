@@ -17,5 +17,12 @@
 	},
 	"developersTeam": {
 		"heading": "Developers team"
+	},
+	"search": {
+		"title": "Belarusian architects",
+		"notFound": "We have no authors for your request!",
+		"searchBy": "Search by",
+		"searchByName": "Name",
+		"searchByCity": "City"
 	}
 }

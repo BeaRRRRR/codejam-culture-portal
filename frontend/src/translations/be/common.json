@@ -1,7 +1,7 @@
 {
 	"header": {
 		"title": "Архiтэктары Беларусi",
-		"homeTab": "Галоуная",
+		"homeTab": "Галоўная",
 		"searchTab": "Пошук",
 		"worklogTab": "Справаздача"
 	},
@@ -17,5 +17,12 @@
 	},
 	"developersTeam": {
 		"heading": "Каманда распрацоўнікаў"
+	},
+	"search": {
+		"title": "Беларускія архітэктары",
+		"notFound": "У нас няма аўтараў па вашаму запыту!",
+		"searchBy": "Пошук па",
+		"searchByName": "Імяні",
+		"searchByCity": "Горадзе"
 	}
 }
