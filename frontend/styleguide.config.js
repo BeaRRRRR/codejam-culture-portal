@@ -4,6 +4,14 @@ module.exports = {
   components:'src/styled-components/**/*.ts',
   sections: [
 		{
+      name: 'Color palette',
+      components: 'src/styled-components/color-palette/**/*.tsx'
+		},
+		{
+      name: 'Typography',
+      components: 'src/styled-components/typography/**/*.tsx'
+    },
+		{
       name: 'Surfaces',
       components: 'src/styled-components/surfaces/**/*.tsx'
     },
