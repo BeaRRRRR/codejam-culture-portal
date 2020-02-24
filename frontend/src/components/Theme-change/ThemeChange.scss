@@ -1,7 +1,15 @@
 .theme-change-button-group {
- position: absolute;
- top: 20px;
- right: 25px;
+ &.top {
+	position: absolute;
+	top: 20px;
+	right: 25px;
+ }
+
+ &.bottom {
+	position: fixed;
+	bottom: 20px;
+	right: 25px;
+ }
 }
 
 .theme-change-btn-active {
@@ -9,7 +17,7 @@
 }
 
 @media only screen and (max-width: 666px) {
- .theme-change-button-group {
+ .theme-change-button-group:not(.bottom) {
 	position: static;
 	margin: 20px;
  }

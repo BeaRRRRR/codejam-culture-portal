@@ -40,9 +40,14 @@ function ThemeChange(props) {
 				);
 		});
 
+		let buttonGroupClasses = 'theme-change-button-group';
+		if (props.display === 'bottom')
+				buttonGroupClasses += ' bottom';
+		else buttonGroupClasses += ' top';
+
 		return (
 				<ButtonGroup
-						className='theme-change-button-group'
+						className={buttonGroupClasses}
 						color='primary'
 						aria-label='outlined primary button group'
 				>

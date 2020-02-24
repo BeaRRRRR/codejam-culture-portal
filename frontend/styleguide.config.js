@@ -17,7 +17,7 @@ module.exports = {
     }
   ],
   styleguideComponents: {
-    Wrapper: path.join(__dirname,'src/theme/ThemeProvider.tsx')
+    Wrapper: path.join(__dirname,'src/theme/ThemeWrapper.tsx')
   },
   propsParser: require('react-docgen-typescript').withDefaultConfig([]).parse,
 	//propParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
@@ -41,4 +41,4 @@ module.exports = {
       base: '"Roboto", sans-serif'
     }
   }
-}
+};

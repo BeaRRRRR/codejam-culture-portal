@@ -76,7 +76,7 @@ const Header = (props: IHeaderProps) => {
 								</Slide>
 						</div>
 						<LanguageChange />
-						<ThemeChange />
+						<ThemeChange display={'top'}/>
 				</header>
 		);
 };
