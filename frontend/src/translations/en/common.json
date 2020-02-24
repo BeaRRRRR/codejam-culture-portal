@@ -29,6 +29,7 @@
 		"light": "light",
 		"dark": "dark"
 	},
+	"up": "up",
 	"selfEvaluation": "Self Evaluation",
 	"minScope": {
 		"header": "Min scope",

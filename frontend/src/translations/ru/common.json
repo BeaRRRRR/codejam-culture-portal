@@ -29,6 +29,7 @@
 		"light": "свет",
 		"dark": "тёмн"
 	},
+	"up": "вверх",
 	"selfEvaluation": "Самооценка",
 	"minScope": {
 		"header": "Минимальный объем",

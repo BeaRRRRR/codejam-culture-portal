@@ -64,4 +64,4 @@ function mapStateToProps(oldState) {
 export default compose(
 	connect(mapStateToProps),
 	withTranslation("common")
-)(ThemeChange);
+)(ThemeChange) as React.ComponentType;
