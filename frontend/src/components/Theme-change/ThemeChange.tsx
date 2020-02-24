@@ -23,7 +23,6 @@ function ThemeChange(props) {
 		function handleClick(e: MouseEvent<HTMLButtonElement>) {
 				const selectedTheme: string = e.currentTarget.value;
 				if (selectedTheme !== props.theme) {
-						console.log('calling the func');
 						switchTheme(selectedTheme);
 				}
 		}
@@ -58,4 +57,4 @@ function mapStateToProps(oldState) {
 		};
 }
 
-export default connect(mapStateToProps)(ThemeChange) as React.ComponentType;
+export default connect(mapStateToProps)(ThemeChange);

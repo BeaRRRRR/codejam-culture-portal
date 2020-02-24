@@ -6,7 +6,7 @@ interface StateModel {
 		author: AuthorModelExtended | null;
 		isAuthorLoading: boolean;
 		isAuthorsListLoading: boolean;
-		theme: string;
+		theme: 'light' | 'dark' | undefined;
 }
 
 const initialState: StateModel = {

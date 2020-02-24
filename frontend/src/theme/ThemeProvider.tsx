@@ -5,12 +5,11 @@ import {connect} from 'react-redux';
 
 export interface ThemeProps {
 		children: any;
-		theme: string;
+		theme: 'light' | 'dark' | undefined;
 }
 
 const ThemeProv = (props: ThemeProps) => {
 
-		// @ts-ignore
 		let theme: Theme = createMuiTheme({
 				palette: {
 						type: props.theme,
