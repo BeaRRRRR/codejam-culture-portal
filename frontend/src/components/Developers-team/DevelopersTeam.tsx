@@ -35,7 +35,7 @@ function DevelopersTeam({ t }: IDevelopersTeamProps) {
 					}
 				/>
 				<Developer
-					name={"vitalis"}
+					name={"Vitali Satsura"}
 					linkToGithub={"https://github.com/vitali-satsura"}
 					linkToImage={
 						"https://avatars0.githubusercontent.com/u/34774841?s=460&v=4"
