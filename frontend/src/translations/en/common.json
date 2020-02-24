@@ -25,6 +25,10 @@
 		"searchByName": "Name",
 		"searchByCity": "City"
 	},
+	"themeChange": {
+		"light": "light",
+		"dark": "dark"
+	},
 	"selfEvaluation": "Self Evaluation",
 	"minScope": {
 		"header": "Min scope",

@@ -25,6 +25,10 @@
 		"searchByName": "Імяні",
 		"searchByCity": "Горадзе"
 	},
+	"themeChange": {
+		"light": "свет",
+		"dark": "цёмн"
+	},
 	"selfEvaluation": "Самаацэнка",
 	"minScope": {
 		"header": "Мінімальны аб'ём",

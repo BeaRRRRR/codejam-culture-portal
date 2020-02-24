@@ -25,6 +25,10 @@
 		"searchByName": "Имени",
 		"searchByCity": "Городу"
 	},
+	"themeChange": {
+		"light": "свет",
+		"dark": "тёмн"
+	},
 	"selfEvaluation": "Самооценка",
 	"minScope": {
 		"header": "Минимальный объем",
