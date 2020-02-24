@@ -12,7 +12,7 @@ const ThemeProv = (props: ThemeProps) => {
 
 		let theme: Theme = createMuiTheme({
 				palette: {
-						type: 'dark',
+						type: props.theme,
 						primary: {
 								light: '#efdcd5',
 								main: '#bcaaa4',
