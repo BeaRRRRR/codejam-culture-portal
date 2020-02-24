@@ -51,13 +51,13 @@ const WorksList: React.FC<WorksListProps> = (props) => {
 
 	return (
 		<div className='works-list'>
-			<h2 className='works-list__title'>Шедевры</h2>
+			<h2 className='works-list__title'>Masterpieces</h2>
 			<TableContainer component={Paper}>
 				<Table className={classes.table} aria-label='customized table'>
 					<TableHead>
 						<TableRow>
-							<StyledTableCell>Произведение</StyledTableCell>
-							<StyledTableCell align='right'>Дата создания</StyledTableCell>
+							<StyledTableCell>Work</StyledTableCell>
+							<StyledTableCell align='right'>Creation Date</StyledTableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
