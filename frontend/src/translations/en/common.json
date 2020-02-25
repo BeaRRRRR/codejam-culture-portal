@@ -59,5 +59,12 @@
 		"text4": "Animations / special effects like paralax",
 		"text5": "Outstanding design",
 		"text6": "Storybook/styleguidist/other react styleguide tool usage for the page with styles;"
-	}
+	},
+	"loading": "Loading...",
+	"worksList": {
+		"masterpiece": "Masterpieces",
+		"work": "Work",
+		"creationDate": "Creation Date"
+	},
+	"timeLine": "Timeline"
 }
