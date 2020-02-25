@@ -1,4 +1,6 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 import './Basic-info.scss';
 
@@ -17,16 +19,24 @@ const BasicInfo: React.FC<BasicInfoProps> = (props) => {
 	const lifeYears = `(${birthDate.slice(0, 4)} - ${deathDate.slice(0, 4)})`;
 
 	return (
-		<div className='basic-info'>
+		<Box className='basic-info'>
 			<img
 				src={pictureUrl}
 				alt='author image'
 				className='basic-info__image' />
-			<h2 className='basic-info__title'>{name}</h2>
-			<p className='basic-info__life' >{lifeYears}</p>
-			<p className='basic-info__life' >{birthPlace}</p>
-			<p className='basic-info__description'>{summary}</p>
-		</div>
+			<Typography variant='h4' component='h2'>
+				{name}
+			</Typography>
+			<Typography variant='subtitle2'>
+				{lifeYears}
+			</Typography>
+			<Typography variant='subtitle1'>
+				{birthPlace}
+			</Typography>
+			<Typography variant='subtitle1' className='basic-info__description'>
+				{summary}
+			</Typography>
+		</Box>
 	);
 };
 

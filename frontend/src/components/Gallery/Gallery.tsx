@@ -1,10 +1,10 @@
 import React from 'react';
-import ImageGallery from 'react-image-gallery';
+import Box from '@material-ui/core/Box';
 
 import { Work } from '../../store/types';
 
-import '../../../node_modules/react-image-gallery/styles/scss/image-gallery.scss';
-import './Gallery.scss';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/scss/image-gallery.scss';
 
 const createImage = (item: Work) =>  (
 	{
@@ -23,11 +23,10 @@ const Gallery: React.FC<GalleryProps> = (props) =>  {
 	const images = works.map(createImage);
 
 	return (
-		<div className='gallery-container'>
-			<ImageGallery items={images} additionalClass='gallery' />
-		</div>
-	)
-
+		<Box>
+			<ImageGallery items={images} />
+		</Box>
+	);
 };
 
 export default Gallery;

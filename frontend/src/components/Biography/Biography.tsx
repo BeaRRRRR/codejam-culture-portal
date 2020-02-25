@@ -1,7 +1,12 @@
 import React from 'react';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import StarIcon from '@material-ui/icons/Star';
+
+import {
+	VerticalTimeline, VerticalTimelineElement
+} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
 import { LifeEvent } from '../../store/types';
 
@@ -15,8 +20,10 @@ const Biography: React.FC<BiographyProps> = (props) => {
 	const { lifeEvents } = props;
 
 	return (
-		<div className='biography'>
-			<h2 className='biography-title'>Timeline</h2>
+		<Box className='biography'>
+			<Typography variant='h4' component='h3'>
+				Timeline
+			</Typography>
 			<VerticalTimeline>
 				{
 					lifeEvents.map((event) => (
@@ -28,13 +35,17 @@ const Biography: React.FC<BiographyProps> = (props) => {
 							icon={<StarIcon />}
 							key={event.summary}
 						>
-							<h3 className='vertical-timeline-element-title'>{event.summary}</h3>
-							<h4>{event.eventDate.slice(0, 4)}</h4>
+							<Typography variant='h6' component='h4'>
+								{event.summary}
+							</Typography>
+							<Typography variant='subtitle1'>
+								{event.eventDate.slice(0, 4)}
+							</Typography>
 						</VerticalTimelineElement>
 					))
 				}
 			</VerticalTimeline>
-		</div>
+		</Box>
 	);
 };
 
