@@ -12,7 +12,7 @@ const ThemeWrapper = (props: ThemeWrapperProps) => {
 		return (
 				<Provider store={store}>
 						<ThemeProvider children={props.children} />
-						<ThemeChange display={'bottom'}/>
+						<ThemeChange display={'bottom'} />
 				</Provider>
 		);
 };
