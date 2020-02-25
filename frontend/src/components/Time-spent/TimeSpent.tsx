@@ -1,12 +1,15 @@
 import React from 'react';
-import './TimeSpent.scss';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 import TimeSpentTable from '../Time-spent-table';
 
 function TimeSpent() {
-
 	return (
-		<section className={'time-spent'}>
-			<h2 className={'time-spent__heading'}>Time spent</h2>
+		<Box component='section' className='time-spent'>
+			<Typography variant='h4' component='h2'>
+				Time spent
+			</Typography>
 			<TimeSpentTable developer={'Minitron'} features={
 				[
 					{
@@ -40,7 +43,7 @@ function TimeSpent() {
 					}
 				]
 			} />
-		</section>
+		</Box>
 	);
 }
 

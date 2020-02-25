@@ -11,19 +11,23 @@ const selfEvaluationData = [
 		items: [
 			{
 				points: 10,
-				text: 'Main page + page with a list of authors + author\'s page (only pages with content without widgets)'
+				text: 'Main page + page with a list of authors + author\'s page (only pages with content without widgets)',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Page with team members + page with worklog'
+				text: 'Page with team members + page with worklog',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Page with list of authors contains search widget'
+				text: 'Page with list of authors contains search widget',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Portal has two languages;'
+				text: 'Portal has two languages',
+				done: true,
 			}
 		]
 	},
@@ -33,43 +37,53 @@ const selfEvaluationData = [
 		items: [
 			{
 				points: 20,
-				text: 'Portal has page with styleguide'
+				text: 'Portal has page with styleguide',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Mobile version is okey'
+				text: 'Mobile version is okey',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Ipad/tablet version is okey'
+				text: 'Ipad/tablet version is okey',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Author\'s page contains timeline'
+				text: 'Author\'s page contains timeline',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Author\'s page contains video overlay'
+				text: 'Author\'s page contains video overlay',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Author\'s page contains photo gallery'
+				text: 'Author\'s page contains photo gallery',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Author\'s page contains map (geowidget)'
+				text: 'Author\'s page contains map (geowidget)',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Design (typography, icons, colors, links + buttons + input are styled);'
+				text: 'Design (typography, icons, colors, links + buttons + input are styled);',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Material-ui / bootstrap is used'
+				text: 'Material-ui / bootstrap is used',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Portal has third language'
+				text: 'Portal has third language',
+				done: true,
 			}
 		]
 	},
@@ -79,27 +93,33 @@ const selfEvaluationData = [
 		items: [
 			{
 				points: 10,
-				text: 'Confidence of the project presentation'
+				text: 'Confidence of the project presentation',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Project is made using gatsbyjs'
+				text: 'Project is made using gatsbyjs',
+				done: true,
 			},
 			{
 				points: 10,
-				text: 'Contentful / netlify cms is used for content management'
+				text: 'Contentful / netlify cms is used for content management',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Animations / special effects like paralax'
+				text: 'Animations / special effects like paralax',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Outstanding design'
+				text: 'Outstanding design',
+				done: true,
 			},
 			{
 				points: 20,
-				text: 'Storybook/styleguidist/other react styleguide tool usage for the page with styles;'
+				text: 'Storybook/styleguidist/other react styleguide tool usage for the page with styles;',
+				done: true,
 			}
 		]
 	}
