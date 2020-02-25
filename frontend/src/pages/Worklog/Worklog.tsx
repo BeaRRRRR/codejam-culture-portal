@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import "./Worklog.scss";
 import TimeSpent from "../../components/Time-spent";
 import MainDifficulties from "../../components/Main-difficulties";
