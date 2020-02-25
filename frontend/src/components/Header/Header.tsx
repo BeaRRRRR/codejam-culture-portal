@@ -4,6 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Slide from '@material-ui/core/Slide';
 import Button from '../../styled-components/basics/button';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
 import { compose } from 'redux';
@@ -73,7 +74,7 @@ const Header = (props: IHeaderProps) => {
 			<div className='header__btn-scroll-top' onClick={smoothScrollTop}>
 				<Slide direction={'up'} in={isScrolled} mountOnEnter unmountOnExit>
 					<Button variant='contained' color='primary'>
-						{t('up')}
+							<ArrowUpwardIcon />
 					</Button>
 				</Slide>
 			</div>

@@ -1,21 +1,21 @@
-import React, { MouseEvent } from 'react';
+import React, {MouseEvent} from 'react';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-import { switchTheme } from '../../actions';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { withTranslation } from 'react-i18next';
+import {createStyles, makeStyles} from '@material-ui/core/styles';
+import {switchTheme} from '../../actions';
+import {connect} from 'react-redux';
+import Brightness1Icon from '@material-ui/icons/Brightness1';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 
 import './ThemeChange.scss';
 
 const useStyles = makeStyles(() =>
-	createStyles({
-		active: {
-			background: 'red',
-			color: 'black'
-		}
-	})
+		createStyles({
+				active: {
+						background: 'red',
+						color: 'black'
+				}
+		})
 );
 
 interface ThemeChangeInterface {
@@ -24,54 +24,49 @@ interface ThemeChangeInterface {
 		theme?: string;
 }
 
-function ThemeChange({t, display, theme}: ThemeChangeInterface) {
-	const classes = useStyles();
-	let buttonNames = ['light', 'dark'];
-	let buttonText = [t('themeChange.light'), t('themeChange.dark')];
-	let buttons: JSX.Element[] = [];
+function ThemeChange({display, theme}: ThemeChangeInterface) {
+		const classes = useStyles();
+		let buttonNames = ['light', 'dark'];
 
-	function handleClick(e: MouseEvent<HTMLButtonElement>) {
-		const selectedTheme: string = e.currentTarget.value;
-		if (selectedTheme !== theme) {
-			switchTheme(selectedTheme);
+		function handleClick(e: MouseEvent<HTMLButtonElement>) {
+				const selectedTheme: string = e.currentTarget.value;
+				if (selectedTheme !== theme) {
+						switchTheme(selectedTheme);
+				}
 		}
-	}
 
-	buttonNames.map((buttonName, i) => {
-		buttons.push(
-			<Button
-				onClick={handleClick}
-				value={buttonName}
-				key={buttonName}
-				className={buttonName === theme ? classes.active : ''}
-			>
-				{buttonText[i]}
-			</Button>
+		let buttons: JSX.Element[] = buttonNames.map((buttonName) => {
+				return (
+						<Button
+								onClick={handleClick}
+								value={buttonName}
+								key={buttonName}
+								className={buttonName === theme ? classes.active : ''}
+						>
+								{buttonName === 'light' ? <Brightness1Icon /> : <Brightness3Icon />}
+						</Button>
+				);
+		});
+
+		let buttonGroupClasses = 'theme-change-button-group';
+		if (display === 'bottom') buttonGroupClasses += ' bottom';
+		else buttonGroupClasses += ' top';
+
+		return (
+				<ButtonGroup
+						className={buttonGroupClasses}
+						color='secondary'
+						aria-label='outlined primary button group'
+				>
+						{buttons}
+				</ButtonGroup>
 		);
-	});
-
-	let buttonGroupClasses = 'theme-change-button-group';
-	if (display === 'bottom') buttonGroupClasses += ' bottom';
-	else buttonGroupClasses += ' top';
-
-	return (
-		<ButtonGroup
-			className={buttonGroupClasses}
-			color='secondary'
-			aria-label='outlined primary button group'
-		>
-			{buttons}
-		</ButtonGroup>
-	);
 }
 
 function mapStateToProps(oldState) {
-	return {
-		theme: oldState.theme
-	};
+		return {
+				theme: oldState.theme
+		};
 }
 
-export default compose(
-	connect(mapStateToProps),
-	withTranslation('common')
-)(ThemeChange) as React.ComponentType<{ display: string }>;
+export default connect(mapStateToProps)(ThemeChange);
