@@ -5,10 +5,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
   &__image {
     width: 10rem;
-    height: 9rem;
+    height: auto;
   }
+
   &__description {
     width: 60%;
     text-align: center;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import { /*Link,*/ withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch, compose } from "redux";
@@ -16,10 +16,12 @@ import {
 	FormControlLabel,
 	List,
 	ListItem,
-	ListItemText,
-	ListItemProps
+	ListItemProps,
+	Divider,
+	Box
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
 
 import "./Search-bar.scss";
 
@@ -60,16 +62,29 @@ const Search: React.FC<SearchPanel> = ({
 		return variable.includes(term.toLowerCase());
 	});
 
-	const authors = visibleAuthors.map(author => {
+	const authors = visibleAuthors.map((author, index, array) => {
 		const { id, name, birthPlace } = author;
 		return (
-			<ListItemLink
-				key={id}
-				className="author-list-item"
-				href={`/#/architect/${id}`}
-			>
-				<ListItemText color="primary" primary={`${name}, ${birthPlace}`} />
-			</ListItemLink>
+			<Fragment key={id}>
+				<ListItemLink className="author-list-item" href={`/#/architect/${id}`}>
+					<Box
+						minHeight={50}
+						width="100%"
+						display="flex"
+						flexDirection="column"
+						alignItems="center"
+					>
+						<Typography>{name.toUpperCase()}</Typography>
+						<Box display="flex" flexDirection="row" alignItems="center">
+							<HomeRoundedIcon color="secondary" />
+							<Typography variant="body2" color="textSecondary">
+								{birthPlace}
+							</Typography>
+						</Box>
+					</Box>
+				</ListItemLink>
+				{index !== array.length - 1 ? <Divider /> : null}
+			</Fragment>
 		);
 	});
 
@@ -91,7 +106,7 @@ const Search: React.FC<SearchPanel> = ({
 					{SEARCH_PAGE_TITLE}
 				</Typography>
 			</Grid>
-			<Grid item xs={12}>
+			<Grid item xs={6}>
 				<Paper className="search__form">
 					<FormGroup row>
 						<FormControlLabel
@@ -109,7 +124,7 @@ const Search: React.FC<SearchPanel> = ({
 					</FormGroup>
 				</Paper>
 			</Grid>
-			<Grid item xs={12}>
+			<Grid item xs={5}>
 				{authors.length !== 0 ? (
 					<Paper className="author-list">
 						<List>{authors}</List>

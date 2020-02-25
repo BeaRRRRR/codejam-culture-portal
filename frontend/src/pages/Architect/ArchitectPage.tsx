@@ -9,6 +9,7 @@ import WorksList from "../../components/Works-list";
 import Gallery from "../../components/Gallery";
 import Youtube from "../../components/Youtube";
 import Map from "../../components/Map";
+import ErrorIndicator from "../../components/Error-indicator";
 import { withTranslation } from "react-i18next";
 
 import { fetchAuthor, RootAction } from "../../actions";
@@ -31,6 +32,7 @@ interface ArchitectPageProps {
 	works: Work[];
 	lifeEvents: LifeEvent[];
 	t: (namespace: string) => string;
+	error: Error;
 }
 
 interface MatchModel {
@@ -51,7 +53,8 @@ const ArchitectPage: React.FC<ArchitectPageProps> = props => {
 		works,
 		videoUrl,
 		lifeEvents,
-		t
+		t,
+		error
 	} = props;
 
 	useEffect(() => {
@@ -60,6 +63,10 @@ const ArchitectPage: React.FC<ArchitectPageProps> = props => {
 
 	if (isLoading) {
 		return <div>{t("loading")}</div>;
+	}
+
+	if (error) {
+		return <ErrorIndicator />;
 	}
 
 	return (
@@ -88,6 +95,12 @@ const mapStateToProps = (state: ReducerState) => {
 		};
 	}
 
+	if (state.error) {
+		return {
+			error: state.error
+		};
+	}
+
 	return {
 		name: state.author.name,
 		pictureUrl: state.author.pictureUrl,
@@ -98,7 +111,8 @@ const mapStateToProps = (state: ReducerState) => {
 		birthPlace: state.author.birthPlace,
 		works: state.author.works,
 		lifeEvents: state.author.lifeEvents,
-		videoUrl: state.author.videoUrl
+		videoUrl: state.author.videoUrl,
+		error: state.error
 	};
 };
 

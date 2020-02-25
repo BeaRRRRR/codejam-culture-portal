@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 
 export interface ThemeProps {
 		children: any;
-		theme: 'light' | 'dark' | undefined;
+		theme?: 'light' | 'dark' | undefined;
 }
 
 const ThemeProv = (props: ThemeProps) => {

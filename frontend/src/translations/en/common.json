@@ -3,7 +3,8 @@
 		"title": "Architects of Belarus",
 		"homeTab": "Home",
 		"searchTab": "Search",
-		"worklogTab": "Worklog"
+		"worklogTab": "Worklog",
+		"teamTab": "Team"
 	},
 	"description": {
 		"header": "Description",

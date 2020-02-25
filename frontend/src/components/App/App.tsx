@@ -5,11 +5,12 @@ import ArchitectPage from '../../pages/Architect';
 import SearchPage from '../../pages/Search';
 import Worklog from '../../pages/Worklog/index';
 import NotFoundPage from '../../pages/Not-found';
+import Team from '../../pages/Team';
 
 import Container from '@material-ui/core/Container';
 import ThemeProvider from '../../theme';
 
-import {HashRouter as Router, Switch, Route} from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { LoadScript } from '@react-google-maps/api';
 
@@ -40,11 +41,17 @@ function App() {
 									<Worklog />
 								</>
 							} />
+							<Route path='/team' exact render={() =>
+								<>
+									<Header />
+									<Team />
+								</>
+							} />
 							<Route path='/architect/:id' render={() =>
 								<>
 									<LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
-									<Header />
-									<ArchitectPage />
+										<Header />
+										<ArchitectPage />
 									</LoadScript>
 								</>
 							} />

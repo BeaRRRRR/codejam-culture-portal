@@ -1,4 +1,6 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
+
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
 import { Work } from '../../store/types';
@@ -26,7 +28,7 @@ const Map: React.FC<IMapProps> = ({ works }) => {
 	const points = works.map((work) => ({ lat: work.place.lat, lng: work.place.lon }));
 	const centerLocation = calculateCenterLocation(points);
 	return (
-		<div className='map-container'>
+		<Box className='map-container'>
 			<GoogleMap
 				id='example-map'
 				mapContainerStyle={{width: '60rem', height: '27rem'}}
@@ -39,7 +41,7 @@ const Map: React.FC<IMapProps> = ({ works }) => {
 					))
 				}
 			</GoogleMap>
-		</div>
+		</Box>
 	);
 };
 

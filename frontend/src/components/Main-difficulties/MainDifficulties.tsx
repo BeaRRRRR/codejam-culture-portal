@@ -1,12 +1,16 @@
 import React from 'react';
-import './MainDifficulties.scss';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 import DifficultyList from '../DifficultyList';
 
 function MainDifficulties() {
 
 	return (
-		<section className={'main-difficulties'}>
-			<h2 className={'main-difficulties__heading'}>Main Difficulties</h2>
+		<Box component='section' className='main-difficulties'>
+			<Typography variant='h4' component='h2'>
+				Main Difficulties
+			</Typography>
 			<DifficultyList difficulties={
 				[
 					{name: 'Problem1', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laboriosam magni nihil obcaecati pariatur voluptas! Accusantium aperiam architecto autem dicta eaque nam, officiis perspiciatis quam quidem, sint soluta ut voluptates!'},
@@ -14,7 +18,7 @@ function MainDifficulties() {
 					{name: 'Problem3', description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis consectetur corporis deserunt dicta, dignissimos eius eligendi esse ex fuga hic inventore ipsa nam, nesciunt nobis quasi, quibusdam reprehenderit sunt.'}
 				]
 			}/>
-		</section>
+		</Box>
 	);
 }
 

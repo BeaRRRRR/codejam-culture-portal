@@ -1,11 +1,12 @@
 import React from 'react';
 import SelfEvaluationListItem from '../Self-evaluation-list-item';
 
-import './SelfEvaluationList.scss';
+import List from '@material-ui/core/List';
 
 type Item = {
 	points: number,
-	text: string
+	text: string,
+	done: boolean
 };
 
 type Props = {
@@ -15,11 +16,16 @@ type Props = {
 const SelfEvaluationList = (props: Props) => {
 	const { items } = props;
 	return (
-		<ul className='list'>
+		<List>
 			{items.map((item) => (
-				<SelfEvaluationListItem points={item.points} text={item.text} key={item.text} />
+				<SelfEvaluationListItem
+					points={item.points}
+					text={item.text}
+					done={item.done}
+					key={item.text}
+				/>
 			))}
-		</ul>
+		</List>
 	);
 };
 

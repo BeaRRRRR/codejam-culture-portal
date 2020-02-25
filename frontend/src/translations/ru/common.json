@@ -3,7 +3,8 @@
 		"title": "Архитекторы Беларуси",
 		"homeTab": "Главная",
 		"searchTab": "Поиск",
-		"worklogTab": "Рабочий отчет"
+		"worklogTab": "Рабочий отчет",
+		"teamTab": "Команда"
 	},
 	"description": {
 		"header": "Описание",

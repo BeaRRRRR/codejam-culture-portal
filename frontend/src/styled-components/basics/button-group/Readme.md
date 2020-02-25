@@ -1,9 +1,10 @@
 Variants/colors:
 ```jsx inside Markdown
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 
 ;<>
+<Box bgcolor='background.default' color="text.primary" p={2}>
   <ButtonGroup variant='contained' color='primary'>
     <Button>contained</Button>
     <Button>primary</Button>
@@ -38,16 +39,18 @@ import { Button } from '@material-ui/core';
     <Button>text</Button>
     <Button>secondary</Button>
     <Button>-</Button>
-  </ButtonGroup>
+	</ButtonGroup>
+</Box>
 </>
 ```
 
 Sizes/orientation:
 ```jsx inside Markdown
 import React, { Component } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 
 ;<>
+<Box bgcolor='background.default' color="text.primary" p={2}>
   <ButtonGroup variant='contained' size='small' color='secondary' orientation='vertical'>
     <Button>small</Button>
     <Button>-</Button>
@@ -77,5 +80,6 @@ import { Button } from '@material-ui/core';
     <Button>-</Button>
     <Button>outlined</Button>
   </ButtonGroup>
+</Box>
 </>
 ```
