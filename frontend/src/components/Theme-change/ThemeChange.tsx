@@ -12,7 +12,8 @@ import "./ThemeChange.scss";
 const useStyles = makeStyles(() =>
 	createStyles({
 		active: {
-			background: "red"
+			background: "red",
+			color: "black"
 		}
 	})
 );
@@ -51,7 +52,7 @@ function ThemeChange(props) {
 	return (
 		<ButtonGroup
 			className={buttonGroupClasses}
-			color="primary"
+			color="secondary"
 			aria-label="outlined primary button group"
 		>
 			{buttons}

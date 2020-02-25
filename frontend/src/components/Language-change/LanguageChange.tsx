@@ -9,7 +9,8 @@ import "./LanguageChange.scss";
 const useStyles = makeStyles(() =>
 	createStyles({
 		active: {
-			background: "red"
+			background: "red",
+			color: "black"
 		}
 	})
 );
@@ -49,7 +50,7 @@ function LanguageChange(props: ILanguageChangeProps) {
 	return (
 		<ButtonGroup
 			className="button-group"
-			color="primary"
+			color="secondary"
 			aria-label="outlined primary button group"
 		>
 			{renderedButtons}
