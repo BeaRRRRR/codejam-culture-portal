@@ -1,9 +1,10 @@
 import React, {ReactElement} from 'react';
-import './Worklog.scss';
 import TimeSpent from '../../components/Time-spent';
 import MainDifficulties from '../../components/Main-difficulties';
 import SelfEvaluation from '../../components/Self-evaluation';
 import {withTranslation} from 'react-i18next';
+
+import './Worklog.scss';
 
 interface IWorklogProps {
 		t: (namespace: string) => string;
@@ -18,22 +19,22 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 								{
 										points: 10,
 										text: t('minScope.text1'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('minScope.text2'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('minScope.text3'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
 										text: t('minScope.text4'),
-										done: false
+										done: true
 								}
 						]
 				},
@@ -44,52 +45,52 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 								{
 										points: 20,
 										text: t('normalScope.text1'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('normalScope.text2'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('normalScope.text3'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
 										text: t('normalScope.text4'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('normalScope.text5'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
 										text: t('normalScope.text6'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('normalScope.text7'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
 										text: t('normalScope.text8'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
 										text: t('normalScope.text9'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
 										text: t('normalScope.text10'),
-										done: false
+										done: true
 								}
 						]
 				},
@@ -100,7 +101,7 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 								{
 										points: 10,
 										text: t('extraScope.text1'),
-										done: false
+										done: true
 								},
 								{
 										points: 10,
@@ -110,12 +111,12 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 								{
 										points: 10,
 										text: t('extraScope.text3'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
 										text: t('extraScope.text4'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
@@ -125,7 +126,7 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 								{
 										points: 20,
 										text: t('extraScope.text6'),
-										done: false
+										done: true
 								}
 						]
 				}

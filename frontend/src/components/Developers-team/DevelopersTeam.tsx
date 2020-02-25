@@ -1,9 +1,10 @@
 import React from "react";
 import Developer from "../Developer";
-import "./DevelopersTeam.scss";
 import { withTranslation } from "react-i18next";
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+
+import "./DevelopersTeam.scss";
 
 interface IDevelopersTeamProps {
 	t: (namespace: string) => object;
