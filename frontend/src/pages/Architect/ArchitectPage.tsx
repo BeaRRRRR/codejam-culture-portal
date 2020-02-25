@@ -30,7 +30,7 @@ interface ArchitectPageProps {
 	deathDate: string;
 	works: Work[];
 	lifeEvents: LifeEvent[];
-	error: Error
+	error: Error;
 }
 
 interface MatchModel {
