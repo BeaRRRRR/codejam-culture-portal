@@ -2,6 +2,8 @@ import React from 'react';
 import './SelfEvaluation.scss';
 import SelfEvaluationList from '../Self-evaluation-list';
 import { Paper } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 type dataScope = {
 	scope: string,
@@ -11,7 +13,8 @@ type dataScope = {
 
 type dataItem = {
 	points: number,
-	text: string
+	text: string,
+	done: boolean
 };
 
 type Props = {
@@ -24,17 +27,21 @@ const SelfEvaluation = (props: Props) => {
 
 	return (
 		<section className='self-evaluation'>
-			<h2 className='self-evaluation__heading'>Self Evaluation</h2>
+			<Typography variant='h3' component='h2'>
+				Self Evaluation
+			</Typography>
 			<Paper className='self-evaluation__paper'>
 				{
 					data.map((el, i) => {
 						const { items } = el;
 
 						return (
-							<div key={i}>
-								<h2 className='self-evaluation__scope'>{el.scope} - {el.points}</h2>
+							<Box key={i}>
+								<Typography variant='h4' component='h3'>
+									{el.scope} - {el.points}
+								</Typography>
 								<SelfEvaluationList items={items} />
-							</div>
+							</Box>
 						);
 					})
 				}
