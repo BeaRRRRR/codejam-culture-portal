@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import {createStyles, makeStyles} from '@material-ui/core/styles';
 import {switchTheme} from '../../actions';
 import {connect} from 'react-redux';
-import Brightness1Icon from '@material-ui/icons/Brightness1';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 
 import './ThemeChange.scss';
@@ -43,7 +43,7 @@ function ThemeChange({display, theme}: ThemeChangeInterface) {
 								key={buttonName}
 								className={buttonName === theme ? classes.active : ''}
 						>
-								{buttonName === 'light' ? <Brightness1Icon /> : <Brightness3Icon />}
+								{buttonName === 'light' ? <WbSunnyIcon /> : <Brightness3Icon />}
 						</Button>
 				);
 		});
