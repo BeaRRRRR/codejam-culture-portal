@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
 
 import './Youtube.scss';
 
@@ -7,11 +8,11 @@ interface IVideoProps {
 }
 
 const Video: React.FC<IVideoProps> = (props) => (
-	<div className='youtube-container'>
+	<Box className='youtube-container'>
 		<iframe
 			src={`https://www.youtube.com/embed/${props.videoUrl}?autoplay=0&`}
 		/>
-	</div>
+	</Box>
 );
 
 export default Video;
