@@ -1,13 +1,13 @@
-import React, { useEffect, Fragment } from "react";
-import { /*Link,*/ withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { Dispatch, compose } from "redux";
-import { withTranslation } from "react-i18next";
-import { ReducerState, AuthorModel } from "../../store/types";
-import { fetchAuthorsList, RootAction } from "../../actions";
+import React, { useEffect, Fragment } from 'react';
+import { /*Link,*/ withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Dispatch, compose } from 'redux';
+import { withTranslation } from 'react-i18next';
+import { ReducerState, AuthorModel } from '../../store/types';
+import { fetchAuthorsList, RootAction } from '../../actions';
 
-import Switch from "@material-ui/core/Switch";
-import { SearchField } from "../../styled-components";
+import Switch from '@material-ui/core/Switch';
+import { SearchField } from '../../styled-components';
 import {
 	Typography,
 	Paper,
@@ -19,11 +19,11 @@ import {
 	ListItemProps,
 	Divider,
 	Box
-} from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
-import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
+} from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
-import "./Search-bar.scss";
+import './Search-bar.scss';
 
 interface SearchPanel {
 	authorsList: Array<AuthorModel>;
@@ -36,9 +36,9 @@ const Search: React.FC<SearchPanel> = ({
 	fetchAuthorsList,
 	t
 }) => {
-	const SEARCH_PAGE_TITLE: string = t("search.title");
+	const SEARCH_PAGE_TITLE: string = t('search.title');
 	const [isByName, setIsByName] = React.useState(true);
-	const [term, setTerm] = React.useState("");
+	const [term, setTerm] = React.useState('');
 	useEffect(() => {
 		fetchAuthorsList();
 	}, [fetchAuthorsList]);
@@ -51,8 +51,8 @@ const Search: React.FC<SearchPanel> = ({
 		setTerm(e.target.value);
 	};
 
-	const ListItemLink = (props: ListItemProps<"a", { button?: true }>) => {
-		return <ListItem button component="a" {...props} />;
+	const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
+		return <ListItem button component='a' {...props} />;
 	};
 
 	const visibleAuthors = authorsList.filter(author => {
@@ -66,18 +66,18 @@ const Search: React.FC<SearchPanel> = ({
 		const { id, name, birthPlace } = author;
 		return (
 			<Fragment key={id}>
-				<ListItemLink className="author-list-item" href={`/#/architect/${id}`}>
+				<ListItemLink className='author-list-item' href={`/#/architect/${id}`}>
 					<Box
 						minHeight={50}
-						width="100%"
-						display="flex"
-						flexDirection="column"
-						alignItems="center"
+						width='100%'
+						display='flex'
+						flexDirection='column'
+						alignItems='center'
 					>
 						<Typography>{name.toUpperCase()}</Typography>
-						<Box display="flex" flexDirection="row" alignItems="center">
-							<HomeRoundedIcon color="secondary" />
-							<Typography variant="body2" color="textSecondary">
+						<Box display='flex' flexDirection='row' alignItems='center'>
+							<HomeRoundedIcon color='secondary' />
+							<Typography variant='body2' color='textSecondary'>
 								{birthPlace}
 							</Typography>
 						</Box>
@@ -89,36 +89,36 @@ const Search: React.FC<SearchPanel> = ({
 	});
 
 	const noAuthorsMessage = (
-		<Alert severity="info">{t("search.notFound")}</Alert>
+		<Alert severity='info'>{t('search.notFound')}</Alert>
 	);
 
 	return (
 		<Grid
-			className="search"
+			className='search'
 			container
-			direction="column"
-			justify="center"
-			alignItems="center"
+			direction='column'
+			justify='center'
+			alignItems='center'
 			spacing={10}
 		>
 			<Grid item xs={12}>
-				<Typography variant="h3" className="search__title">
+				<Typography variant='h3' className='search__title'>
 					{SEARCH_PAGE_TITLE}
 				</Typography>
 			</Grid>
 			<Grid item xs={6}>
-				<Paper className="search__form">
+				<Paper className='search__form'>
 					<FormGroup row>
 						<FormControlLabel
 							control={<Switch checked={isByName} onChange={handleChange} />}
-							label={t("search.searchBy")}
+							label={t('search.searchBy')}
 						/>
 						<SearchField
 							label={`${
-								isByName ? t("search.searchByName") : t("search.searchByCity")
+								isByName ? t('search.searchByName') : t('search.searchByCity')
 							}`}
-							color="secondary"
-							variant="outlined"
+							color='secondary'
+							variant='outlined'
 							onChange={onLabelChange}
 						/>
 					</FormGroup>
@@ -126,7 +126,7 @@ const Search: React.FC<SearchPanel> = ({
 			</Grid>
 			<Grid item xs={5}>
 				{authors.length !== 0 ? (
-					<Paper className="author-list">
+					<Paper className='author-list'>
 						<List>{authors}</List>
 					</Paper>
 				) : (
@@ -153,5 +153,5 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): any => {
 export default compose(
 	withRouter,
 	connect(mapStateToProps, mapDispatchToProps),
-	withTranslation("common")
+	withTranslation('common')
 )(Search) as React.ComponentType;

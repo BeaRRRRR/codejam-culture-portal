@@ -6,13 +6,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
   * Switch properties.
   */
 export interface SwitchProps {
-  color?: 'primary'|'secondary',
-  size?: 'small'|'medium',
-  value: string,
-  label?: string,
-  labelPlacement?: 'top'|'end'|'bottom'|'start',
-  checked?: boolean,
-  onChange?: any,
+  color?: 'primary'|'secondary';
+  size?: 'small'|'medium';
+  value: string;
+  label?: string;
+  labelPlacement?: 'top'|'end'|'bottom'|'start';
+  checked?: boolean;
+  onChange?: any;
 }
 
 /**

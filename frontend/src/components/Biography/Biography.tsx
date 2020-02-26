@@ -1,18 +1,18 @@
-import React from "react";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import StarIcon from "@material-ui/icons/Star";
+import React from 'react';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import StarIcon from '@material-ui/icons/Star';
 import Paper from '@material-ui/core/Paper';
 
 import {
 	VerticalTimeline,
 	VerticalTimelineElement
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
+} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
-import { LifeEvent } from "../../store/types";
+import { LifeEvent } from '../../store/types';
 
-import "./Biography.scss";
+import './Biography.scss';
 
 interface BiographyProps {
 	lifeEvents: LifeEvent[];
@@ -25,23 +25,23 @@ const Biography: React.FC<BiographyProps> = props => {
 	return (
 		<Box className='biography' component='section'>
 			<Typography className={'biography__heading'} variant='h3' component='h2' gutterBottom>
-				{t("timeLine")}
+				{t('timeLine')}
 			</Typography>
 			<Paper className={'biography__paper'}>
 				<VerticalTimeline>
 					{lifeEvents.map(event => (
 						<VerticalTimelineElement
-							className="vertical-timeline-element--work"
-							contentStyle={{ background: "#bcaaa4", color: "#000" }}
-							contentArrowStyle={{ borderRight: "7px solid	#bcaaa4" }}
-							iconStyle={{ background: "#bcaaa4", color: "#303030" }}
+							className='vertical-timeline-element--work'
+							contentStyle={{ background: '#bcaaa4', color: '#000' }}
+							contentArrowStyle={{ borderRight: '7px solid	#bcaaa4' }}
+							iconStyle={{ background: '#bcaaa4', color: '#303030' }}
 							icon={<StarIcon />}
 							key={event.summary}
 						>
-							<Typography variant="body1" component="p">
+							<Typography variant='body1' component='p'>
 								{event.summary}
 							</Typography>
-							<Typography variant="h5">
+							<Typography variant='h5'>
 								{event.eventDate.slice(0, 4)}
 							</Typography>
 						</VerticalTimelineElement>
