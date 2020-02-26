@@ -67,5 +67,14 @@
 		"work": "Праца",
 		"creationDate": "Дата стварэння"
 	},
-	"timeLine": "Часовая шкала"
+	"timeLine": "Часовая шкала",
+	"basicInfo": {
+		"header": "Архітэктар"
+	},
+	"gallery": {
+		"header": "Галерэя"
+	},
+	"map": {
+		"header": "Карта"
+	}
 }

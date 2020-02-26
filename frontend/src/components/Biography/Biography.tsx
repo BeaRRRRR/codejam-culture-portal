@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import StarIcon from "@material-ui/icons/Star";
+import Paper from '@material-ui/core/Paper';
 
 import {
 	VerticalTimeline,
@@ -22,29 +23,31 @@ const Biography: React.FC<BiographyProps> = props => {
 	const { lifeEvents, t } = props;
 
 	return (
-		<Box className="biography">
-			<Typography variant="h4" component="h3">
+		<Box className='biography' component='section'>
+			<Typography className={'biography__heading'} variant='h3' component='h2' gutterBottom>
 				{t("timeLine")}
 			</Typography>
-			<VerticalTimeline>
-				{lifeEvents.map(event => (
-					<VerticalTimelineElement
-						className="vertical-timeline-element--work"
-						contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-						contentArrowStyle={{ borderRight: "7px solid	rgb(33, 150, 243)" }}
-						iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-						icon={<StarIcon />}
-						key={event.summary}
-					>
-						<Typography variant="h6" component="h4">
-							{event.summary}
-						</Typography>
-						<Typography variant="subtitle1">
-							{event.eventDate.slice(0, 4)}
-						</Typography>
-					</VerticalTimelineElement>
-				))}
-			</VerticalTimeline>
+			<Paper className={'biography__paper'}>
+				<VerticalTimeline>
+					{lifeEvents.map(event => (
+						<VerticalTimelineElement
+							className="vertical-timeline-element--work"
+							contentStyle={{ background: "#bcaaa4", color: "#000" }}
+							contentArrowStyle={{ borderRight: "7px solid	#bcaaa4" }}
+							iconStyle={{ background: "#bcaaa4", color: "#303030" }}
+							icon={<StarIcon />}
+							key={event.summary}
+						>
+							<Typography variant="body1" component="p">
+								{event.summary}
+							</Typography>
+							<Typography variant="h5">
+								{event.eventDate.slice(0, 4)}
+							</Typography>
+						</VerticalTimelineElement>
+					))}
+				</VerticalTimeline>
+			</Paper>
 		</Box>
 	);
 };

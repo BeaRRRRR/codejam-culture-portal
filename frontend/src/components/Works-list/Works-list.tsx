@@ -12,6 +12,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
 import "./Works-list.scss";
 import WorkItem from "../Work";
@@ -56,8 +58,8 @@ const WorksList: React.FC<WorksListProps> = props => {
 	const { works, t } = props;
 
 	return (
-		<div className="works-list">
-			<h2 className="works-list__title">{t("worksList.masterpiece")}</h2>
+		<Box className="works-list" component='section'>
+			<Typography className={'works-list__heading'} variant='h3' component='h2' gutterBottom>{t('worksList.masterpiece')}</Typography>
 			<TableContainer component={Paper}>
 				<Table className={classes.table} aria-label="customized table">
 					<TableHead>
@@ -75,7 +77,7 @@ const WorksList: React.FC<WorksListProps> = props => {
 					</TableBody>
 				</Table>
 			</TableContainer>
-		</div>
+		</Box>
 	);
 };
 
