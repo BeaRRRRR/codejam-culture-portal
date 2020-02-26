@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 import {
 	withStyles,
 	Theme,
 	createStyles,
 	makeStyles
-} from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+} from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
-import "./Works-list.scss";
-import WorkItem from "../Work";
-import { Work } from "../../store/types";
+import './Works-list.scss';
+import WorkItem from '../Work';
+import { Work } from '../../store/types';
 
 export const StyledTableCell = withStyles((theme: Theme) =>
 	createStyles({
@@ -34,7 +34,7 @@ export const StyledTableCell = withStyles((theme: Theme) =>
 export const StyledTableRow = withStyles((theme: Theme) =>
 	createStyles({
 		root: {
-			"&:nth-of-type(odd)": {
+			'&:nth-of-type(odd)': {
 				backgroundColor: theme.palette.background.default
 			}
 		}
@@ -58,15 +58,15 @@ const WorksList: React.FC<WorksListProps> = props => {
 	const { works, t } = props;
 
 	return (
-		<Box className="works-list" component='section'>
+		<Box className='works-list' component='section'>
 			<Typography className={'works-list__heading'} variant='h3' component='h2' gutterBottom>{t('worksList.masterpiece')}</Typography>
 			<TableContainer component={Paper}>
-				<Table className={classes.table} aria-label="customized table">
+				<Table className={classes.table} aria-label='customized table'>
 					<TableHead>
 						<TableRow>
-							<StyledTableCell>{t("worksList.work")}</StyledTableCell>
-							<StyledTableCell align="right">
-								{t("worksList.creationDate")}
+							<StyledTableCell>{t('worksList.work')}</StyledTableCell>
+							<StyledTableCell align='right'>
+								{t('worksList.creationDate')}
 							</StyledTableCell>
 						</TableRow>
 					</TableHead>
