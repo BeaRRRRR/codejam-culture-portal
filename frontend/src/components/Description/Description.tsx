@@ -1,6 +1,10 @@
 import React from 'react';
-import './Description.scss';
 import { withTranslation } from 'react-i18next';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+
+import './Description.scss';
 
 interface IDescriptionProps {
 	t: (namespace: string) => object;
@@ -8,12 +12,14 @@ interface IDescriptionProps {
 
 function Description({ t }: IDescriptionProps) {
 	return (
-		<section className={'description'}>
-			<h2 className={'description__heading'}>{t('description.header')}</h2>
-			<div className={'description__text'}>{t('description.p1')}</div>
-			<div className={'description__text'}>{t('description.p2')}</div>
-			<div className={'description__text'}>{t('description.p3')}</div>
-		</section>
+		<Box className={'description'} component='section'>
+			<Typography className={'description__heading'} variant='h3' component='h2' gutterBottom>{t('description.header')}</Typography>
+			<Paper className={'description__paper'}>
+				<Typography className={'description__text'} variant='body1' component='p'>{t('description.p1')}</Typography>
+				<Typography className={'description__text'} variant='body1' component='p'>{t('description.p2')}</Typography>
+				<Typography className={'description__text'} variant='body1' component='p'>{t('description.p3')}</Typography>
+			</Paper>
+		</Box>
 	);
 }
 
