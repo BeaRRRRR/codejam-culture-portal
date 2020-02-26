@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { AuthorService } from '../../services/authorService';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { withTranslation } from 'react-i18next';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 import './AuthorOfTheDay.scss';
 import Button from '../../styled-components/basics/button';
@@ -27,7 +29,7 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 		pictureUrl: ''
 	});
 
-	let [error, setError] = useState(false)
+	let [error, setError] = useState(false);
 
 	const authorService = new AuthorService();
 
@@ -50,13 +52,13 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 	}
 
 	return (
-		<section className={'author-of-the-day'}>
-			<h2 className={'author-of-the-day__heading'}>
+		<Box className={'author-of-the-day'} component='section'>
+			<Typography className={'author-of-the-day__heading'} variant='h3' component='h2' gutterBottom>
 				{t('authorOfTheDay.heading')}
-			</h2>
+			</Typography>
 			<Card className={'author-of-the-day__content'}>
-				<div className={'author-of-the-day__column'}>
-					<h3 className={'author-of-the-day__row'}>
+				<Box className={'author-of-the-day__column'}>
+					<Typography className={'author-of-the-day__row'} variant='h4' component='h3'>
 						{authorData.name ? (
 							authorData.name
 						) : (
@@ -65,8 +67,8 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 									className={'author-of-the-day__text-skeleton'}
 								/>
 							)}
-					</h3>
-					<div className={'author-of-the-day__row'}>
+					</Typography>
+					<Typography className={'author-of-the-day__row'} variant='subtitle1' gutterBottom>
 						{authorData.name ? (
 							<>
 								{' '}
@@ -79,9 +81,11 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 									className={'author-of-the-day__text-skeleton'}
 								/>
 							)}
-					</div>
-					<div
+					</Typography>
+					<Typography
 						className={'author-of-the-day__row author-of-the-day__description'}
+						variant='body1'
+						component='p'
 					>
 						{authorData.name ? (
 							authorData.summary
@@ -97,23 +101,23 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 									/>
 								</>
 							)}
-					</div>
-					<div className={'author-of-the-day__row'}>
+					</Typography>
+					<Box className={'author-of-the-day__row'}>
 						{authorData.name ? (
 							<Link
 								className={'author-of-the-day__link'}
 								to={'/architect/' + authorData.id}
 							>
 								<Button variant='contained' color='primary'>
-									<div onClick={scrollTop}>{t('authorOfTheDay.learnMore')}</div>
+									<Box onClick={scrollTop}>{t('authorOfTheDay.learnMore')}</Box>
 								</Button>
 							</Link>
 						) : (
 								<Skeleton variant='rect' width={120} height={36} />
 							)}
-					</div>
-				</div>
-				<div className={'author-of-the-day__column'}>
+					</Box>
+				</Box>
+				<Box className={'author-of-the-day__column'}>
 					{authorData.name ? (
 						<img src={authorData.pictureUrl} alt='architector of the day' />
 					) : (
@@ -124,9 +128,9 @@ function AuthorOfTheDay({ t }: IAuthorOfTheDayProps) {
 								height={250}
 							/>
 						)}
-				</div>
+				</Box>
 			</Card>
-		</section>
+		</Box>
 	);
 }
 
