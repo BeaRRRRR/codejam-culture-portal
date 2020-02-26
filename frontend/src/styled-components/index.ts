@@ -1,5 +1,5 @@
 import {Button, ButtonGroup, SearchField, Switch} from './basics';
-import {Backdrop, Progress} from './loading';
+import {Progress} from './loading';
 import {Paper} from './surfaces';
 
-export {Backdrop, Button, ButtonGroup, Paper, Progress, SearchField, Switch};
+export {Button, ButtonGroup, Paper, Progress, SearchField, Switch};
