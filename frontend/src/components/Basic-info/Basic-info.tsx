@@ -24,7 +24,7 @@ const BasicInfo: React.FC<BasicInfoProps> = (props) => {
 				src={pictureUrl}
 				alt='author image'
 				className='basic-info__image' />
-			<Typography variant='h4' component='h2'>
+			<Typography variant='h4' component='h2' align={'center'}>
 				{name}
 			</Typography>
 			<Typography variant='subtitle2'>
