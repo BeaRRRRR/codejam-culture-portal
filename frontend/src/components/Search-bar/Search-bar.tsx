@@ -23,8 +23,6 @@ import {
 import Alert from '@material-ui/lab/Alert';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
-import './Search-bar.scss';
-
 interface SearchPanel {
 	authorsList: Array<AuthorModel>;
 	fetchAuthorsList: () => Array<AuthorModel>;
@@ -66,7 +64,7 @@ const Search: React.FC<SearchPanel> = ({
 		const { id, name, birthPlace } = author;
 		return (
 			<Fragment key={id}>
-				<ListItemLink className='author-list-item' href={`/#/architect/${id}`}>
+				<ListItemLink href={`/#/architect/${id}`}>
 					<Box
 						minHeight={50}
 						width='100%'
@@ -94,39 +92,42 @@ const Search: React.FC<SearchPanel> = ({
 
 	return (
 		<Grid
-			className='search'
 			container
+			component='section'
 			direction='column'
-			justify='center'
-			alignItems='center'
+			alignContent='center'
 			spacing={10}
 		>
-			<Grid item xs={12}>
-				<Typography variant='h3' className='search__title'>
-					{SEARCH_PAGE_TITLE}
-				</Typography>
+			<Grid item lg={6} md={9} sm={12}>
+				<Box mt={[3, 6, 8, 10]}>
+					<Typography component='h2' variant='h3' align='center'>
+						{SEARCH_PAGE_TITLE.toUpperCase()}
+					</Typography>
+				</Box>
 			</Grid>
-			<Grid item xs={6}>
-				<Paper className='search__form'>
-					<FormGroup row>
-						<FormControlLabel
-							control={<Switch checked={isByName} onChange={handleChange} />}
-							label={t('search.searchBy')}
-						/>
-						<SearchField
-							label={`${
-								isByName ? t('search.searchByName') : t('search.searchByCity')
-							}`}
-							color='secondary'
-							variant='outlined'
-							onChange={onLabelChange}
-						/>
-					</FormGroup>
+			<Grid item lg={6} md={9} sm={12}>
+				<Paper>
+					<Box p={[1, 2]}>
+						<FormGroup row>
+							<FormControlLabel
+								control={<Switch checked={isByName} onChange={handleChange} />}
+								label={t('search.searchBy')}
+							/>
+							<SearchField
+								label={`${
+									isByName ? t('search.searchByName') : t('search.searchByCity')
+								}`}
+								color='secondary'
+								variant='outlined'
+								onChange={onLabelChange}
+							/>
+						</FormGroup>
+					</Box>
 				</Paper>
 			</Grid>
-			<Grid item xs={5}>
+			<Grid item lg={6} md={9} sm={12}>
 				{authors.length !== 0 ? (
-					<Paper className='author-list'>
+					<Paper>
 						<List>{authors}</List>
 					</Paper>
 				) : (

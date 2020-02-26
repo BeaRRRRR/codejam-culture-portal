@@ -10,6 +10,7 @@ export interface ToggleButtonsProps {
 
 /**
 	* @component
+	* @visibleName ToggleButtons
 	*/
 
 const ToggleButtons = ({}: ToggleButtonsProps) => {

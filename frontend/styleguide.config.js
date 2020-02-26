@@ -10,6 +10,10 @@ module.exports = {
 		{
       name: 'Typography',
       components: 'src/styled-components/typography/**/*.tsx'
+		},
+		{
+      name: 'Icons',
+      components: 'src/styled-components/icons/**/*.tsx'
     },
 		{
       name: 'Surfaces',
