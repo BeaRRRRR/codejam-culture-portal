@@ -6,6 +6,7 @@ import SearchPage from '../../pages/Search';
 import Worklog from '../../pages/Worklog/index';
 import NotFoundPage from '../../pages/Not-found';
 import Team from '../../pages/Team';
+import Spinner from '../Spinner';
 
 import Container from '@material-ui/core/Container';
 import ThemeProvider from '../../theme';
@@ -19,9 +20,12 @@ const GOOGLE_API_KEY = 'AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY';
 function App() {
 	return (
 		<>
-			<LoadScript googleMapsApiKey={GOOGLE_API_KEY}>
-				<ThemeProvider>
-					<Container>
+			<ThemeProvider>
+				<Container>
+					<LoadScript
+						googleMapsApiKey={GOOGLE_API_KEY}
+						loadingElement={ <Spinner fullscreen size={100} /> }
+					>
 						<Router>
 							<Header />
 							<Switch>
@@ -72,9 +76,9 @@ function App() {
 								<Route path='/' render={() => <NotFoundPage />} />
 							</Switch>
 						</Router>
-					</Container>
-				</ThemeProvider>
-			</LoadScript>
+					</LoadScript>
+				</Container>
+			</ThemeProvider>
 		</>
 	);
 }
