@@ -12,7 +12,8 @@ import './Gallery.scss';
 const createImage = (item: Work) => (
 	{
 		original: item.imageUrl,
-		thumbnail: item.imageUrl
+		thumbnail: item.imageUrl,
+		originalClass: 'gallery__image'
 	}
 );
 
@@ -28,7 +29,14 @@ const Gallery: React.FC<GalleryProps> = (props) => {
 
 	return (
 		<Box className='gallery' component='section'>
-			<Typography className={'gallery__heading'} variant='h3' component='h2' gutterBottom>{t('gallery.header')}</Typography>
+			<Typography
+				className='gallery__heading'
+				variant='h3'
+				component='h2'
+				gutterBottom
+			>
+				{t('gallery.header')}
+			</Typography>
 			<Paper className={'gallery__paper'}>
 				<ImageGallery items={images} />
 			</Paper>
