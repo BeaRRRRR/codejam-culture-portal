@@ -121,7 +121,7 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 								{
 										points: 20,
 										text: t('extraScope.text5'),
-										done: false
+										done: true
 								},
 								{
 										points: 20,
