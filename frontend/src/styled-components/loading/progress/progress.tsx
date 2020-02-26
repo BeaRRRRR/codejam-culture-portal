@@ -9,6 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 export interface ProgressProps {
   /**Default: linear */
   type?: 'circular'|'linear',
+  size?: number,
   color?: 'primary'|'secondary',
   /**Only indeterminate for circular type */
   variant?: 'indeterminate'|'query',
@@ -20,8 +21,8 @@ export interface ProgressProps {
 
 class Progress extends Component <ProgressProps, {}>{
   render () {
-    const {color, variant, type} = this.props;
-    return (type==='circular') ? (<CircularProgress color={color} variant={'indeterminate'}/>
+    const {color, variant, type, size} = this.props;
+    return (type==='circular') ? (<CircularProgress color={color} variant={'indeterminate'} size={size}/>
       ) : (
         <LinearProgress color={color} variant={variant}/>)
   }

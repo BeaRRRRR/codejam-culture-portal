@@ -1,22 +1,23 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { Dispatch, compose } from "redux";
-import { withRouter } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch, compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
-import BasicInfo from "../../components/Basic-info";
-import Biography from "../../components/Biography";
-import WorksList from "../../components/Works-list";
-import Gallery from "../../components/Gallery";
-import Youtube from "../../components/Youtube";
-import Map from "../../components/Map";
-import ErrorIndicator from "../../components/Error-indicator";
-import { withTranslation } from "react-i18next";
+import BasicInfo from '../../components/Basic-info';
+import Biography from '../../components/Biography';
+import WorksList from '../../components/Works-list';
+import Gallery from '../../components/Gallery';
+import Youtube from '../../components/Youtube';
+import Map from '../../components/Map';
+import ErrorIndicator from '../../components/Error-indicator';
+import { withTranslation } from 'react-i18next';
+import Progress from '../../styled-components/loading/progress';
 
-import { fetchAuthor, RootAction } from "../../actions";
+import { fetchAuthor, RootAction } from '../../actions';
 
-import "./ArchitectPage.scss";
-import { ReducerState } from "../../store/types";
-import { Work, LifeEvent } from "../../store/types";
+import './ArchitectPage.scss';
+import { ReducerState } from '../../store/types';
+import { Work, LifeEvent } from '../../store/types';
 
 interface ArchitectPageProps {
 	fetchAuthor: (id: string) => object;
@@ -62,7 +63,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = props => {
 	}, [fetchAuthor]);
 
 	if (isLoading) {
-		return <div>{t("loading")}</div>;
+		return <div className={'progress-container'}><Progress type='circular' size={100}/></div>;
 	}
 
 	if (error) {
@@ -127,5 +128,5 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): any => {
 export default compose(
 	withRouter,
 	connect(mapStateToProps, mapDispatchToProps),
-	withTranslation("common")
+	withTranslation('common')
 )(ArchitectPage) as React.ComponentType;
