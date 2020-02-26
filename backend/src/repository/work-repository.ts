@@ -6,7 +6,7 @@ export default class WorkRepository {
     private baseUrl: string = 'https://cdn.contentful.com/spaces/i57hw1s2rtk6/environments/master/';
     private assetService: AssetService = new AssetService();
 
-    public async getById(id: string) {
+    public async getById(id: string): Promise<Work> {
         const url: string = `${this.baseUrl}entries/${id}?access_token=y_EIiiBcV8w0KVCP0kXbt50L85Ot3GjPRr_pR0yxivQ`
         const response = await fetch(url);
         const json = await response.json();
