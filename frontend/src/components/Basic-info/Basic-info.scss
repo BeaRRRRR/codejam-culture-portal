@@ -1,10 +1,21 @@
 .basic-info {
-  margin-bottom: 20px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  width: 70%;
+  margin: 20px auto;
+  text-align: center;
+  @media screen and (max-width: 700px) {
+    width: 90%;
+  }  
+
+  &__paper {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    @media screen and (max-width: 700px) {
+      padding: 20px;
+    }
+  }
 
   &__image {
     width: 10rem;

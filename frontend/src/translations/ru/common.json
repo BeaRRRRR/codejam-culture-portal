@@ -67,5 +67,14 @@
 		"work": "Работа",
 		"creationDate": "Дата создания"
 	},
-	"timeLine": "Временная шкала"
+	"timeLine": "Временная шкала",
+	"basicInfo": {
+		"header": "Архитектор"
+	},
+	"gallery": {
+		"header": "Галерея"
+	},
+	"map": {
+		"header": "Карта"
+	}
 }

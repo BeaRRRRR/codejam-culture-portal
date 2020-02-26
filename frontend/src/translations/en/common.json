@@ -67,5 +67,14 @@
 		"work": "Work",
 		"creationDate": "Creation Date"
 	},
-	"timeLine": "Timeline"
+	"timeLine": "Timeline",
+	"basicInfo": {
+		"header": "Architect"
+	},
+	"gallery": {
+		"header": "Gallery"
+	},
+	"map": {
+		"header": "Map"
+	}
 }

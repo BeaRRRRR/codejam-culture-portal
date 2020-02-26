@@ -78,11 +78,12 @@ const ArchitectPage: React.FC<ArchitectPageProps> = props => {
 				birthPlace={birthPlace}
 				birthDate={birthdate}
 				deathDate={deathDate}
+				t={t}
 			/>
 			{lifeEvents && <Biography lifeEvents={lifeEvents} t={t} />}
 			{works && <WorksList works={works} t={t} />}
-			{works && <Gallery works={works} />}
-			{works && <Map works={works} />}
+			{works && <Gallery works={works} t={t} />}
+			{works && <Map works={works} t={t} />}
 			{videoUrl && <Youtube videoUrl={videoUrl} />}
 		</div>
 	);
