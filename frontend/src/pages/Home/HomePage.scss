@@ -1,19 +1,18 @@
 .home-page {
-
- & {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
- }
-
- section {
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-  h2 {
-   text-align: center;
+  & {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
   }
- }
+
+  section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    h2 {
+      text-align: center;
+    }
+  }
 }
