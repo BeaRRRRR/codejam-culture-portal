@@ -30,6 +30,8 @@ interface IHeaderProps extends RouteComponentProps {
 
 const Header = (props: IHeaderProps) => {
 	const { t } = props;
+	const validTabValues = ["/", "/search", "/worklog", "/team"];
+
 	let [isScrolled, setIsScrolled] = useState(false);
 
 	function handleScroll() {
@@ -46,9 +48,13 @@ const Header = (props: IHeaderProps) => {
 		props.history.push(newValue);
 	};
 
-	const pathname = props.location.pathname.includes("architect")
+	let pathname = props.location.pathname.includes("architect")
 		? "/search"
 		: props.location.pathname;
+
+	if (!validTabValues.includes(pathname)) {
+		pathname = "/";
+	}
 
 	return (
 		<header className="header">
