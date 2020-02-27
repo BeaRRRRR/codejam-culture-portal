@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
-import { /*Link,*/ withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
 import { withTranslation } from 'react-i18next';
@@ -15,13 +15,11 @@ import {
 	FormGroup,
 	FormControlLabel,
 	List,
-	ListItem,
-	ListItemProps,
 	Divider,
 	Box
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import SearchItem from '../Search-item';
 
 interface SearchPanel {
 	authorsList: Array<AuthorModel>;
@@ -49,10 +47,6 @@ const Search: React.FC<SearchPanel> = ({
 		setTerm(e.target.value);
 	};
 
-	const ListItemLink = (props: ListItemProps<'a', { button?: true }>) => {
-		return <ListItem button component='a' {...props} />;
-	};
-
 	const visibleAuthors = authorsList.filter(author => {
 		if (term.length === 0) return true;
 		const { name, birthPlace } = author;
@@ -64,23 +58,7 @@ const Search: React.FC<SearchPanel> = ({
 		const { id, name, birthPlace } = author;
 		return (
 			<Fragment key={id}>
-				<ListItemLink href={`/#/architect/${id}`}>
-					<Box
-						minHeight={50}
-						width='100%'
-						display='flex'
-						flexDirection='column'
-						alignItems='center'
-					>
-						<Typography>{name.toUpperCase()}</Typography>
-						<Box display='flex' flexDirection='row' alignItems='center'>
-							<HomeRoundedIcon color='secondary' />
-							<Typography variant='body2' color='textSecondary'>
-								{birthPlace}
-							</Typography>
-						</Box>
-					</Box>
-				</ListItemLink>
+				<SearchItem id={id} name={name} birthPlace={birthPlace}/>
 				{index !== array.length - 1 ? <Divider /> : null}
 			</Fragment>
 		);
@@ -96,36 +74,38 @@ const Search: React.FC<SearchPanel> = ({
 			component='section'
 			direction='column'
 			alignContent='center'
-			spacing={10}
+			spacing={0}
 		>
-			<Grid item lg={6} md={9} sm={12}>
+			<Grid item lg={6} md={9} sm={11}>
 				<Box mt={[3, 6, 8, 10]}>
-					<Typography component='h2' variant='h3' align='center'>
+					<Typography component='h2' variant='h2' align='center'>
 						{SEARCH_PAGE_TITLE.toUpperCase()}
 					</Typography>
 				</Box>
 			</Grid>
-			<Grid item lg={6} md={9} sm={12}>
-				<Paper>
-					<Box p={[1, 2]}>
-						<FormGroup row>
-							<FormControlLabel
-								control={<Switch checked={isByName} onChange={handleChange} />}
-								label={t('search.searchBy')}
-							/>
-							<SearchField
-								label={`${
-									isByName ? t('search.searchByName') : t('search.searchByCity')
-								}`}
-								color='secondary'
-								variant='outlined'
-								onChange={onLabelChange}
-							/>
-						</FormGroup>
-					</Box>
-				</Paper>
+			<Grid item lg={6} md={9} sm={11}>
+				<Box my={[3, 6, 8, 10]}>
+					<Paper>
+						<Box p={2} display='flex' justifyContent='center'>
+							<FormGroup row>
+								<FormControlLabel
+									control={<Switch checked={isByName} onChange={handleChange} />}
+									label={t('search.searchBy')}
+								/>
+								<SearchField
+									label={`${
+										isByName ? t('search.searchByName') : t('search.searchByCity')
+									}`}
+									color='secondary'
+									variant='outlined'
+									onChange={onLabelChange}
+								/>
+							</FormGroup>
+						</Box>
+					</Paper>
+				</Box>
 			</Grid>
-			<Grid item lg={6} md={9} sm={12}>
+			<Grid item lg={6} md={9} sm={11}>
 				{authors.length !== 0 ? (
 					<Paper>
 						<List>{authors}</List>
