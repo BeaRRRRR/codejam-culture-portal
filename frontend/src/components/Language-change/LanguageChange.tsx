@@ -1,61 +1,48 @@
-import React, { useState, MouseEvent } from 'react';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { withTranslation } from 'react-i18next';
+import React from "react";
+import { withTranslation } from "react-i18next";
+import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab/";
 
-import './LanguageChange.scss';
-
-const useStyles = makeStyles(() =>
-	createStyles({
-		active: {
-			background: 'red',
-			color: 'black'
-		}
-	})
-);
+import "./LanguageChange.scss";
 
 interface ILanguageChangeProps {
 	i18n: { changeLanguage: (lang: string) => object };
 }
 
 function LanguageChange(props: ILanguageChangeProps) {
-	const classes = useStyles();
 	const { i18n } = props;
-	const langArr: string[] = ['EN', 'RU', 'BE'];
 
-	const [language, setLanguage] = useState('en');
+	const [language, setLanguage] = React.useState<string | null>("en");
 
-	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-		const selectedLang: string = e.currentTarget.value;
-
-		setLanguage(selectedLang);
-		i18n.changeLanguage(selectedLang);
+	const handleLanguageChange = (
+		_event: React.MouseEvent<HTMLElement>,
+		newLanguage: string
+	) => {
+		setLanguage(newLanguage);
+		i18n.changeLanguage(newLanguage);
 	};
 
-	const renderedButtons = langArr.map((item: string) => {
-		const value: string = item.toLowerCase();
+	const buttons = [
+		{ value: "en", content: "en" },
+		{ value: "ru", content: "ru" },
+		{ value: "be", content: "be" }
+	].map(({ value, content }) => {
 		return (
-			<Button
-				value={value}
-				onClick={handleClick}
-				className={value === language ? classes.active : ''}
-				key={item}
-			>
-				{item}
-			</Button>
+			<ToggleButton value={value} key={value}>
+				{content}
+			</ToggleButton>
 		);
 	});
 
 	return (
-		<ButtonGroup
-			className='button-group'
-			color='secondary'
-			aria-label='outlined primary button group'
+		<ToggleButtonGroup
+			value={language}
+			exclusive
+			onChange={handleLanguageChange}
+			className="button-group"
 		>
-			{renderedButtons}
-		</ButtonGroup>
+			{buttons}
+		</ToggleButtonGroup>
 	);
 }
 
-export default withTranslation('common')(LanguageChange);
+export default withTranslation("common")(LanguageChange);
