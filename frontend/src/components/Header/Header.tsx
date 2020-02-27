@@ -59,7 +59,7 @@ const Header = (props: IHeaderProps) => {
 	return (
 		<header className="header">
 			<Link to="/" className="header__link">
-				<Typography variant="h4" component="h1">
+				<Typography variant="h1" component="h1">
 					{t("header.title")}
 				</Typography>
 			</Link>
