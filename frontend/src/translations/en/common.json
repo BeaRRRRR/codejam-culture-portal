@@ -76,5 +76,7 @@
 	},
 	"map": {
 		"header": "Map"
-	}
+	},
+	"timeSpent": "Time spent",
+	"mainDifficulties": "Main Difficulties"
 }
