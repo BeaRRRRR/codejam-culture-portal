@@ -3,20 +3,21 @@ import Developer from '../Developer';
 import { withTranslation } from 'react-i18next';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 import './DevelopersTeam.scss';
 
 interface IDevelopersTeamProps {
-	t: (namespace: string) => object;
+	t: (namespace: string) => string;
 }
 
 function DevelopersTeam({ t }: IDevelopersTeamProps) {
 	return (
-		<section className={'developers-team'}>
+		<Box component='section' className={'developers-team'}>
 			<Grid container justify='center' alignContent='center' spacing={2}>
 				<Grid item xs={12}>
-					<Typography variant='h2' component='h2' gutterBottom>
-						{t('developersTeam.heading')}
+					<Typography variant='h3' component='h2' gutterBottom className='h2'>
+						{t('developersTeam.heading').toUpperCase()}
 					</Typography>
 				</Grid>
 				<Grid item xs={'auto'} sm={'auto'} md={4}>
@@ -92,7 +93,7 @@ function DevelopersTeam({ t }: IDevelopersTeamProps) {
 					/>
 				</Grid>
 			</Grid>
-		</section>
+		</Box>
 	);
 }
 

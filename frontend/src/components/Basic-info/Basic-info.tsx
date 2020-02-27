@@ -16,13 +16,28 @@ interface BasicInfoProps {
 }
 
 const BasicInfo: React.FC<BasicInfoProps> = (props) => {
-	const { name, pictureUrl, summary, birthPlace, birthDate, deathDate, t } = props;
+	const {
+		name,
+		pictureUrl,
+		summary,
+		birthPlace,
+		birthDate,
+		deathDate,
+		t
+	} = props;
 
 	const lifeYears = `(${birthDate.slice(0, 4)} - ${deathDate.slice(0, 4)})`;
 
 	return (
 		<Box className='basic-info' component='section'>
-			<Typography className={'basic-info__heading'} variant='h3' component='h2' gutterBottom>{t('basicInfo.header')}</Typography>
+			<Typography
+				className={'basic-info__heading'}
+				variant='h3'
+				component='h2'
+				gutterBottom
+			>
+				{t('basicInfo.header').toUpperCase()}
+			</Typography>
 			<Paper className={'basic-info__paper'}>
 				<img
 					src={pictureUrl}

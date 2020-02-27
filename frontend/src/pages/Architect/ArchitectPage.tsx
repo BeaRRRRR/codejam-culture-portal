@@ -9,6 +9,7 @@ import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
 import Map from '../../components/Map';
+import Box from '@material-ui/core/Box';
 import ErrorIndicator from '../../components/Error-indicator';
 import { withTranslation } from 'react-i18next';
 import Progress from '../../styled-components/loading/progress';
@@ -71,7 +72,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = props => {
 	}
 
 	return (
-		<div>
+		<Box>
 			<BasicInfo
 				name={name}
 				pictureUrl={pictureUrl}
@@ -86,7 +87,7 @@ const ArchitectPage: React.FC<ArchitectPageProps> = props => {
 			{works && <Gallery works={works} t={t} />}
 			{works && <Map works={works} t={t} />}
 			{videoUrl && <Youtube videoUrl={videoUrl} />}
-		</div>
+		</Box>
 	);
 };
 
@@ -118,8 +119,7 @@ const mapStateToProps = (state: ReducerState) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<RootAction>): any => {
-	// !!! fix type
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>): object => {
 	return {
 		fetchAuthor: fetchAuthor(dispatch)
 	};

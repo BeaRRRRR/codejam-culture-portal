@@ -75,9 +75,9 @@ const Header = (props: IHeaderProps) => {
 
 					<Tab label={t('header.searchTab')} value='/search' />
 
-					<Tab label={t('header.worklogTab')} value='/worklog' />
-
 					<Tab label={t('header.teamTab')} value='/team' />
+
+					<Tab label={t('header.worklogTab')} value='/worklog' />
 				</Tabs>
 			</Paper>
 			<div className='header__btn-scroll-top' onClick={smoothScrollTop}>

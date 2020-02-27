@@ -78,7 +78,7 @@ const Search: React.FC<SearchPanel> = ({
 		>
 			<Grid item lg={6} md={9} sm={11}>
 				<Box mt={[3, 6, 8, 10]}>
-					<Typography component='h2' variant='h2' align='center'>
+					<Typography component='h2' variant='h3' align='center'>
 						{SEARCH_PAGE_TITLE.toUpperCase()}
 					</Typography>
 				</Box>

@@ -4,7 +4,7 @@ import DevelopersTeam from '../../components/Developers-team';
 import './Team.scss';
 
 const Team: React.FC = () => (
-  <DevelopersTeam />
+	<DevelopersTeam />
 );
 
 export default Team;
