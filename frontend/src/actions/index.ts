@@ -2,13 +2,14 @@ import { action, ActionType } from 'typesafe-actions';
 
 import { Dispatch } from 'redux';
 
-import { AuthorModel, AuthorModelExtended } from '../store/types';
+import { AuthorModel, AuthorModelExtended, DeveloperModel } from '../store/types';
 
 import { AuthorService, IAuthorService } from '../services/authorService';
+import { DeveloperService, IDeveloperService } from '../services/developerService';
 import store from '../store/store';
 
-// !!! temp decision
 const authorService: IAuthorService = new AuthorService();
+const developerService: IDeveloperService = new DeveloperService();
 
 enum actionTypes {
 	FETCH_AUTHORS_LIST_REQUEST = 'FETCH_AUTHORS_LIST_REQUEST',
@@ -19,7 +20,10 @@ enum actionTypes {
 
 	FETCH_FAILURE = 'FETCH_FAILURE',
 
-	SWITCH_THEME = 'SWITCH_THEME'
+	SWITCH_THEME = 'SWITCH_THEME',
+
+	FETCH_DEVELOPERS_LIST_REQUEST = 'FETCH_DEVELOPERS_LIST_REQUEST',
+	FETCH_DEVELOPERS_LIST_SUCCESS = 'FETCH_DEVELOPERS_LIST_SUCCESS'
 }
 
 export type RootAction = ActionType<typeof fetchAuthor | typeof fetchAuthorsList | typeof switchTheme>;
@@ -68,9 +72,26 @@ const switchTheme: any = (theme: string) => {
 	store.dispatch(action);
 };
 
+const fetchDevelopersListRequest = () => (
+	action(actionTypes.FETCH_DEVELOPERS_LIST_REQUEST, [])
+);
+
+const fetchDevelopersListSuccess = (list: DeveloperModel[]) => (
+	action(actionTypes.FETCH_DEVELOPERS_LIST_SUCCESS, list)
+);
+
+const fetchDevelopersList: any = (dispatch: Dispatch<RootAction>) => {
+	dispatch(fetchDevelopersListRequest());
+
+	developerService.getAllDevelopers()
+		.then((data: DeveloperModel[]) => dispatch(fetchDevelopersListSuccess(data)))
+		.catch((error: Error) => dispatch(fetchFailure(error)));
+};
+
 export {
 	fetchAuthor,
 	fetchAuthorsList,
 	switchTheme,
-	actionTypes
+	actionTypes,
+	fetchDevelopersList
 };

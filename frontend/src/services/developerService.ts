@@ -12,4 +12,7 @@ class DeveloperService implements IDeveloperService {
 	}
 }
 
-export default DeveloperService;
+export{
+	DeveloperService,
+	IDeveloperService
+}
