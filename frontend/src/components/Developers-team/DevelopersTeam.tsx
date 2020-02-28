@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Developer from '../Developer';
 import { withTranslation } from 'react-i18next';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
+import { withRouter } from 'react-router-dom';
 
 import './DevelopersTeam.scss';
+import { DeveloperModel } from 'store/types';
+import { connect } from 'react-redux';
+import { Dispatch, compose } from 'redux';
+import { RootAction, fetchDevelopersList } from '../../actions';
+import Progress from '../../styled-components/loading/progress';
+import { ReducerState } from '../../store/types';
 
 interface IDevelopersTeamProps {
 	t: (namespace: string) => string;
+	fetchDevelopersList: () => DeveloperModel[];
+	developersList: DeveloperModel[];
+	isDevelopersLoading: boolean;
 }
 
-function DevelopersTeam({ t }: IDevelopersTeamProps) {
+const DevelopersTeam: React.FC<IDevelopersTeamProps> = ({ t, fetchDevelopersList, developersList, isDevelopersLoading }) => {
+	useEffect(() => {
+		fetchDevelopersList();
+	}, [fetchDevelopersList]);
+
+	if (isDevelopersLoading) {
+		return (
+			<Box className={'progress-container'}>
+				<Progress type='circular' size={100}/>
+			</Box>
+		);
+	}
+
 	return (
 		<Box component='section' className={'developers-team'}>
 			<Grid container justify='center' alignContent='center' spacing={2}>
@@ -20,81 +42,44 @@ function DevelopersTeam({ t }: IDevelopersTeamProps) {
 						{t('developersTeam.heading').toUpperCase()}
 					</Typography>
 				</Grid>
-				<Grid item xs={'auto'} sm={'auto'} md={4}>
-					<Developer
-						name={'Alex_F'}
-						linkToGithub={'https://github.com/AlexanderFraltsov'}
-						linkToImage={
-							'https://avatars3.githubusercontent.com/u/48531801?s=460&v=4'
-						}
-						contribution={
-							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis impedit inventore quia soluta velit voluptas. A aliquid dolorem eaque, enim error illo maiores natus numquam porro ratione ullam, velit?'
-						}
-					/>
-				</Grid>
-				<Grid item xs={'auto'} sm={'auto'} md={4}>
-					<Developer
-						name={'Pavel Burya'}
-						linkToGithub={'https://github.com/Pburua'}
-						linkToImage={
-							'https://avatars2.githubusercontent.com/u/49410961?s=400&v=4'
-						}
-						contribution={
-							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis impedit inventore quia soluta velit voluptas. A aliquid dolorem eaque, enim error illo maiores natus numquam porro ratione ullam, velit?'
-						}
-					/>
-				</Grid>
-				<Grid item xs={'auto'} sm={'auto'} md={4}>
-					<Developer
-						name={'Vitali Satsura'}
-						linkToGithub={'https://github.com/vitali-satsura'}
-						linkToImage={
-							'https://avatars0.githubusercontent.com/u/34774841?s=460&v=4'
-						}
-						contribution={
-							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis impedit inventore quia soluta velit voluptas. A aliquid dolorem eaque, enim error illo maiores natus numquam porro ratione ullam, velit?'
-						}
-					/>
-				</Grid>
-				<Grid item xs={'auto'} sm={'auto'} md={4}>
-					<Developer
-						name={'wlukla'}
-						linkToGithub={'https://github.com/wlukla'}
-						linkToImage={
-							'https://avatars3.githubusercontent.com/u/43970401?s=460&v=4'
-						}
-						contribution={
-							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis impedit inventore quia soluta velit voluptas. A aliquid dolorem eaque, enim error illo maiores natus numquam porro ratione ullam, velit?'
-						}
-					/>
-				</Grid>
-				<Grid item xs={'auto'} sm={'auto'} md={4}>
-					<Developer
-						name={'BeaRRRR'}
-						linkToGithub={'https://github.com/BeaRRRRR'}
-						linkToImage={
-							'https://avatars3.githubusercontent.com/u/32522878?s=460&v=4'
-						}
-						contribution={
-							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis impedit inventore quia soluta velit voluptas. A aliquid dolorem eaque, enim error illo maiores natus numquam porro ratione ullam, velit?'
-						}
-					/>
-				</Grid>
-				<Grid item xs={'auto'} sm={'auto'} md={4}>
-					<Developer
-						name={'alex_andrews'}
-						linkToGithub={'https://github.com/madjack99'}
-						linkToImage={
-							'https://avatars1.githubusercontent.com/u/8881601?s=460&v=4'
-						}
-						contribution={
-							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, corporis impedit inventore quia soluta velit voluptas. A aliquid dolorem eaque, enim error illo maiores natus numquam porro ratione ullam, velit?'
-						}
-					/>
-				</Grid>
+				{
+					developersList.map((developer) => (
+						<Grid item xs={'auto'} sm={'auto'} md={4} key={developer.githubUrl}>
+							<Developer
+								name={developer.name}
+								linkToGithub={developer.githubUrl}
+								linkToImage={developer.imageUrl}
+								contribution={developer.contribution}
+							/>
+						</Grid>
+					))
+				}
 			</Grid>
 		</Box>
 	);
-}
+};
 
-export default withTranslation('common')(DevelopersTeam);
+const mapStateToProps = (state: ReducerState) => {
+	if (state.isDevelopersLoading) {
+		return {
+			isDevelopersLoading: state.isDevelopersLoading
+		};
+	}
+
+	return {
+		developersList: state.developersList,
+		isDevelopersLoading: state.isDevelopersLoading
+	};
+};
+
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>): object => {
+	return {
+		fetchDevelopersList: fetchDevelopersList(dispatch)
+	};
+};
+
+export default compose(
+	withRouter,
+	connect(mapStateToProps, mapDispatchToProps),
+	withTranslation('common')
+)(DevelopersTeam) as React.ComponentType;

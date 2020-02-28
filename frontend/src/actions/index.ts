@@ -26,7 +26,7 @@ enum actionTypes {
 	FETCH_DEVELOPERS_LIST_SUCCESS = 'FETCH_DEVELOPERS_LIST_SUCCESS'
 }
 
-export type RootAction = ActionType<typeof fetchAuthor | typeof fetchAuthorsList | typeof switchTheme>;
+export type RootAction = ActionType<typeof fetchAuthor | typeof fetchAuthorsList | typeof switchTheme | typeof fetchDevelopersList>;
 
 const fetchAuthorRequest = () => (
 	action(actionTypes.FETCH_AUTHOR_REQUEST, {})
@@ -48,7 +48,7 @@ const fetchFailure = (error: Error) => (
 	action(actionTypes.FETCH_FAILURE, error)
 );
 
-const fetchAuthor: any = (dispatch: Dispatch<RootAction>) => (id: string) => { // !!!
+const fetchAuthor: any = (dispatch: Dispatch<RootAction>) => (id: string) => {
 	dispatch(fetchAuthorRequest());
 
 	authorService.getAuthor(id)
@@ -56,7 +56,7 @@ const fetchAuthor: any = (dispatch: Dispatch<RootAction>) => (id: string) => { /
 		.catch((error: any) => dispatch(fetchFailure(error)));
 };
 
-const fetchAuthorsList: any = (dispatch: Dispatch<RootAction>) => () => { // !!!
+const fetchAuthorsList: any = (dispatch: Dispatch<RootAction>) => () => {
 	dispatch(fetchAuthorsListRequest());
 
 	authorService.getAllAuthors()
@@ -80,7 +80,7 @@ const fetchDevelopersListSuccess = (list: DeveloperModel[]) => (
 	action(actionTypes.FETCH_DEVELOPERS_LIST_SUCCESS, list)
 );
 
-const fetchDevelopersList: any = (dispatch: Dispatch<RootAction>) => {
+const fetchDevelopersList: any = (dispatch: Dispatch<RootAction>) => () => {
 	dispatch(fetchDevelopersListRequest());
 
 	developerService.getAllDevelopers()

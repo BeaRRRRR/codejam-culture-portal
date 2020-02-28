@@ -4,7 +4,7 @@ import {Button, Card, CardActions, CardContent, CardMedia, Typography} from '@ma
 
 interface DeveloperInterface {
 		name: string;
-		linkToImage: string;
+		linkToImage?: string;
 		linkToGithub: string;
 		contribution: string;
 }

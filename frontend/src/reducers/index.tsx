@@ -67,8 +67,7 @@ export const rootReducer = (
 		case actionTypes.FETCH_DEVELOPERS_LIST_REQUEST: {
 			return {
 				...state,
-				isDevelopersLoading: true,
-				error: action.payload
+				isDevelopersLoading: true
 			};
 		}
 		case actionTypes.FETCH_DEVELOPERS_LIST_SUCCESS: {

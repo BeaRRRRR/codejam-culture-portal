@@ -6,7 +6,7 @@ interface IDeveloperService {
 
 class DeveloperService implements IDeveloperService {
 	getAllDevelopers() {
-		return fetch('/api/developers')
+		return fetch('/api/team')
 			.then(res => res.json())
 			.catch(err => console.log(err));
 	}
@@ -15,4 +15,4 @@ class DeveloperService implements IDeveloperService {
 export{
 	DeveloperService,
 	IDeveloperService
-}
+};
