@@ -125,7 +125,6 @@ const mapStateToProps = (state: ReducerState): any => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>): any => {
-	// !!! fix type
 	return {
 		fetchAuthorsList: fetchAuthorsList(dispatch)
 	};

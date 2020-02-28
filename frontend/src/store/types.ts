@@ -34,3 +34,10 @@ export interface LifeEvent {
 	eventDate: string;
 	summary: string;
 }
+
+export interface DeveloperModel {
+	name: string;
+	githubUrl: string;
+	imageUrl?: string;
+	contribution: string;
+}

@@ -1,4 +1,4 @@
-import { AuthorModel, AuthorModelExtended } from '../store/types';
+import { AuthorModel, AuthorModelExtended, DeveloperModel } from '../store/types';
 import { actionTypes, RootAction } from '../actions';
 
 interface StateModel {
@@ -8,6 +8,8 @@ interface StateModel {
 	isAuthorsListLoading: boolean;
 	theme: 'light' | 'dark' | undefined;
 	error: Error | null;
+	developersList: Array<DeveloperModel>;
+	isDevelopersLoading: boolean;
 }
 
 const initialState: StateModel = {
@@ -16,7 +18,9 @@ const initialState: StateModel = {
 	isAuthorsListLoading: true,
 	isAuthorLoading: true,
 	theme: 'light',
-	error: null
+	error: null,
+	developersList: [],
+	isDevelopersLoading: true
 };
 
 export const rootReducer = (
@@ -58,6 +62,19 @@ export const rootReducer = (
 			return {
 				...state,
 				theme: action.theme
+			};
+		}
+		case actionTypes.FETCH_DEVELOPERS_LIST_REQUEST: {
+			return {
+				...state,
+				isDevelopersLoading: true
+			};
+		}
+		case actionTypes.FETCH_DEVELOPERS_LIST_SUCCESS: {
+			return {
+				...state,
+				isDevelopersLoading: false,
+				developersList: action.payload
 			};
 		}
 		default:
