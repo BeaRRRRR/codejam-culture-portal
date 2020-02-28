@@ -33,7 +33,7 @@ module.exports = {
     Wrapper: path.join(__dirname,'src/theme/ThemeWrapper.tsx')
   },
   propsParser: require('react-docgen-typescript').withDefaultConfig([]).parse,
-	webpackConfig: require('./webpack.dev.config'),
+	webpackConfig: require('./webpack.prod.config'),
 	moduleAliases: {
     'rsg-example':  path.resolve(__dirname, 'src/styled-components')
   },
