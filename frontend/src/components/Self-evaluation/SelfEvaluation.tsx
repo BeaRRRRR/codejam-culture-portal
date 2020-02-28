@@ -44,6 +44,9 @@ const SelfEvaluation = (props: Props) => {
 						</Box>
 					);
 				})}
+					<Typography variant='h5' component='h3'>
+							{t('total') + ': 50 + 140 + 170 = 230'}
+					</Typography>
 			</Paper>
 		</Box>
 	);
