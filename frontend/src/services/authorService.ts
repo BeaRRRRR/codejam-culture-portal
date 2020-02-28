@@ -15,13 +15,11 @@ class AuthorService implements IAuthorService {
 	getAuthor(id: string) {
 		return fetch(`/api/authors/${id}`)
 			.then(res => res.json());
-		// .catch(err => console.log(`2431565476798709 ${err}`));
 	}
 
 	getRandomAuthor() {
 		return fetch(`/api/authors/random`)
 			.then(res => res.json());
-		// .catch(err => console.log(err));
 	}
 }
 
