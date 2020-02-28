@@ -72,19 +72,19 @@ const Search: React.FC<SearchPanel> = ({
 		<Grid
 			container
 			component='section'
-			direction='column'
+			justify='center'
 			alignContent='center'
 			spacing={0}
 		>
-			<Grid item lg={6} md={9} sm={11}>
+			<Grid item lg={11} md={11} sm={11}>
 				<Box mt={[3, 6, 8, 10]}>
-					<Typography component='h2' variant='h3' align='center'>
+					<Typography component='h2' variant='h3' align='center' gutterBottom>
 						{SEARCH_PAGE_TITLE.toUpperCase()}
 					</Typography>
 				</Box>
 			</Grid>
-			<Grid item lg={6} md={9} sm={11}>
-				<Box my={[3, 6, 8, 10]}>
+			<Grid item lg={7} md={8} sm={11} xs={11}>
+				<Box mb={[3, 6, 8, 10]}>
 					<Paper>
 						<Box p={2} display='flex' justifyContent='center'>
 							<FormGroup row>
@@ -105,7 +105,7 @@ const Search: React.FC<SearchPanel> = ({
 					</Paper>
 				</Box>
 			</Grid>
-			<Grid item lg={6} md={9} sm={11}>
+			<Grid item lg={7} md={8} sm={11} xs={11}>
 				{authors.length !== 0 ? (
 					<Paper>
 						<List>{authors}</List>
