@@ -60,7 +60,7 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 					done: true
 				},
 				{
-					points: 20,
+					points: 10,
 					text: t('normalScope.text4'),
 					done: true
 				},
