@@ -16,7 +16,6 @@ function LanguageChange(props: ILanguageChangeProps) {
 	useEffect(() => {
 		const savedLang = sessionStorage.getItem("lang");
 		const lang = savedLang ? savedLang : "en";
-		i18n.changeLanguage(lang);
 		setLanguage(lang);
 	}, []);
 
@@ -24,9 +23,11 @@ function LanguageChange(props: ILanguageChangeProps) {
 		_event: React.MouseEvent<HTMLElement>,
 		newLanguage: string
 	) => {
-		setLanguage(newLanguage);
-		i18n.changeLanguage(newLanguage);
-		sessionStorage.setItem("lang", newLanguage);
+		if (newLanguage !== null) {
+			setLanguage(newLanguage);
+			i18n.changeLanguage(newLanguage);
+			sessionStorage.setItem("lang", newLanguage);
+		}
 	};
 
 	const buttons = [
