@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { withTranslation } from "react-i18next";
-import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab/";
+import React, { useEffect } from 'react';
+import { withTranslation } from 'react-i18next';
+import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 
-import "./LanguageChange.scss";
+import './LanguageChange.scss';
 
 interface ILanguageChangeProps {
 	i18n: { changeLanguage: (lang: string) => object };
@@ -11,7 +11,7 @@ interface ILanguageChangeProps {
 function LanguageChange(props: ILanguageChangeProps) {
 	const { i18n } = props;
 
-	const [language, setLanguage] = React.useState<string | null>("en");
+	const [language, setLanguage] = React.useState<string | null>('en');
 
 	useEffect(() => {
 		const savedLang = sessionStorage.getItem("lang");
@@ -31,9 +31,9 @@ function LanguageChange(props: ILanguageChangeProps) {
 	};
 
 	const buttons = [
-		{ value: "en", content: "en" },
-		{ value: "ru", content: "ru" },
-		{ value: "be", content: "be" }
+		{ value: 'en', content: 'en' },
+		{ value: 'ru', content: 'ru' },
+		{ value: 'be', content: 'be' }
 	].map(({ value, content }) => {
 		return (
 			<ToggleButton value={value} key={value}>
@@ -47,11 +47,11 @@ function LanguageChange(props: ILanguageChangeProps) {
 			value={language}
 			exclusive
 			onChange={handleLanguageChange}
-			className="button-group"
+			className='button-group'
 		>
 			{buttons}
 		</ToggleButtonGroup>
 	);
 }
 
-export default withTranslation("common")(LanguageChange);
+export default withTranslation('common')(LanguageChange);

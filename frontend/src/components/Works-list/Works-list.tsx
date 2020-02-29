@@ -5,19 +5,23 @@ import {
 	createStyles,
 	makeStyles
 } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
-import './Works-list.scss';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+	Paper,
+	Typography,
+	Box
+} from '@material-ui/core';
+
 import WorkItem from '../Work';
 import { Work } from '../../store/types';
+
+import './Works-list.scss';
 
 export const StyledTableCell = withStyles((theme: Theme) =>
 	createStyles({
@@ -52,14 +56,20 @@ interface WorksListProps {
 	t: (namespace: string) => string;
 }
 
-const WorksList: React.FC<WorksListProps> = props => {
+const WorksList: React.FC<WorksListProps> = (props) => {
 	const classes = useStyles();
 
 	const { works, t } = props;
 
 	return (
 		<Box className='works-list' component='section'>
-			<Typography className={'works-list__heading'} variant='h3' component='h2' gutterBottom>{t('worksList.masterpiece')}</Typography>
+			<Typography
+				className='works-list__heading'
+				variant='h3' component='h2'
+				gutterBottom
+			>
+				{t('worksList.masterpiece')}
+			</Typography>
 			<TableContainer component={Paper}>
 				<Table className={classes.table} aria-label='customized table'>
 					<TableHead>

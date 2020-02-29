@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Slide from '@material-ui/core/Slide';
-import Button from '../../styled-components/basics/button';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import Typography from '@material-ui/core/Typography';
-
 import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
 import { compose } from 'redux';
 import { withTranslation } from 'react-i18next';
 
+import {
+	Paper,
+	Tabs,
+	Tab,
+	Slide,
+	Typography,
+	Button
+} from '@material-ui/core';
+
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+
 import LanguageChange from '../Language-change';
+import ThemeChange from '../Theme-change';
 
 import './Header.scss';
-import ThemeChange from '../Theme-change';
 
 function smoothScrollTop() {
 	window.scroll({

@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
-import Developer from '../Developer';
-import { withTranslation } from 'react-i18next';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import { withRouter } from 'react-router-dom';
-
-import './DevelopersTeam.scss';
-import { DeveloperModel } from 'store/types';
+import { withTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
+
+import { Typography, Grid, Box } from '@material-ui/core';
+
 import { RootAction, fetchDevelopersList } from '../../actions';
-import Progress from '../../styled-components/loading/progress';
 import { ReducerState } from '../../store/types';
+
+import { DeveloperModel } from 'store/types';
+
+import Progress from '../../styled-components/loading/progress';
+import Developer from '../Developer';
+
+import './DevelopersTeam.scss';
 
 interface IDevelopersTeamProps {
 	t: (namespace: string) => string;
@@ -21,7 +23,14 @@ interface IDevelopersTeamProps {
 	isDevelopersLoading: boolean;
 }
 
-const DevelopersTeam: React.FC<IDevelopersTeamProps> = ({ t, fetchDevelopersList, developersList, isDevelopersLoading }) => {
+const DevelopersTeam: React.FC<IDevelopersTeamProps> = (props) => {
+	const {
+		t,
+		fetchDevelopersList,
+		developersList,
+		isDevelopersLoading
+	} = props;
+
 	useEffect(() => {
 		fetchDevelopersList();
 	}, [fetchDevelopersList]);

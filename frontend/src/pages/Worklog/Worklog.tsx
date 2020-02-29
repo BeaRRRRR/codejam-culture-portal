@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react';
+import { withTranslation } from 'react-i18next';
+
 import Box from '@material-ui/core/Box';
 
 import TimeSpent from '../../components/Time-spent';
 import MainDifficulties from '../../components/Main-difficulties';
 import SelfEvaluation from '../../components/Self-evaluation';
-import { withTranslation } from 'react-i18next';
 
 import './Worklog.scss';
 

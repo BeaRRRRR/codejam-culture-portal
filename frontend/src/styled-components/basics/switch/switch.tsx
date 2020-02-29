@@ -3,34 +3,34 @@ import {Switch as DefaultSwitch} from '@material-ui/core/';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 /**
-  * Switch properties.
-  */
+	* Switch properties.
+	*/
 export interface SwitchProps {
-  color?: 'primary'|'secondary';
-  size?: 'small'|'medium';
-  value: string;
-  label?: string;
-  labelPlacement?: 'top'|'end'|'bottom'|'start';
-  checked?: boolean;
-  onChange?: any;
+	color?: 'primary'|'secondary';
+	size?: 'small'|'medium';
+	value: string;
+	label?: string;
+	labelPlacement?: 'top'|'end'|'bottom'|'start';
+	checked?: boolean;
+	onChange?: any;
 }
 
 /**
-  * @component
-  */
+	* @component
+	*/
 
 class Switch extends Component<SwitchProps, {}> {
-  render () {
-    const {checked, size, color, onChange, value, label, labelPlacement} = this.props;
-    return (
-      <FormControlLabel
-        value={value}
-        control={<DefaultSwitch color={color} size={size} checked={checked} onChange={onChange} />}
-        label={label}
-        labelPlacement={labelPlacement}
-      />
-    );
-  }
+	render () {
+		const {checked, size, color, onChange, value, label, labelPlacement} = this.props;
+		return (
+			<FormControlLabel
+				value={value}
+				control={<DefaultSwitch color={color} size={size} checked={checked} onChange={onChange} />}
+				label={label}
+				labelPlacement={labelPlacement}
+			/>
+		);
+	}
 }
 
 export default Switch;

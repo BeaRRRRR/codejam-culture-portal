@@ -1,7 +1,5 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import { Box, Typography, Paper } from '@material-ui/core';
 
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
@@ -32,7 +30,14 @@ const Map: React.FC<IMapProps> = ({ works, t }) => {
 	const centerLocation = calculateCenterLocation(points);
 	return (
 		<Box className='map' component='section'>
-			<Typography className={'map__heading'} variant='h3' component='h2' gutterBottom>{t('map.header')}</Typography>
+			<Typography
+				className={'map__heading'}
+				variant='h3'
+				component='h2'
+				gutterBottom
+			>
+				{t('map.header')}
+			</Typography>
 			<Paper className={'map__paper'}>
 				<GoogleMap
 					id='example-map'

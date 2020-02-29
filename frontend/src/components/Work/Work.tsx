@@ -3,8 +3,6 @@ import { StyledTableCell, StyledTableRow } from '../Works-list';
 
 import { Work } from '../../store/types';
 
-import './Work.scss';
-
 interface WorkProps {
 	work: Work;
 }

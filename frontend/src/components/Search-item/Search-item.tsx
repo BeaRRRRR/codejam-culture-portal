@@ -1,5 +1,12 @@
 import React from 'react';
-import { Typography, ListItem, ListItemProps, Box } from '@material-ui/core';
+
+import {
+	Typography,
+	ListItem,
+	ListItemProps,
+	Box
+} from '@material-ui/core';
+
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
 interface SearchItemProps {
