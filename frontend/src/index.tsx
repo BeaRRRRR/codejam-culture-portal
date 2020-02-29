@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
@@ -7,14 +7,19 @@ import commonEn from './translations/en/common.json';
 import commonRu from './translations/ru/common.json';
 import commonBe from './translations/be/common.json';
 
-import store from './store/store';
-import './index.scss';
+import store from "./store/store";
+import "./index.scss";
 
-import App from './components/App';
+import App from "./components/App";
+
+const getLang = () => {
+	const savedLang = sessionStorage.getItem("lang");
+	return savedLang ? savedLang : "en";
+};
 
 i18next.init({
-	interpolation: {escapeValue: false},
-	lng: 'en',
+	interpolation: { escapeValue: false },
+	lng: getLang(),
 	resources: {
 		en: {
 			common: commonEn
@@ -33,6 +38,6 @@ ReactDOM.render(
 		<Provider store={store}>
 			<App />
 		</Provider>
-	</I18nextProvider>,
-	document.getElementById('example')
+	</I18nextProvider>, 
+	document.getElementById("app")
 );
