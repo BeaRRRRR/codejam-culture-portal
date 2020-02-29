@@ -21,7 +21,8 @@ const GOOGLE_API_KEY = "AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY";
 function App() {
 	useEffect(() => {
 		const savedTheme = sessionStorage.getItem("theme");
-		switchTheme(savedTheme);
+		const theme = savedTheme ? savedTheme : "light";
+		switchTheme(theme);
 	});
 
 	return (
