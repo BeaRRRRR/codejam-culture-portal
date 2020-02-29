@@ -105,7 +105,8 @@ Min scope - 50/50
 - [x] 10 Page with team members + page with worklog
 - [x] 10 Page with list of authors contains search widget;
 - [x] 20 Portal has two languages;
-<br/><br/>
+
+
 Normal scope - 140/140
 - [x] 20 Portal has page with styleguide;
 - [x] 10 Mobile version is okey
@@ -117,7 +118,7 @@ Normal scope - 140/140
 - [x] 20 Design (typography, icons, colors, links + buttons + input are styled)
 - [x] 20 Material-ui / bootstrap is used
 - [x] 10 Portal has third language;
-<br/><br/>
+
 Extra scope - 80/90
 - [x] 10 Confidence of the project presentation;
 - [ ] 10 Project is made using gatsbyjs;
@@ -125,5 +126,5 @@ Extra scope - 80/90
 - [x] 20 Animations / special effects like paralax
 - [x] 20 Outstanding design;
 - [x] 20 Storybook/styleguidist/other react styleguide tool usage for the page with styles
-<br/><br/>
+
 Total: 50 + 140 + 80 = 270
