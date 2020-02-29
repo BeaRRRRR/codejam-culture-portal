@@ -14,7 +14,7 @@ A culture portal app about the architects of Belarus made for RSShools Online In
 *then navigate to localhost:3000 in your browser*
 
 ### Team worklog
-
+<br/><br/>
 Alexander Fraltsov
 | Feature                                  | Time spent | Start date | End date |
 |------------------------------------------|------------|------------|----------|
@@ -28,8 +28,10 @@ Alexander Fraltsov
 | implemented search component             | 2h         | 23.02      | 23.02    |
 | added some styleguidist components       | 3h         | 24.02      | 24.02    |
 | fixed search component styles            | 2h         | 24.02      | 24.02    |
+| fixed styles of typography, styleguide   | 2h         | 25.02      | 27.02 |
+| added favicon                            | 0.25 h     | 28.02      | 28.02 |
 
-
+<br/><br/>
 Pavel Burya
 | Feature                                             | Time spent | Start date | End date |
 |-----------------------------------------------------|------------|------------|----------|
@@ -41,8 +43,9 @@ Pavel Burya
 | theme changer                                       | 3h         | 24.02      | 24.02    |
 | resolve styleguide and redux conflict               | 2h         | 24.02      | 24.02    |
 | fix typescript errors, icons, markup, stylization   | 2,5h       | 25.02      | 26.02    |
+| worklog data                                        | 2h         | 28.02      | 29.02    |
 
-
+<br/><br/>
 Alex Andreyenkov
 | Feature                                               | Time spent | Start date | End date |
 |-------------------------------------------------------|------------|------------|----------|
@@ -51,20 +54,21 @@ Alex Andreyenkov
 | Implement the translation                             | 6h         | 22.02      | 26.02    |
 | Change style of change language and change theme btns | 2h         | 27.02      | 27.02    |
 | Add theme and language to session storage             | 2h         | 29.02      | 29.02    |
+| Fix minor bugs in sessionStorage and Buttons          | 1h         | 29.02      | 29.02    |
 
-
+<br/><br/>
 Mikhail Kedzel
-| Feature                                               | Time spent | Start date | End date |
-|-------------------------------------------------------|------------|------------|----------|
+| Feature                             | Time spent | Start date | End date |
+|-------------------------------------|------------|------------|----------|
 | Implement basic directory structure | 2h  | 12.02 | 13.02 |
 | Bug fixes                           | 2h  | 15.02 | 16.02 |
 | Backend                             | 12h | 16.02 | 20.02 |
 | Connect frontend with backend       | 2h  | 20.02 | 21.02 |
 | Deploy the whole project to heroku  | 4h  | 21.02 | 23.02 |
 | More api routes in backend          | 4h  | 23.02 | 26.02 |
-| Reducing web bunlde size            | 4h  | 26.02 | 27.02 |
+| Reducing web bunlde size            | 8h  | 26.02 | 27.02 |
 
-
+<br/><br/>
 Vitali Satsura
 | Feature                                                | Time spent | Start date | End date |
 |--------------------------------------------------------|------------|------------|----------|
@@ -78,7 +82,7 @@ Vitali Satsura
 | update Home page styles                                | 3h         | 26.02      | 26.02    |
 | update Architect page styles                           | 3h         | 26.02      | 26.02    |
 
-
+<br/><br/>
 Vladyslav Danilochkin
 | Feature                                                  | Time spent | Start date | End date |
 |----------------------------------------------------------|------------|------------|----------|
@@ -96,26 +100,26 @@ Vladyslav Danilochkin
 ### Self Evaluation
 
 Min scope - 50/50
- [x] 10 Main page + page with a list of authors + author's page (only pages with content without widgets);
- [x] 10 Page with team members + page with worklog
- [x] 10 Page with list of authors contains search widget;
- [x] 20 Portal has two languages;
+- [x] 10 Main page + page with a list of authors + author's page (only pages with content without widgets);
+- [x] 10 Page with team members + page with worklog
+- [x] 10 Page with list of authors contains search widget;
+- [x] 20 Portal has two languages;
 Normal scope - 140/140
- [x] 20 Portal has page with styleguide;
- [x] 10 Mobile version is okey
- [x] 10 Ipad/tablet version is okey
- [x] 10 Author's page contains timeline;
- [x] 10 Author's page contains video overlay;
- [x] 20 Author's page contains photo gallery;
- [x] 10 Author's page contains map (geowidget);
- [x] 20 Design (typography, icons, colors, links + buttons + input are styled)
- [x] 20 Material-ui / bootstrap is used
- [x] 10 Portal has third language;
+- [x] 20 Portal has page with styleguide;
+- [x] 10 Mobile version is okey
+- [x] 10 Ipad/tablet version is okey
+- [x] 10 Author's page contains timeline;
+- [x] 10 Author's page contains video overlay;
+- [x] 20 Author's page contains photo gallery;
+- [x] 10 Author's page contains map (geowidget);
+- [x] 20 Design (typography, icons, colors, links + buttons + input are styled)
+- [x] 20 Material-ui / bootstrap is used
+- [x] 10 Portal has third language;
 Extra scope - 80/90
- [x] 10 Confidence of the project presentation;
- [] 10 Project is made using gatsbyjs;
- [x] 10 Contentful / netlify cms is used for content management
- [x] 20 Animations / special effects like paralax
- [x] 20 Outstanding design;
- [x] 20 Storybook/styleguidist/other react styleguide tool usage for the page with styles
+- [x] 10 Confidence of the project presentation;
+- [] 10 Project is made using gatsbyjs;
+- [x] 10 Contentful / netlify cms is used for content management
+- [x] 20 Animations / special effects like paralax
+- [x] 20 Outstanding design;
+- [x] 20 Storybook/styleguidist/other react styleguide tool usage for the page with styles
 Total: 50 + 140 + 80 = 270
