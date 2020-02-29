@@ -28,7 +28,7 @@ const SelfEvaluation = (props: Props) => {
 
 	return (
 		<Box className='self-evaluation' component='section'>
-			<Typography variant='h4' component='h2'>
+			<Typography variant='h4' component='h2' gutterBottom>
 				{t('selfEvaluation')}
 			</Typography>
 			<Paper className='self-evaluation__paper'>
@@ -44,6 +44,9 @@ const SelfEvaluation = (props: Props) => {
 						</Box>
 					);
 				})}
+					<Typography variant='h5' component='h3'>
+							{t('total') + ': 50 + 140 + 170 = 230'}
+					</Typography>
 			</Paper>
 		</Box>
 	);

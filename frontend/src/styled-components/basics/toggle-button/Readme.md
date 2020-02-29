@@ -35,8 +35,10 @@ const ToggleButtons = () => {
 };
 
 ;<>
-<Box bgcolor='background.default' color="text.primary" p={2}>
-  <ToggleButtons />
+<Box display='flex' justifyContent='space-around'>
+	<Box bgcolor='background.default' color="text.primary" p={2}>
+		<ToggleButtons />
+	</Box>
 </Box>
 </>
 ```

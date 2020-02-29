@@ -17,8 +17,9 @@ function ThemeChange({ display, theme }: ThemeChangeInterface) {
 	let buttonNames = ["light", "dark"];
 
 	function handleClick(_e: MouseEvent<HTMLElement>, newTheme: string) {
-		if (newTheme !== theme) {
+		if (newTheme !== theme && newTheme !== null) {
 			switchTheme(newTheme);
+			sessionStorage.setItem("theme", newTheme);
 		}
 	}
 

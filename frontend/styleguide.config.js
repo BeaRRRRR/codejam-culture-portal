@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+	assetsDir: 'src/styled-components/assets/',
   components:'src/styled-components/**/*.ts',
   sections: [
 		{
@@ -32,8 +33,7 @@ module.exports = {
     Wrapper: path.join(__dirname,'src/theme/ThemeWrapper.tsx')
   },
   propsParser: require('react-docgen-typescript').withDefaultConfig([]).parse,
-	//propParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
-	webpackConfig: require('./webpack.dev.config'),
+	webpackConfig: require('./webpack.prod.config'),
 	moduleAliases: {
     'rsg-example':  path.resolve(__dirname, 'src/styled-components')
   },
@@ -43,14 +43,14 @@ module.exports = {
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css?family=Roboto'
-        }
+				},
       ]
     },
-    favicon: 'https://assets-cdn.github.com/favicon.ico'
+
   },
   theme: {
     fontFamily: {
-      base: '"Roboto", sans-serif'
+			base: '"Roboto", "Exo 2", sans-serif'
     }
   }
 };

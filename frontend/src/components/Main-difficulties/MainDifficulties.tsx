@@ -1,41 +1,37 @@
-import React from "react";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { withTranslation } from "react-i18next";
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import {withTranslation} from 'react-i18next';
 
-import DifficultyList from "../DifficultyList";
+import DifficultyList from '../DifficultyList';
 
 interface IMainDifficulties {
-	t(namespace: string): string;
+		t(namespace: string): string;
 }
 
-function MainDifficulties({ t }: IMainDifficulties) {
-	return (
-		<Box component="section" className="main-difficulties">
-			<Typography variant="h4" component="h2">
-				{t("mainDifficulties")}
-			</Typography>
-			<DifficultyList
-				difficulties={[
-					{
-						name: "Problem1",
-						description:
-							"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore laboriosam magni nihil obcaecati pariatur voluptas! Accusantium aperiam architecto autem dicta eaque nam, officiis perspiciatis quam quidem, sint soluta ut voluptates!"
-					},
-					{
-						name: "Problem2",
-						description:
-							"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores distinctio esse et, fugit harum in incidunt inventore libero magni modi odit quod rerum sapiente sequi sunt tempore veniam vero."
-					},
-					{
-						name: "Problem3",
-						description:
-							"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis consectetur corporis deserunt dicta, dignissimos eius eligendi esse ex fuga hic inventore ipsa nam, nesciunt nobis quasi, quibusdam reprehenderit sunt."
-					}
-				]}
-			/>
-		</Box>
-	);
+function MainDifficulties({t}: IMainDifficulties) {
+		return (
+				<Box component='section' className='main-difficulties'>
+						<Typography variant='h4' component='h2'>
+								{t('mainDifficulties')}
+						</Typography>
+						<DifficultyList
+								difficulties={[
+										{
+												name: 'Technical difficulties',
+												description:
+														'During the implementation, the team members met some moments that required significant time and effort. This includes creating a project frame, implementing an Redux on a Typescript, \n' +
+														'setting up of material-ui and styleguidist and site deploying on heroku.'
+										},
+										{
+												name: 'Merge conflicts',
+												description:
+														'As is inevitable in any team work, we had to face a large number of merge conflicts. When resolving them, due to lack of testing, we had to fix several bugs and errors.'
+										}
+								]}
+						/>
+				</Box>
+		);
 }
 
-export default withTranslation("common")(MainDifficulties);
+export default withTranslation('common')(MainDifficulties);

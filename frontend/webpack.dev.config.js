@@ -76,7 +76,8 @@ module.exports = {
     // dependencies, which allows browsers to cache those libraries between builds.
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+						template: './public/index.html',
+						favicon: './public/favicon.ico'
         })
     ]
 };
