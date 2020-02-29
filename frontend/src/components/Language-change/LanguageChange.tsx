@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withTranslation } from "react-i18next";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab/";
 
@@ -12,6 +12,13 @@ function LanguageChange(props: ILanguageChangeProps) {
 	const { i18n } = props;
 
 	const [language, setLanguage] = React.useState<string | null>("en");
+
+	useEffect(() => {
+		const savedLang = sessionStorage.getItem("lang");
+		const lang = savedLang ? savedLang : "en";
+		i18n.changeLanguage(lang);
+		setLanguage(lang);
+	}, []);
 
 	const handleLanguageChange = (
 		_event: React.MouseEvent<HTMLElement>,
