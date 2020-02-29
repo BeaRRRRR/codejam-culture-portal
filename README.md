@@ -2,6 +2,7 @@
 A culture portal app about the architects of Belarus made for RSShools Online Internship 
 
 Build version is available at the following link: https://codejam-culture-portal.herokuapp.com/#/
+
 Styleguide is available at the following link: https://eager-beaver-1c41cc.netlify.com/
 
 ### Workflow
@@ -16,7 +17,7 @@ Styleguide is available at the following link: https://eager-beaver-1c41cc.netli
 
 *then navigate to localhost:3000 in your browser*
 
-``
+
 ### Team worklog
 Alexander Fraltsov
 | Feature                                  | Time spent | Start date | End date |
