@@ -1,3 +1,5 @@
 export default function getRandomNumber(max: number): number {
-    return Math.floor(Math.random() * Math.floor(max));
+    const date: Date = new Date();
+    const day = date.getDay();
+    return Math.abs(day - max);
 }
