@@ -37,7 +37,7 @@
 		"text1": "Main page + page with a list of authors + author's page (only pages with content without widgets)",
 		"text2": "Page with team members + page with worklog",
 		"text3": "Page with list of authors contains search widget",
-		"text4": "Portal has two languages;"
+		"text4": "Portal has two languages"
 	},
 	"normalScope": {
 		"header": "Normal scope",
@@ -48,7 +48,7 @@
 		"text5": "Author's page contains video overlay",
 		"text6": "Author's page contains photo gallery",
 		"text7": "Author's page contains map (geowidget)",
-		"text8": "Design (typography, icons, colors, links + buttons + input are styled);",
+		"text8": "Design (typography, icons, colors, links + buttons + input are styled)",
 		"text9": "Material-ui / bootstrap is used",
 		"text10": "Portal has third language"
 	},
@@ -59,7 +59,7 @@
 		"text3": "Contentful / netlify cms is used for content management",
 		"text4": "Animations / special effects like paralax",
 		"text5": "Outstanding design",
-		"text6": "Storybook/styleguidist/other react styleguide tool usage for the page with styles;"
+		"text6": "Storybook/styleguidist/other react styleguide tool usage for the page with styles"
 	},
 	"total": "Total",
 	"loading": "Loading...",
