@@ -73,6 +73,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
+            favicon: './public/favicon.ico',
             jsExtension: '.br'
         }),
         new HtmlWebpackChangeAssetsExtensionPlugin(),
@@ -83,6 +84,5 @@ module.exports = {
             minRatio: 0.8,
             deleteOriginalAssets: true
 		    }),
-				favicon: './public/favicon.ico'
     ]
 };
