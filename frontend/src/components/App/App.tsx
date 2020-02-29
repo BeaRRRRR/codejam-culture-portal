@@ -8,6 +8,7 @@ import NotFoundPage from "../../pages/Not-found";
 import Team from "../../pages/Team";
 import Spinner from "../Spinner";
 import { switchTheme } from "../../actions";
+import { withTranslation } from "react-i18next";
 
 import Container from "@material-ui/core/Container";
 import ThemeProvider from "../../theme";
@@ -18,12 +19,16 @@ import { LoadScript } from "@react-google-maps/api";
 
 const GOOGLE_API_KEY = "AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY";
 
-function App() {
+function App({ i18n }) {
 	useEffect(() => {
 		const savedTheme = sessionStorage.getItem("theme");
 		const theme = savedTheme ? savedTheme : "light";
 		switchTheme(theme);
-	});
+
+		const savedLang = sessionStorage.getItem("lang");
+		const lang = savedLang ? savedLang : "en";
+		i18n.changeLanguage(lang);
+	}, []);
 
 	return (
 		<>
@@ -90,4 +95,4 @@ function App() {
 	);
 }
 
-export default App;
+export default withTranslation("common")(App);

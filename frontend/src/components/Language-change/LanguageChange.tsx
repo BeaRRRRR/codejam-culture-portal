@@ -19,6 +19,7 @@ function LanguageChange(props: ILanguageChangeProps) {
 	) => {
 		setLanguage(newLanguage);
 		i18n.changeLanguage(newLanguage);
+		sessionStorage.setItem("lang", newLanguage);
 	};
 
 	const buttons = [
