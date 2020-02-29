@@ -162,6 +162,12 @@ function TimeSpent({t}: ITimeSpentProps) {
 												timeSpent: '2h',
 												startDate: '27.02',
 												endDate: '27.02'
+										},
+										{
+												feature: 'Add theme and language to session storage',
+												timeSpent: '2h',
+												startDate: '29.02',
+												endDate: '29.02'
 										}
 								]}
 						/>
