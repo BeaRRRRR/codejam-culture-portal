@@ -1,11 +1,11 @@
-import React, { MouseEvent } from 'react';
-import { switchTheme } from '../../actions';
-import { connect } from 'react-redux';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
-import Brightness3Icon from '@material-ui/icons/Brightness3';
-import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab/';
+import React, { MouseEvent } from "react";
+import { switchTheme } from "../../actions";
+import { connect } from "react-redux";
+import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import Brightness3Icon from "@material-ui/icons/Brightness3";
+import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab/";
 
-import './ThemeChange.scss';
+import "./ThemeChange.scss";
 
 interface ThemeChangeInterface {
 	display?: string;
@@ -14,25 +14,26 @@ interface ThemeChangeInterface {
 }
 
 function ThemeChange({ display, theme }: ThemeChangeInterface) {
-	let buttonNames = ['light', 'dark'];
+	let buttonNames = ["light", "dark"];
 
 	function handleClick(_e: MouseEvent<HTMLElement>, newTheme: string) {
 		if (newTheme !== theme && newTheme !== null) {
 			switchTheme(newTheme);
+			sessionStorage.setItem("theme", newTheme);
 		}
 	}
 
 	let buttons: JSX.Element[] = buttonNames.map(buttonName => {
 		return (
 			<ToggleButton value={buttonName} key={buttonName}>
-				{buttonName === 'light' ? <WbSunnyIcon /> : <Brightness3Icon />}
+				{buttonName === "light" ? <WbSunnyIcon /> : <Brightness3Icon />}
 			</ToggleButton>
 		);
 	});
 
-	let buttonGroupClasses = 'theme-change-button-group';
-	if (display === 'bottom') buttonGroupClasses += ' bottom';
-	else buttonGroupClasses += ' top';
+	let buttonGroupClasses = "theme-change-button-group";
+	if (display === "bottom") buttonGroupClasses += " bottom";
+	else buttonGroupClasses += " top";
 
 	return (
 		<ToggleButtonGroup
