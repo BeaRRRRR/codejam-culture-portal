@@ -13,8 +13,8 @@ A culture portal app about the architects of Belarus made for RSShools Online In
 
 *then navigate to localhost:3000 in your browser*
 
-### Team worklog
 <br/><br/>
+### Team worklog
 Alexander Fraltsov
 | Feature                                  | Time spent | Start date | End date |
 |------------------------------------------|------------|------------|----------|
@@ -97,6 +97,7 @@ Vladyslav Danilochkin
 | Update Gallery and Youtube components for responsiveness | 3h   | 26.02 | 26.02 |
 | Implement data display for team page                     | 1,5h | 28.02 | 28.02 |
 
+<br/><br/>
 ### Self Evaluation
 
 Min scope - 50/50
@@ -104,7 +105,8 @@ Min scope - 50/50
 - [x] 10 Page with team members + page with worklog
 - [x] 10 Page with list of authors contains search widget;
 - [x] 20 Portal has two languages;
-<br/><br/>Normal scope - 140/140
+<br/><br/>
+Normal scope - 140/140
 - [x] 20 Portal has page with styleguide;
 - [x] 10 Mobile version is okey
 - [x] 10 Ipad/tablet version is okey
@@ -115,11 +117,13 @@ Min scope - 50/50
 - [x] 20 Design (typography, icons, colors, links + buttons + input are styled)
 - [x] 20 Material-ui / bootstrap is used
 - [x] 10 Portal has third language;
-<br/><br/>Extra scope - 80/90
+<br/><br/>
+Extra scope - 80/90
 - [x] 10 Confidence of the project presentation;
 - [ ] 10 Project is made using gatsbyjs;
 - [x] 10 Contentful / netlify cms is used for content management
 - [x] 20 Animations / special effects like paralax
 - [x] 20 Outstanding design;
 - [x] 20 Storybook/styleguidist/other react styleguide tool usage for the page with styles
-<br/><br/>Total: 50 + 140 + 80 = 270
+<br/><br/>
+Total: 50 + 140 + 80 = 270
