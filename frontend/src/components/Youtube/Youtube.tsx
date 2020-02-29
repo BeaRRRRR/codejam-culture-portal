@@ -9,9 +9,16 @@ interface IVideoProps {
 	videoUrl: string;
 }
 
-const Video: React.FC<IVideoProps> = (props) => (
+const Youtube: React.FC<IVideoProps> = (props) => (
 	<Box className='youtube' component='section'>
-		<Typography className={'youtube__heading'} variant='h3' component='h2' gutterBottom>Youtube</Typography>
+		<Typography
+			className='youtube__heading'
+			variant='h3'
+			component='h2'
+			gutterBottom
+		>
+			Video
+		</Typography>
 		<Paper className={'youtube__paper'}>
 			<iframe
 				src={`https://www.youtube.com/embed/${props.videoUrl}?autoplay=0&`}
@@ -20,4 +27,4 @@ const Video: React.FC<IVideoProps> = (props) => (
 	</Box>
 );
 
-export default Video;
+export default Youtube;

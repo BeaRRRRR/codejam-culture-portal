@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch, compose } from 'redux';
 import { withRouter } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
 
 import BasicInfo from '../../components/Basic-info';
 import Biography from '../../components/Biography';
@@ -9,16 +10,16 @@ import WorksList from '../../components/Works-list';
 import Gallery from '../../components/Gallery';
 import Youtube from '../../components/Youtube';
 import Map from '../../components/Map';
+
 import Box from '@material-ui/core/Box';
 import ErrorIndicator from '../../components/Error-indicator';
-import { withTranslation } from 'react-i18next';
 import Progress from '../../styled-components/loading/progress';
 
 import { fetchAuthor, RootAction } from '../../actions';
-
-import './ArchitectPage.scss';
 import { ReducerState } from '../../store/types';
 import { Work, LifeEvent } from '../../store/types';
+
+import './ArchitectPage.scss';
 
 interface ArchitectPageProps {
 	fetchAuthor: (id: string) => object;

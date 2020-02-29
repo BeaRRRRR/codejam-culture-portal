@@ -1,12 +1,11 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import { Box, Typography, Paper } from '@material-ui/core';
 
 import { Work } from '../../store/types';
 
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
+
 import './Gallery.scss';
 
 const createImage = (item: Work) => (

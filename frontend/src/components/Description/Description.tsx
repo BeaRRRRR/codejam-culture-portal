@@ -12,7 +12,7 @@ interface IDescriptionProps {
 
 function Description({ t }: IDescriptionProps) {
 	return (
-		<Box className={'description'} component='section' my={[3, 6, 8, 10]}>
+		<Box className='description' component='section' my={[3, 6, 8, 10]}>
 			<Typography
 				className='description__heading'
 				variant='h3'
@@ -22,23 +22,23 @@ function Description({ t }: IDescriptionProps) {
 			>
 				{t('description.header').toUpperCase()}
 			</Typography>
-			<Paper className={'description__paper'}>
+			<Paper className='description__paper'>
 				<Typography
-					className={'description__text'}
+					className='description__text'
 					variant='body1'
 					component='p'
 				>
 					{t('description.p1')}
 				</Typography>
 				<Typography
-					className={'description__text'}
+					className='description__text'
 					variant='body1'
 					component='p'
 				>
 					{t('description.p2')}
 				</Typography>
 				<Typography
-					className={'description__text'}
+					className='description__text'
 					variant='body1'
 					component='p'
 				>

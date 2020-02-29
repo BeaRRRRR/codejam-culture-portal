@@ -1,8 +1,16 @@
 import React from 'react';
-import './DifficultyList.scss';
-import { List, ListItem, ListItemText, Collapse, Paper } from '@material-ui/core';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import {
+	List,
+	ListItem,
+	ListItemText,
+	Collapse,
+	Paper,
+	Box
+} from '@material-ui/core';
+
+import './DifficultyList.scss';
 
 interface DifficultyListInterface {
 	difficulties: {
@@ -15,8 +23,8 @@ function DifficultyList({difficulties}: DifficultyListInterface) {
 	return (
 		<Paper className='difficulty-list'>
 			<List
-					component='div'
-					aria-labelledby='nested-list'
+				component='div'
+				aria-labelledby='nested-list'
 			>
 				{difficulties.map((el) => {
 					const [open, setOpen] = React.useState(false);
@@ -26,7 +34,7 @@ function DifficultyList({difficulties}: DifficultyListInterface) {
 					};
 
 					return (
-						<div key={el.name}>
+						<Box key={el.name}>
 							<ListItem button onClick={handleClick}>
 								<ListItemText primary={el.name} />
 								{open ? <ExpandLess /> : <ExpandMore />}
@@ -38,7 +46,7 @@ function DifficultyList({difficulties}: DifficultyListInterface) {
 									</ListItem>
 								</List>
 						</Collapse>
-						</div>
+						</Box>
 					);
 				})}
 			</List>

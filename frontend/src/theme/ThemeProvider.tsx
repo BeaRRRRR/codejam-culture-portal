@@ -1,11 +1,16 @@
 import React from 'react';
-import {ThemeProvider, createMuiTheme, Theme, responsiveFontSizes} from '@material-ui/core/styles';
-import {CssBaseline} from '@material-ui/core';
-import {connect} from 'react-redux';
+import {
+	ThemeProvider,
+	createMuiTheme,
+	Theme,
+	responsiveFontSizes
+} from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+import { connect } from 'react-redux';
 
 export interface ThemeProps {
-		children: any;
-		theme?: 'light' | 'dark' | undefined;
+	children: any;
+	theme?: 'light' | 'dark' | undefined;
 }
 
 const ThemeProv = (props: ThemeProps) => {
@@ -50,20 +55,20 @@ const ThemeProv = (props: ThemeProps) => {
 		shape: {borderRadius: 10}
 	});
 
-		theme = responsiveFontSizes(theme);
+	theme = responsiveFontSizes(theme);
 
-		return (
-				<ThemeProvider theme={theme}>
-						<CssBaseline />
-						{props.children}
-				</ThemeProvider>
-		);
+	return (
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			{props.children}
+		</ThemeProvider>
+	);
 };
 
 function mapStateToProps(oldState) {
-		return {
-				theme: oldState.theme
-		};
+	return {
+		theme: oldState.theme
+	};
 }
 
 export default connect(mapStateToProps)(ThemeProv) as React.ComponentType;

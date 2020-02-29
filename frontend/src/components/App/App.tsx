@@ -1,27 +1,28 @@
-import React, { useEffect } from "react";
-import Header from "../Header";
-import HomePage from "../../pages/Home";
-import ArchitectPage from "../../pages/Architect";
-import SearchPage from "../../pages/Search";
-import Worklog from "../../pages/Worklog/index";
-import NotFoundPage from "../../pages/Not-found";
-import Team from "../../pages/Team";
-import Spinner from "../Spinner";
-import { switchTheme } from "../../actions";
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Container from "@material-ui/core/Container";
-import ThemeProvider from "../../theme";
+import Header from '../Header';
+import HomePage from '../../pages/Home';
+import ArchitectPage from '../../pages/Architect';
+import SearchPage from '../../pages/Search';
+import Worklog from '../../pages/Worklog/index';
+import NotFoundPage from '../../pages/Not-found';
+import Team from '../../pages/Team';
+import Spinner from '../Spinner';
 
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { switchTheme } from '../../actions';
 
-import { LoadScript } from "@react-google-maps/api";
+import Container from '@material-ui/core/Container';
+import ThemeProvider from '../../theme';
 
-const GOOGLE_API_KEY = "AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY";
+import { LoadScript } from '@react-google-maps/api';
+
+const GOOGLE_API_KEY = 'AIzaSyDdVGeaV2xofDELkV8F_pIf2mz7m8h1-aY';
 
 function App() {
 	useEffect(() => {
-		const savedTheme = sessionStorage.getItem("theme");
-		const theme = savedTheme ? savedTheme : "light";
+		const savedTheme = sessionStorage.getItem('theme');
+		const theme = savedTheme ? savedTheme : 'light';
 		switchTheme(theme);
 	}, []);
 
@@ -37,7 +38,7 @@ function App() {
 							<Header />
 							<Switch>
 								<Route
-									path="/"
+									path='/'
 									exact
 									render={() => (
 										<>
@@ -46,7 +47,7 @@ function App() {
 									)}
 								/>
 								<Route
-									path="/search"
+									path='/search'
 									exact
 									render={() => (
 										<>
@@ -55,7 +56,7 @@ function App() {
 									)}
 								/>
 								<Route
-									path="/worklog"
+									path='/worklog'
 									exact
 									render={() => (
 										<>
@@ -64,7 +65,7 @@ function App() {
 									)}
 								/>
 								<Route
-									path="/team"
+									path='/team'
 									exact
 									render={() => (
 										<>
@@ -73,14 +74,14 @@ function App() {
 									)}
 								/>
 								<Route
-									path="/architect/:id"
+									path='/architect/:id'
 									render={() => (
 										<>
 											<ArchitectPage />
 										</>
 									)}
 								/>
-								<Route path="/" render={() => <NotFoundPage />} />
+								<Route path='/' render={() => <NotFoundPage />} />
 							</Switch>
 						</Router>
 					</LoadScript>

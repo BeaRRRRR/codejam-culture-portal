@@ -6,12 +6,12 @@
   justify-content: flex-start;
   align-items: center;
   text-align: center;
+
   @media screen and (max-width: 700px) {
     width: 90%;
-  }  
+  }
 }
 
 .vertical-timeline::before {
   background: #303030;
 }
- 
