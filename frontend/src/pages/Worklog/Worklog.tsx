@@ -99,7 +99,7 @@ const Worklog = ({t}: IWorklogProps): ReactElement => {
 		},
 		{
 			scope: t('extraScope.header'),
-			points: 70,
+			points: 80,
 			items: [
 				{
 					points: 10,
