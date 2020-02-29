@@ -1,6 +1,9 @@
 # codejam-culture-portal
 A culture portal app about the architects of Belarus made for RSShools Online Internship 
 
+Build version is available at the following link: https://codejam-culture-portal.herokuapp.com/#/
+Styleguide is available at the following link: https://eager-beaver-1c41cc.netlify.com/
+
 ### Workflow
 
 *in your first terminal tab*
@@ -13,7 +16,7 @@ A culture portal app about the architects of Belarus made for RSShools Online In
 
 *then navigate to localhost:3000 in your browser*
 
-<br/><br/>
+``
 ### Team worklog
 Alexander Fraltsov
 | Feature                                  | Time spent | Start date | End date |
@@ -97,7 +100,6 @@ Vladyslav Danilochkin
 | Update Gallery and Youtube components for responsiveness | 3h   | 26.02 | 26.02 |
 | Implement data display for team page                     | 1,5h | 28.02 | 28.02 |
 
-<br/><br/>
 ### Self Evaluation
 
 Min scope - 50/50
@@ -105,7 +107,6 @@ Min scope - 50/50
 - [x] 10 Page with team members + page with worklog
 - [x] 10 Page with list of authors contains search widget;
 - [x] 20 Portal has two languages;
-
 
 Normal scope - 140/140
 - [x] 20 Portal has page with styleguide;
