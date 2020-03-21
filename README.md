@@ -1,5 +1,5 @@
 # codejam-culture-portal
-A culture portal app about the architects of Belarus made for RSShools Online Internship 
+A culture portal app about the architects of Belarus made for RSShools Online Internship
 
 Build version is available at the following link: https://codejam-culture-portal.herokuapp.com/#/
 

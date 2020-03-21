@@ -6,4 +6,3 @@ export default interface Work {
     place: Place,
     imageUrl: string
 }
-

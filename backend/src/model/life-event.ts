@@ -1,4 +1,4 @@
 export default interface LifeEvent {
-    eventDate: string;
-    summary: string,
+  eventDate: string;
+  summary: string;
 }
