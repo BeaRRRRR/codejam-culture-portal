@@ -1,0 +1,28 @@
+.gallery {
+  width: 70%;
+  margin: 20px auto;
+  text-align: center;
+
+  @media screen and (max-width: 700px) {
+    width: 90%;
+  }
+
+  &__paper {
+    padding: 15px;
+    height: auto;
+  }
+
+  &__image img {
+    padding: 1px;
+    height: 30rem;
+    width: auto;
+
+    @media screen and (max-width: 800px) {
+      height: 20rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      height: 15rem;
+    }
+  }
+}

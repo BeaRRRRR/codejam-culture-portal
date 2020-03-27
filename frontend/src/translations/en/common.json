@@ -1,0 +1,83 @@
+{
+	"header": {
+		"title": "Architects of Belarus",
+		"homeTab": "Home",
+		"searchTab": "Search",
+		"worklogTab": "Worklog",
+		"teamTab": "Team"
+	},
+	"description": {
+		"header": "Description",
+		"p1": "The Belarusian Union of Architects is already 70 years old. Its history is part of the history of the country and the people, its creative activity. A long and difficult path has been passed - the path of search and embodiment, mistakes and achievements. And today's Belarus reveals to the world its beautiful new face thanks to the talent and skill, professional skill of Architects, whose tireless work has grown over the years the treasury of Belarusian architecture.",
+		"p2": "The historical chronicle captured in documents, decrees, resolutions, opens the curtain of time for us, conveys the style of creativity and leadership, the mood and aspirations of several generations of architects. All this is read between the lines of documents, and in copyright works. In them - the spirit of the era, complex and ambiguous, life and creative impulses of people who have devoted themselves to Architecture. In them is the story of a creative community of people. And above all this is the breath of Eternity.",
+		"p3": "We turned the last page of the chronicle of the Belarusian Union of Architects. But not the last in his work. Time will add new names, new ideas, new objects. But this is in the future. And today we bring sincere gratitude to all architects for the work created by them."
+	},
+	"authorOfTheDay": {
+		"heading": "Author of the day",
+		"learnMore": "Learn more"
+	},
+	"developersTeam": {
+		"heading": "Developers team"
+	},
+	"search": {
+		"title": "Belarusian architects",
+		"notFound": "We have no authors for your request!",
+		"searchBy": "Search by",
+		"searchByName": "Name",
+		"searchByCity": "City"
+	},
+	"themeChange": {
+		"light": "light",
+		"dark": "dark"
+	},
+	"up": "up",
+	"selfEvaluation": "Self Evaluation",
+	"minScope": {
+		"header": "Min scope",
+		"text1": "Main page + page with a list of authors + author's page (only pages with content without widgets)",
+		"text2": "Page with team members + page with worklog",
+		"text3": "Page with list of authors contains search widget",
+		"text4": "Portal has two languages"
+	},
+	"normalScope": {
+		"header": "Normal scope",
+		"text1": "Portal has page with styleguide",
+		"text2": "Mobile version is okey",
+		"text3": "Ipad/tablet version is okey",
+		"text4": "Author's page contains timeline",
+		"text5": "Author's page contains video overlay",
+		"text6": "Author's page contains photo gallery",
+		"text7": "Author's page contains map (geowidget)",
+		"text8": "Design (typography, icons, colors, links + buttons + input are styled)",
+		"text9": "Material-ui / bootstrap is used",
+		"text10": "Portal has third language"
+	},
+	"extraScope": {
+		"header": "Extra scope",
+		"text1": "Confidence of the project presentation",
+		"text2": "Project is made using gatsbyjs",
+		"text3": "Contentful / netlify cms is used for content management",
+		"text4": "Animations / special effects like paralax",
+		"text5": "Outstanding design",
+		"text6": "Storybook/styleguidist/other react styleguide tool usage for the page with styles"
+	},
+	"total": "Total",
+	"loading": "Loading...",
+	"worksList": {
+		"masterpiece": "Masterpieces",
+		"work": "Work",
+		"creationDate": "Creation Date"
+	},
+	"timeLine": "Timeline",
+	"basicInfo": {
+		"header": "Architect"
+	},
+	"gallery": {
+		"header": "Gallery"
+	},
+	"map": {
+		"header": "Map"
+	},
+	"timeSpent": "Time spent",
+	"mainDifficulties": "Main Difficulties"
+}

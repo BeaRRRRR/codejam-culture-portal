@@ -4,6 +4,8 @@
   "description": "A culture portal about famous architects of Belarus",
   "main": "index.js",
   "scripts": {
+    "start": "cd backend && npm start",
+    "heroku-postbuild": "bash scripts/buildProdHeroku.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

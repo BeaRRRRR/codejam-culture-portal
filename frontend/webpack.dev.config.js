@@ -7,13 +7,13 @@ module.exports = {
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
-    // watch: true,
+    watch: true,
 
     entry: './src/index.tsx',
 
     // and output it into /dist as bundle.js
     output: {
-        path: path.join(__dirname, '/build'),
+        path: path.join(__dirname,'../backend', '/build'),
         filename: 'bundle.js'
     },
 
@@ -46,7 +46,7 @@ module.exports = {
                 loader: "source-map-loader"
             },
             {
-                test: /\.(scss)$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [{
                     loader: 'style-loader', // inject CSS to page
                 }, {
@@ -76,7 +76,8 @@ module.exports = {
     // dependencies, which allows browsers to cache those libraries between builds.
     plugins: [
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+						template: './public/index.html',
+						favicon: './public/favicon.ico'
         })
     ]
 };
