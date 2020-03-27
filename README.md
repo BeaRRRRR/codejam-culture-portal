@@ -1,5 +1,14 @@
 # codejam-culture-portal
-A culture portal app about the architects of Belarus made for RSShools Online Internship
+## About
+А fully-fledged modern website about famous Belarusian architects, deployed to Heroku.
+Built with:
+ - React
+ - Redux
+ - TypeScript
+ - Material UI
+ - Styleguidist
+ - Node.js,
+ - Contentful
 
 Build version is available at the following link: https://codejam-culture-portal.herokuapp.com/#/
 
