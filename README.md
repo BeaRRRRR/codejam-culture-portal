@@ -7,7 +7,7 @@ Built with:
  - TypeScript
  - Material UI
  - Styleguidist
- - Node.js,
+ - Node.js
  - Contentful
 
 Build version is available at the following link: https://codejam-culture-portal.herokuapp.com/#/
