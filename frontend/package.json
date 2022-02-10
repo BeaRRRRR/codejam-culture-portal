@@ -39,7 +39,7 @@
     "html-webpack-change-assets-extension-plugin": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
     "i": "^0.3.6",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "npm": "^6.14.1",
     "open-cli": "^5.0.0",
     "postcss-loader": "^3.0.0",
